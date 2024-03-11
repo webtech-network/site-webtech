@@ -17,7 +17,6 @@ jobs:
             - run: mkdir -p ~/.ssh
             - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
             - run: chmod 600 ~/.ssh/id_rsa
-            - run: cat ~/.ssh/id_rsa
-            - run: rsync -p ${{secrets.SERVER_PASSWORD}} --archive --verbose --compress --delete -e "ssh -i ~/.ssh/id_rsa" ./ admin@45.148.30.60:/var/www/html/webtech.network
+            - run: rsync -p ${{secrets.SERVER_PASSWORD}} --archive --verbose --compress --delete -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" ./ admin@45.148.30.60:/var/www/html/webtech.network
             - run: srm ~/.ssh/id_rsa
 
