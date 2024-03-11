@@ -13,10 +13,11 @@ jobs:
             - run: sudo apt update
             - run: sudo apt install -y rsync
             - run: sudo apt install -y openssh-client
-            - run: sudo apt install -y srm
+            - run: sudo apt install -y secure-delete
             - run: mkdir -p ~/.ssh
             - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
             - run: chmod 600 ~/.ssh/id_rsa
             - run: ssh-add ~/.ssh/id_rsa
             - run: rsync --archive --verbose --compress --delete ./ admin@45.148.30.60:/var/www/html/webtech.network
             - run: srm ~/.ssh/id_rsa
+
