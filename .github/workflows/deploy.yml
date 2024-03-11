@@ -1,0 +1,21 @@
+name: Deploy automatico para o servidor
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: sudo apt update
+            - run: sudo apt install -y rsync
+            - run: sudo apt install -y openssh-client
+            - run: sudo apt install -y srm
+            - run: mkdir -p ~/.ssh
+            - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+            - run: chmod 600 ~/.ssh/id_rsa
+            - run: rsync --archive --verbose --compress --delete ./ admin@45.148.30.60:/var/www/webtech.network
+            - run: srm ~/.ssh/id_rsa
