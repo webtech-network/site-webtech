@@ -4,8 +4,9 @@ env:
     hostname: webtech.network
     username: admin
     destination: /var/www/html/webtech.network
-    targetusername: www-data
-    targetgroup: www-data
+    target_username: www-data
+    target_group: www-data
+    excluded_items_command: "--exclude .git --exclude .github --exclude .vscode"
 
 on:
     push:
@@ -31,15 +32,18 @@ jobs:
             - run: echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_rsa
             - run: chmod 600 ~/.ssh/id_rsa
 
+            # Removendo temporariamente os items que não serão mais sincronizados
+            - run: sshpass -p "${{secrets.SERVER_PASSWORD}}" ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{env.username}}@${{env.hostname}} "echo \"${{secrets.SERVER_PASSWORD}}\" | sudo -S rm -rf ${{env.destination}}/.git ${{env.destination}}/.github ${{env.destination}}/.vscode"
+
             # Alterando as permissões do diretório no servidor
             - run: sshpass -p "${{secrets.SERVER_PASSWORD}}" ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{env.username}}@${{env.hostname}} "echo \"${{secrets.SERVER_PASSWORD}}\" | sudo -S chown --recursive ${{env.username}} ${{env.destination}}"
 
             # Sincronizando os arquivos como o servidor
-            - run: rsync -p ${{secrets.SERVER_PASSWORD}} --archive --verbose --compress --delete -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" ./ ${{env.username}}@${{env.hostname}}:${{env.destination}}
+            - run: rsync -p ${{secrets.SERVER_PASSWORD}} --archive --verbose --compress --delete ${{env.excluded_items_command}} -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" ./ ${{env.username}}@${{env.hostname}}:${{env.destination}}
               continue-on-error: true
 
             # Corrigindo as permissões
-            - run: sshpass -p "${{secrets.SERVER_PASSWORD}}" ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{env.username}}@${{env.hostname}} "echo \"${{secrets.SERVER_PASSWORD}}\" | sudo -S chown --recursive ${{env.targetusername}}:${{env.targetgroup}} ${{env.destination}}"
+            - run: sshpass -p "${{secrets.SERVER_PASSWORD}}" ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{env.username}}@${{env.hostname}} "echo \"${{secrets.SERVER_PASSWORD}}\" | sudo -S chown --recursive ${{env.target_username}}:${{env.target_group}} ${{env.destination}}"
             
             # Apagando a chave ssh privada
             - run: srm ~/.ssh/id_rsa
