@@ -24,6 +24,9 @@ jobs:
             - run: echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_rsa
             - run: chmod 600 ~/.ssh/id_rsa
 
+            # Apagando os arquivos do servidor
+            - run: sshpass -p "${{secrets.SERVER_PASSWORD}}" ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa admin@45.148.30.60 "echo \"${{secrets.SERVER_PASSWORD}}\" | sudo -S chown --recursive admin /var/www/html/webtech.network"
+
             # Sincronizando os arquivos como o servidor
             - run: rsync -p ${{secrets.SERVER_PASSWORD}} --archive --verbose --compress --delete -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" ./ admin@45.148.30.60:/var/www/html/webtech.network
               continue-on-error: true
