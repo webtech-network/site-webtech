@@ -1,5 +1,12 @@
 name: Deploy automatico para o servidor
 
+env:
+    hostname: webtech.network
+    username: admin
+    destination: /var/www/html/webtech.network
+    targetusername: www-data
+    targetgroup: www-data
+
 on:
     push:
         branches:
@@ -24,15 +31,15 @@ jobs:
             - run: echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_rsa
             - run: chmod 600 ~/.ssh/id_rsa
 
-            # Apagando os arquivos do servidor
-            - run: sshpass -p "${{secrets.SERVER_PASSWORD}}" ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa admin@45.148.30.60 "echo \"${{secrets.SERVER_PASSWORD}}\" | sudo -S chown --recursive admin /var/www/html/webtech.network"
+            # Alterando as permissões do diretório no servidor
+            - run: sshpass -p "${{secrets.SERVER_PASSWORD}}" ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{env.username}}@${{env.hostname}} "echo \"${{secrets.SERVER_PASSWORD}}\" | sudo -S chown --recursive ${{env.username}} ${{env.destination}}"
 
             # Sincronizando os arquivos como o servidor
-            - run: rsync -p ${{secrets.SERVER_PASSWORD}} --archive --verbose --compress --delete -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" ./ admin@45.148.30.60:/var/www/html/webtech.network
+            - run: rsync -p ${{secrets.SERVER_PASSWORD}} --archive --verbose --compress --delete -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" ./ ${{env.username}}@${{env.hostname}}:${{env.destination}}
               continue-on-error: true
 
             # Corrigindo as permissões
-            - run: sshpass -p "${{secrets.SERVER_PASSWORD}}" ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa admin@45.148.30.60 "echo \"${{secrets.SERVER_PASSWORD}}\" | sudo -S chown --recursive www-data:www-data /var/www/html/webtech.network"
+            - run: sshpass -p "${{secrets.SERVER_PASSWORD}}" ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{env.username}}@${{env.hostname}} "echo \"${{secrets.SERVER_PASSWORD}}\" | sudo -S chown --recursive ${{env.targetusername}}:${{env.targetgroup}} ${{env.destination}}"
             
             # Apagando a chave ssh privada
             - run: srm ~/.ssh/id_rsa
