@@ -9,17 +9,29 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
+            # Obtendo o código do repositório
             - uses: actions/checkout@v4
+
+            # Instalando os pacotes necessários
             - run: sudo apt update
             - run: sudo apt install -y rsync
             - run: sudo apt install -y openssh-client
             - run: sudo apt install -y secure-delete
             - run: sudo apt install -y sshpass
+
+            # Obtendo a chave ssh privada
             - run: mkdir -p ~/.ssh
             - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
             - run: chmod 600 ~/.ssh/id_rsa
+
+            # Sincronizando os arquivos como o servidor
             - run: rsync -p ${{secrets.SERVER_PASSWORD}} --archive --verbose --compress --delete --copy-as=www-data:www-data -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" ./ admin@45.148.30.60:/var/www/html/webtech.network
               continue-on-error: true
+
+            # Corrigindo as permissões
             - run: sshpass -p "${{secrets.SERVER_PASSWORD}}" sshpass -p "${{secrets.SERVER_PASSWORD}}" ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa admin@45.148.30.60 "sudo chown --recursive www-data:www-data /var/www/html/webtech.network"
             - run: srm ~/.ssh/id_rsa
+
+            # Testando as permissões
+            - run: sshpass -p "${{secrets.SERVER_PASSWORD}}" ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa admin@45.148.30.60 "ls -al /var/www/html/webtech.network/" # Testando as permissões
 
