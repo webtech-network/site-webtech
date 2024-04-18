@@ -1,0 +1,19 @@
+.header{
+    z-index: 9999999999;
+}
+.transicao{
+    
+    animation: arrasta 0.68s linear forwards;
+}
+
+
+@keyframes arrasta{
+    from{
+        height: 0px;
+        opacity: 0;
+    }
+    to{
+        height: 160px;
+        opacity: 1;
+    }
+}
