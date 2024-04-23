@@ -52,7 +52,7 @@ export default function EventsCard() {
                                     <h1 className="md:text-4xl md:my-[74px] my-5 text-xl text-center font-bold ">Eventos marcados</h1>
                                     {upcomingEvents.map((event) => {
                                           const { day, month } = getDayAndMonth(event.start_date);
-                                          const description = truncateDescription(removeTags(event.detail), 350);
+                                          const description = truncateDescription(removeTags(event.detail), 250);
                                           return (
                                                 <div key={event.id} className="flex md:flex-row flex-col md:space-x-5 md:space-y-0 space-y-5 mb-20">
                                                       <div className="md:w-1/3 container aspect-[4/3]">
@@ -87,7 +87,7 @@ export default function EventsCard() {
                                     <h1 className="md:text-4xl md:my-[74px] my-5 text-xl text-center font-bold ">Eventos passados</h1>
                                     {pastEvents.map((event) => {
                                           const { day, month } = getDayAndMonth(event.start_date);
-                                          const description = truncateDescription(removeTags(event.detail), 350);
+                                          const description = truncateDescription(removeTags(event.detail), 250);
                                           return (
                                                 <div key={event.id} className="flex md:flex-row flex-col md:space-x-5 md:space-y-0 space-y-5 mb-20">
                                                       <div className="md:w-1/3 container aspect-[4/3]">
@@ -121,11 +121,11 @@ export default function EventsCard() {
       );
 }
 
-function removeTags(text) {
+export function removeTags(text) {
       return text.replace(/<[^>]*>/g, '');
 }
 
-function truncateDescription(text, maxLength) {
+export function truncateDescription(text, maxLength) {
       if (text.length <= maxLength) return text;
       return text.substring(0, maxLength) + '...';
 }

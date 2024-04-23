@@ -13,13 +13,13 @@
   background-image: url('/banner.png');
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 30px;
 }
 
 .conteudo-banner{
   background-color: #2c2b2c36;
   padding: 30px;
   border-radius: 20px;
+  width: 100%;
 } 
   
 .box-sombra{
