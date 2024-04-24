@@ -23,8 +23,13 @@ export default function EventsCard() {
       }, []);
 
       const currentDate = new Date();
-      const upcomingEvents = events.filter(event => new Date(event.end_date) >= currentDate);
-      const pastEvents = events.filter(event => new Date(event.end_date) < currentDate);
+      const upcomingEvents = events
+            .filter(event => new Date(event.end_date) >= currentDate)
+            .sort((b, a) => new Date(b.end_date) - new Date(a.end_date));
+
+      const pastEvents = events
+            .filter(event => new Date(event.end_date) < currentDate)
+            .sort((a, b) => new Date(b.end_date) - new Date(a.end_date));
 
       const months = {
             1: 'JAN',
