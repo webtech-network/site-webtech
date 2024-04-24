@@ -1,14 +1,15 @@
-// RepoCard.js
-import BtnLink from "../BtnLink";
+import BtnCard from "../BtnCard";
 
 const RepoCard = ({ repo }) => {
   return (
-    <div className="card sm:w-auto lg:w-4/6 h-auto" key={repo.id}>
-      <p className="text-wrap">
-        <strong className="font-bold text-primaria">{repo.name} |</strong>{" "}
-        {repo.description}
-      </p>
-      <BtnLink href={repo.html_url}></BtnLink>
+    <div className="bg-white rounded-lg overflow-hidden shadow-lg w-64 h-64 md:w-72 lg:w-80 flex flex-col justify-between">
+      <div className="p-4">
+        <h5 className="text-lg text-primaria">{repo.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</h5>
+        <p>{repo.description}</p>
+      </div>
+      <div className="p-4 mt-auto">
+        <BtnCard link={repo.html_url} className="btn btn-primary w-full"/>
+      </div>
     </div>
   );
 };
