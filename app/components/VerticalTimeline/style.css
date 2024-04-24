@@ -18,7 +18,6 @@
 
 .wrapper > p {
   width: 50%;
-
 }
 
 .timelineItemContentLeft {
@@ -50,16 +49,6 @@
   z-index: 1;
 }
 
-.timelineItem:first-child:before {
-  top: -7.5px;
-}
-
-.timelineItem:last-child:before {
-  bottom: -7.5px;
-}
-
-
-/* Responsiveness */
 @media (max-width: 828px) {
   
   
