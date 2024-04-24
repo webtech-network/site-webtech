@@ -58,7 +58,7 @@ export default async function Equipe() {
           vitae sed laboriosam. Voluptate repudiandae voluptates molestias nam
           voluptatibus et qui. Ut accusamus enim omnis ad doloribus enim ut.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid">
           {users.map((user) => (
             <TeamMemberRound
               id={user.id}
@@ -79,7 +79,7 @@ export default async function Equipe() {
           vitae sed laboriosam. Voluptate repudiandae voluptates molestias nam
           voluptatibus et qui. Ut accusamus enim omnis ad doloribus enim ut.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid">
           {users.map((user) => (
             <TeamMemberRound
               id={user.id}

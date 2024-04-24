@@ -18,21 +18,19 @@ export default async function Labs() {
         <h1 className="title-labs text-3xl font-bold text-secundaria text-center">
           Principais Labs
         </h1>
-        <div className="wrapper-cards">
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 md:gap-12 justify-center">
-            {data.slice(0, 4).map((repo) => {
-              if (!addedRepoIds.has(repo.id)) {
-                addedRepoIds.add(repo.id);
-                return <RepoCard key={repo.id} repo={repo} />;
-              }
-              return null;
-            })}
-          </div>
+        <div className="grid-cards">
+          {data.slice(0, 4).map((repo) => {
+            if (!addedRepoIds.has(repo.id)) {
+              addedRepoIds.add(repo.id);
+              return <RepoCard className="card" key={repo.id} repo={repo} />;
+            }
+            return null;
+          })}
         </div>
       </section>
 
-      <section className="more-labs flex flex-col items-center">
-        <div className="wrapper-text text-left">
+      <section className="more-labs">
+
           <h1 className="title-labs text-3xl font-bold text-secundaria text-center">
             Outros labs
           </h1>
@@ -50,7 +48,7 @@ export default async function Labs() {
                 </div>
               )
           )}
-        </div>
+
       </section>
     </div>
   );
