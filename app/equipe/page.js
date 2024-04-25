@@ -7,171 +7,134 @@ import BtnLink from "../components/BtnLink/index.js";
 
 const { GITHUB_ORG_NAME, GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG } = process.env;
 
+const TIMELINE_DATA = [
+    {
+        imageName: "milestone-1",
+        description: "Descrição do Evento 1",
+        image: "../../img-1.png",
+    },
+    {
+        imageName: "milestone-2",
+        description: "Descrição do Evento 2",
+        image: "../../img-2.png",
+    },
+    {
+        imageName: "milestone-3",
+        description: "Descrição do Evento 3",
+        image: "../../img-3.png",
+    },
+    {
+        imageName: "milestone-4",
+        description: "Descrição do Evento 4",
+        image: "../../img-4.png",
+    },
+];
+
 export default async function Equipe() {
 
     const teamSlugs = [GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG];
 
     const users = {
-        current: [],
-        alumni: [],
-        mentor: [],
+        all: [],
+        current: []
     };
-    
-    const addUser = (user, teamSlug) => {
-        users[teamSlug].push({
-            id: user.id,
-            name: user.name ? user.name : user.login,
-            avatar_url: user.avatar_url,
-            html_url: user.html_url,
-            teams: [teamSlug]
-        });
-    }
-    
-    teamSlugs.forEach(async (teamSlug) => {
-    
-        users[teamSlug] = [];
-    
-        await Github.rest.teams.listMembersInOrg({
-            org: GITHUB_ORG_NAME,
-            team_slug: teamSlug,
-        })
-        .then((response) => response.data.forEach((user) => {
-            if (!user.alumni && !user.mentor) { // Verifica se o usuário não é alumni nem mentor
-                addUser(user, teamSlug);
-            }
-        }))
-        .catch((error) => console.error(error));
-    
-    });
-    
-    await Github.rest.orgs.listMembers({
-        org: GITHUB_ORG_NAME,
-    }).then((response) => response.data.forEach((user) => {
-        if (!user.alumni && !user.mentor) { // Verifica se o usuário não é alumni nem mentor
-            let isMemberOfAnyTeam = false;
-            for (let teamSlug of teamSlugs) {
-                if (users[teamSlug].some(u => u.id === user.id)) {
-                    isMemberOfAnyTeam = true;
-                    break;
-                }
-            }
-            if (!isMemberOfAnyTeam) {
-                addUser(user, "current");
-            }
-        }
-    }));
-    
 
-    const timelineData = [
-        {
-            imageName: "milestone-1",
-            description: "Descrição do Evento 1",
-            image: "../../img-1.png",
-        },
-        {
-            imageName: "milestone-2",
-            description: "Descrição do Evento 2",
-            image: "../../img-2.png",
-        },
-        {
-            imageName: "milestone-3",
-            description: "Descrição do Evento 3",
-            image: "../../img-3.png",
-        },
-        {
-            imageName: "milestone-4",
-            description: "Descrição do Evento 4",
-            image: "../../img-4.png",
-        },
-    ];
+    const addUser = async (user, teamSlug) => {
+
+        if (users.all.includes(user.id)) return;
+
+        users.all.push(user.id);
+
+        const response = await Github.rest.users.getByUsername({ username: user.login });
+        const userData = response.data;
+
+        users[teamSlug].push(
+            <TeamMemberRound
+                gitlink={userData.html_url}
+                id={userData.id}
+                name={userData.name ? userData.name.split(' ').slice(0, 2).join(' ') : userData.login}
+                picture={userData.avatar_url}
+            />
+        );
+
+    };
+
+    await Promise.all(teamSlugs.map(async (teamSlug) => {
+
+        users[teamSlug] = [];
+
+        try {
+            const response = await Github.rest.teams.listMembersInOrg({
+                org: GITHUB_ORG_NAME,
+                team_slug: teamSlug,
+            });
+
+            await Promise.all(response.data.map(user => addUser(user, teamSlug)));
+
+        } catch (error) {
+            console.error(error);
+        }
+
+    }));
+
+    const response = await Github.rest.orgs.listMembers({
+        org: GITHUB_ORG_NAME,
+    });
+
+    await Promise.all(response.data.map(user => addUser(user, 'current')));
 
     return (
-            <div className="px-10 md:px-[74px] flex items-center justify-center">
-                <div className="container mx-auto flex flex-col items-center px-4 md:px-8 lg:px-16 xl:px-24">
-                    <section className="my-8">
-                        <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
-                            Equipe Atual
-                        </h2>
-                        <p className="mb-8">
-                            Maxime non molestias eum pariatur voluptatibus animi hic ipsa.
-                            Placeat velit omnis enim soluta iure rerum sint aspernatur. Hic
-                            molestiae vitae sed laboriosam. Voluptate repudiandae voluptates
-                            molestias nam voluptatibus et qui. Ut accusamus enim omnis ad
-                            doloribus enim ut.
-                        </p>
-                        <div className="grid">
-                            {users.current.map((user) => (
-                                <TeamMemberRound
-                                    gitlink={user.html_url}
-                                    id={user.id}
-                                    name={user.name ? user.name : user.login}
-                                    picture={user.avatar_url}
-                                />
-                            ))}
-                        </div>
-                    </section>
-                    <section className="my-8">
-                        <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
-                            Mentores
-                        </h2>
-                        <p className="mb-8">
-                            Maxime non molestias eum pariatur voluptatibus animi hic ipsa.
-                            Placeat velit omnis enim soluta iure rerum sint aspernatur. Hic
-                            molestiae vitae sed laboriosam. Voluptate repudiandae voluptates
-                            molestias nam voluptatibus et qui. Ut accusamus enim omnis ad
-                            doloribus enim ut.
-                        </p>
-                        <div className="grid">
-                            {users[GITHUB_MENTORS_TEAM_SLUG].map((user) => (
-                                <TeamMemberRound
-                                    gitlink={user.html_url}
-                                    id={user.id}
-                                    name={user.name ? user.name : user.login}
-                                    picture={user.avatar_url}
-                                />
-                            ))}
-                        </div>
-                    </section>
-                    <section className="my-8">
-                        <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
-                            Membros Antigos
-                        </h2>
-                        <p className="mb-8">
-                            Maxime non molestias eum pariatur voluptatibus animi hic ipsa.
-                            Placeat velit omnis enim soluta iure rerum sint aspernatur. Hic
-                            molestiae vitae sed laboriosam. Voluptate repudiandae voluptates
-                            molestias nam voluptatibus et qui. Ut accusamus enim omnis ad
-                            doloribus enim ut.
-                        </p>
-                        <div className="grid">
-                            {users[GITHUB_ALUMNI_TEAM_SLUG].map((user) => (
-                                <TeamMemberRound
-                                    gitlink={user.html_url}
-                                    id={user.id}
-                                    name={user.name ? user.name : user.login}
-                                    picture={user.avatar_url}
-                                />
-                            ))}
-                        </div>
-                    </section>
-                    <section className="">
-                        <h2 className="title-labs text-3xl font-bold text-secundaria text-center">
-                            Conheça a nossa jornada
-                        </h2>
-                        <div>
-                            <VerticalTimeline items={timelineData} />
-                        </div>
-                        <h1 className="title-labs text-3xl font-bold text-secundaria text-center">
-                            Seja você também um WebTecher
-                        </h1>
-                        <div className="btn">
-                            <BtnLink
-                                link="https://discord.com/invite/P85CYQ6U"
-                                texto="Entre para nossa comunidade do Discord"
-                            />
-                        </div>
-                    </section>
-                </div>
+        <div className="px-10 md:px-[74px] flex items-center justify-center">
+            <div className="container mx-auto flex flex-col items-center px-4 md:px-8 lg:px-16 xl:px-24">
+                <section className="my-8">
+                    <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
+                        Membros
+                    </h2>
+                    <p className="mb-8">
+                        O quadro de membros da WebTech é composto por alunos de graduação
+                        dos cursos do Instituto de Ciências Exatas e Informática da PUC Minas.
+                    </p>
+                    <div className="grid">{users.current}</div>
+                </section>
+                <section className="my-8">
+                    <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
+                        Mentores
+                    </h2>
+                    <p className="mb-8">
+                        O quadro de mentores da WebTech é composto por professores e profissionais
+                        do mercado que orientam os alunos em seus projetos e no desenvolvimento
+                        de suas habilidades.
+                    </p>
+                    <div className="grid">{users[GITHUB_MENTORS_TEAM_SLUG]}</div>
+                </section>
+                <section className="my-8">
+                    <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
+                        Membros Antigos
+                    </h2>
+                    <p className="mb-8">
+                        O quadro de membros antigos da WebTech é composto por alunos que já
+                        participaram do grupo e que hoje não estão mais ativos.
+                    </p>
+                    <div className="grid">{users[GITHUB_ALUMNI_TEAM_SLUG]}</div>
+                </section>
+                <section className="">
+                    <h2 className="title-labs text-3xl font-bold text-secundaria text-center">
+                        Conheça a nossa jornada
+                    </h2>
+                    <div>
+                        <VerticalTimeline items={TIMELINE_DATA} />
+                    </div>
+                    <h1 className="title-labs text-3xl font-bold text-secundaria text-center">
+                        Seja você também um membro da WebTech
+                    </h1>
+                    <div className="btn">
+                        <BtnLink
+                            link="https://discord.com/invite/P85CYQ6U"
+                            texto="Entre para nossa comunidade do Discord"
+                        />
+                    </div>
+                </section>
             </div>
+        </div>
     );
 }
