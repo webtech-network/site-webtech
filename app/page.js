@@ -1,6 +1,8 @@
+'use client'
 import { Banner } from "./components/Banner/banner";
 import CampoCard from "./components/CampoCard";
 import CampoEventos from "./components/CampoEventos";
+import GoogleMaps from "./components/GoogleMaps";
 
 export default function Home() {
   return (
@@ -10,7 +12,7 @@ export default function Home() {
       </header>
       <section className="px-10 md:px-20">
         <div className="container mx-auto py-5 grid grid-cols-1 md:grid-cols-12 gap-4">
-          <div className="col-span-12 md:col-span-8">
+          <div className="col-span-12 md:col-span-7">
             <h2 className="font-bold text-center text-3xl py-5">Comunidade WebTech</h2>
             <p className="mt-2 text-justify">
               &nbsp; &nbsp; &nbsp; Lorem ipsum dolor sit amet consectetur. Ac ut velit sed vestibulum commodo. Egestas rhoncus ultricies nec pharetra. Enim id amet varius a vel. Sollicitudin purus pharetra semper purus erat nisl et ut. Id massa consequat maecenas  tristique. Mollis risus suspendisse amet vel egestas sed vulputate ultrices. Cursus volutpat turpis nibh elementum in eu porttitor pretium justo. Arcu consequat in nulla hac tempor netus fermentum. Interdum egestas platea in dis placerat faucibus.
@@ -28,8 +30,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="col-span-12 md:col-span-4 flex justify-center">
-            <iframe className="w-96 h-64 md:h-96 mt-5 md:mt-0" src="https://discord.com/widget?id=1167587327376359424&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+          <div className=" col-span-12 md:col-span-5 flex justify-center">
+            <iframe className=" iframe-border w-96 h-64 md:h-96 mt-5 md:mt-0 md:w-full lg:w-[380px]" src="https://discord.com/widget?id=1167587327376359424&theme=dark" allowtransparency="true"  sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
           </div>
         </div>
       </section>
@@ -43,6 +45,10 @@ export default function Home() {
           <CampoEventos />
         </div>
       </div>
+      <GoogleMaps/>
+
+
+
     </div>
   );
 }

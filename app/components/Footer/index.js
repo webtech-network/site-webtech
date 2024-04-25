@@ -10,11 +10,8 @@ export default function Footer() {
     <footer className="bg-secundariaDark text-white ">
       <div className="py-4 px-4 md:px-7">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 md:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-3">
 
-            <div className="text-center md:text-start">
-              <Eventos />
-            </div>
 
             <div className="text-center md:text-start">
               <Labs />

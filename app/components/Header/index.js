@@ -7,6 +7,7 @@ import ModalChild from "../ContactModal/modalChild";
 export default function Header() {
 
    return (
+      
       <header className="header sticky top-0 bg-primaria overflow-hidden px-4 md:px-7 ">
          <nav className="container  mx-auto  py-5 ">
             <div className="flex items-center justify-between">

@@ -6,11 +6,11 @@ export default function CampoCard() {
 
     const slideLeft = () => {
         var slider = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft - 500;
+        slider.scrollLeft = slider.scrollLeft - 312;
     }
     const slideRigth = () => {
         var slider = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft + 500;
+        slider.scrollLeft = slider.scrollLeft + 312;
     }
 
 
@@ -23,7 +23,7 @@ export default function CampoCard() {
             <div className="relative flex items-center">
 
             <div onClick={slideLeft} className="justify-center h-72 flex items-center cursor-pointer">
-            <i class="bi bi-chevron-left text-3xl text-secundaria hover:text-secundariaDark  "></i>
+            <i className="bi bi-chevron-left text-3xl text-secundaria hover:text-secundariaDark  "></i>
                     
                 </div>
 
@@ -45,7 +45,7 @@ export default function CampoCard() {
                 </div>
 
                 <div onClick={slideRigth} className="justify-center h-72 flex items-center cursor-pointer">
-                    <i class="bi bi-chevron-right text-3xl text-secundaria hover:text-secundariaDark "></i>
+                    <i className="bi bi-chevron-right text-3xl text-secundaria hover:text-secundariaDark "></i>
                 </div>
             </div>
 

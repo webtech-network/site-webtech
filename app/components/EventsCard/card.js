@@ -73,7 +73,7 @@ export default function EventsCard() {
                                                                   <p className="md:text-2xl">{months[month]}</p>
                                                             </div>
                                                             <a href={event.url} target="_blank" rel="noreferrer">
-                                                                  <button className="drop-shadow-md absolute bottom-0 right-0 float-right bg-primaria text-secundariaDark px-4 py-2 rounded-md font-bold hover:bg-primariaLight">Inscrever-se</button>
+                                                                  <button className="drop-shadow-md absolute bottom-0 right-0 float-right bg-primaria text-secundariaDark px-4 py-2 rounded-md font-bold hover:bg-primariaLight cursor-pointer ">Inscrever-se</button>
                                                             </a>
                                                       </div>
                                                 </div>
@@ -108,7 +108,7 @@ export default function EventsCard() {
                                                                   <p className="md:text-2xl">{months[month]}</p>
                                                             </div>
                                                             <a href={event.url} target="_blank" rel="noreferrer">
-                                                                  <button className="drop-shadow-md absolute bottom-0 right-0 float-right bg-primaria text-secundariaDark px-4 py-2 rounded-md font-bold hover:bg-primariaLight">Veja como foi</button>
+                                                                  <button className="drop-shadow-md absolute bottom-0 right-0 float-right bg-primaria text-secundariaDark px-4 py-2 rounded-md font-bold hover:bg-primariaLight cursor-pointer">Veja como foi</button>
                                                             </a>
                                                       </div>
                                                 </div>

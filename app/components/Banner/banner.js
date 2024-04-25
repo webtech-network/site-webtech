@@ -47,7 +47,7 @@ export function Banner() {
         <p>{error}</p>
       ) : (
         <>
-          <div className="flex flex-col justify-between col-span-4/6">
+          <div className="flex flex-col justify-between col-span-4/6 ">
             <h1 className="text-3xl font-bold text-primaria text-sombra">{event.name}</h1>
             <div>
               <p className="text-xl text-whiteLight text-sombra">{description}</p>
