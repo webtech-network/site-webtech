@@ -29,13 +29,8 @@ async function CardEvento() {
 
     return (
         <div className="flex justify-center flex-wrap gap-4">
-<<<<<<< HEAD
-            {events.map(event => {
-                const description = event.detail ? truncateDescription(removeTags(event.detail), 100) : '';
-=======
             {sortedEvents.map(event => {
                 const description = event.detail ? truncateDescription(removeTags(event.detail), 50) : '';
->>>>>>> 7596f5e (correcao .env e exibicao dos eventos)
                 const formattedDate = formatDate(event.end_date);
                 return (
                     <div key={event.id} className="flex flex-col justify-between gap-3 p-4 min-w-52 max-w-52 md:min-w-80 md:max-w-80 bg-cinza box-sombra-sm rounded-md">

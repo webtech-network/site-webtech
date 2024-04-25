@@ -4,11 +4,7 @@
 }
 
 .btn {
-<<<<<<< HEAD
-    margin-bottom: 1em;
-=======
   margin-bottom: 74px;
->>>>>>> 7596f5e (correcao .env e exibicao dos eventos)
 }
 
 @media (min-width: 768px) {

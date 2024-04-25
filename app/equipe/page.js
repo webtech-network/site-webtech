@@ -39,7 +39,7 @@ export default async function Equipe() {
         current: []
     };
 
-<<<<<<< HEAD
+
     const addUser = async (user, teamSlug) => {
 
         if (users.all.includes(user.id)) return;
@@ -135,95 +135,6 @@ export default async function Equipe() {
                         />
                     </div>
                 </section>
-=======
-    return (
-            <div className="px-10 md:px-[74px] flex items-center justify-center">
-                <div className="container mx-auto flex flex-col items-center">
-                    <section className="my-8">
-                        <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
-                            Equipe Atual
-                        </h2>
-                        <p className="mb-8">
-                            Maxime non molestias eum pariatur voluptatibus animi hic ipsa.
-                            Placeat velit omnis enim soluta iure rerum sint aspernatur. Hic
-                            molestiae vitae sed laboriosam. Voluptate repudiandae voluptates
-                            molestias nam voluptatibus et qui. Ut accusamus enim omnis ad
-                            doloribus enim ut.
-                        </p>
-                        <div className="grid">
-                            {users.current.map((user) => (
-                                <TeamMemberRound
-                                    gitlink={user.html_url}
-                                    id={user.id}
-                                    name={user.name ? user.name : user.login}
-                                    picture={user.avatar_url}
-                                />
-                            ))}
-                        </div>
-                    </section>
-                    <section className="my-8">
-                        <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
-                            Mentores
-                        </h2>
-                        <p className="mb-8">
-                            Maxime non molestias eum pariatur voluptatibus animi hic ipsa.
-                            Placeat velit omnis enim soluta iure rerum sint aspernatur. Hic
-                            molestiae vitae sed laboriosam. Voluptate repudiandae voluptates
-                            molestias nam voluptatibus et qui. Ut accusamus enim omnis ad
-                            doloribus enim ut.
-                        </p>
-                        <div className="grid">
-                            {users[GITHUB_MENTORS_TEAM_SLUG].map((user) => (
-                                <TeamMemberRound
-                                    gitlink={user.html_url}
-                                    id={user.id}
-                                    name={user.name ? user.name : user.login}
-                                    picture={user.avatar_url}
-                                />
-                            ))}
-                        </div>
-                    </section>
-                    <section className="my-8">
-                        <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
-                            Membros Antigos
-                        </h2>
-                        <p className="mb-8">
-                            Maxime non molestias eum pariatur voluptatibus animi hic ipsa.
-                            Placeat velit omnis enim soluta iure rerum sint aspernatur. Hic
-                            molestiae vitae sed laboriosam. Voluptate repudiandae voluptates
-                            molestias nam voluptatibus et qui. Ut accusamus enim omnis ad
-                            doloribus enim ut.
-                        </p>
-                        <div className="grid">
-                            {users[GITHUB_ALUMNI_TEAM_SLUG].map((user) => (
-                                <TeamMemberRound
-                                    gitlink={user.html_url}
-                                    id={user.id}
-                                    name={user.name ? user.name : user.login}
-                                    picture={user.avatar_url}
-                                />
-                            ))}
-                        </div>
-                    </section>
-                    <section className="">
-                        <h2 className="title-labs text-3xl font-bold text-secundaria text-center">
-                            Conheça a nossa jornada
-                        </h2>
-                        <div>
-                            <VerticalTimeline/>
-                        </div>
-                        <h1 className="title-labs text-3xl font-bold text-secundaria text-center">
-                            Seja você também um WebTecher
-                        </h1>
-                        <div className="btn">
-                            <BtnLink
-                                link="https://discord.com/invite/P85CYQ6U"
-                                texto="Entre para nossa comunidade do Discord"
-                            />
-                        </div>
-                    </section>
-                </div>
->>>>>>> 7596f5e (correcao .env e exibicao dos eventos)
             </div>
         </div>
     );
