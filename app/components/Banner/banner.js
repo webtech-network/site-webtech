@@ -44,7 +44,7 @@ export function Banner() {
     const date = new Date(dateString);
     const formattedDate = format(date, "EEE, dd 'de' MMM - HH:mm", { locale: ptBR });
     return formattedDate;
-};
+  };
 
   const description = event ? truncateDescription(removeTags(event.detail), 250) : '';
   const formattedDate = event ? formatDate(event.end_date) : '';
@@ -58,10 +58,10 @@ export function Banner() {
       ) : (
         <>
           <div className="flex flex-col justify-between col-span-4/6 ">
-            <h1 className="text-3xl font-bold text-primaria text-sombra">{event.name}</h1>
+            <h1 className="text-3xl font-bold text-primaria text-sombra mb-1">{event.name}</h1>
             <div>
               <p className="text-xl text-whiteLight text-sombra">{description}</p>
-              <span className="block text-white font-bold text-sombra mb-2 mt-10">Data: {formattedDate}</span>
+              <p className="text-white text-sombra mb-2 mt-10"><span className="font-bold">Data: </span>{formattedDate}</p>
             </div>
             <BtnLink texto={'Inscrições abertas'} link={event.url} />
           </div>
