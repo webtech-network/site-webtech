@@ -7,29 +7,6 @@ import getData from "../sympla";
 
 const { GITHUB_ORG_NAME, GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG } = process.env;
 
-const TIMELINE_DATA = [
-    {
-        imageName: "milestone-1",
-        description: "Descrição do Evento 1",
-        image: "../../img-1.png",
-    },
-    {
-        imageName: "milestone-2",
-        description: "Descrição do Evento 2",
-        image: "../../img-2.png",
-    },
-    {
-        imageName: "milestone-3",
-        description: "Descrição do Evento 3",
-        image: "../../img-3.png",
-    },
-    {
-        imageName: "milestone-4",
-        description: "Descrição do Evento 4",
-        image: "../../img-4.png",
-    },
-];
-
 export default async function Equipe() {
 
     const teamSlugs = [GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG];
@@ -123,7 +100,7 @@ export default async function Equipe() {
                         Conheça a nossa jornada
                     </h2>
                     <div>
-                        <VerticalTimeline items={TIMELINE_DATA} />
+                        <VerticalTimeline />
                     </div>
                     <h1 className="title-labs text-3xl font-bold text-secundaria text-center">
                         Seja você também um membro da WebTech
