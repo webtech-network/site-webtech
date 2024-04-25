@@ -1,46 +1,54 @@
-.header{
+.header {
     z-index: 100;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.233)  ;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.233);
 }
-.transicao{
-    
+
+.transicao {
+
     animation: arrasta 0.68s linear forwards;
 }
 
 
-@keyframes arrasta{
-    from{
+@keyframes arrasta {
+    from {
         height: 0px;
         opacity: 0;
     }
-    to{
+
+    to {
         height: fit-content;
         opacity: 1;
     }
 }
+
 .container-manual {
     width: 100%;
 }
+
 @media (min-width: 640px) {
     .container-manual {
         max-width: 640px;
     }
 }
+
 @media (min-width: 768px) {
     .container-manual {
         max-width: 768px;
     }
 }
+
 @media (min-width: 1024px) {
     .container-manual {
         max-width: 1024px;
     }
 }
+
 @media (min-width: 1280px) {
     .container-manual {
         max-width: 1280px;
     }
 }
+
 @media (min-width: 1536px) {
     .container-manual {
         max-width: 1536px;

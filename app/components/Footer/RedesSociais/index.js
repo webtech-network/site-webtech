@@ -8,7 +8,7 @@ export default function RedesSociais() {
                 <a href="https://www.instagram.com/webtech.pucminas/" target="_blank"><img className="w-6" src="./instagram.svg" /></a>
                 <a href="" target="_blank"><img className="w-6" src="./github.svg" /></a>
                 <a href="https://www.youtube.com/@Webtech.PUCMinas" target="_blank"><img className="w-6 " src="./youtube.svg" /></a>
-             
+
             </div>
 
         </>

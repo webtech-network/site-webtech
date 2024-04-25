@@ -1,66 +1,42 @@
 .timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .timelineItem {
-  margin-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .wrapper {
-  width: fit-content;
+    width: fit-content;
 }
 
-.wrapper > img {
-  width: 40%;
+.wrapper>img {
+    width: 40%;
 }
 
-.wrapper > p {
-  width: 50%;
+.wrapper>p {
+    width: 50%;
 }
 
 .timelineItemContentLeft {
-  margin-left: 13em;
+    margin-left: 13em;
 }
 
 .timelineItemContentRight {
-  margin-left: 28em;
+    margin-left: 28em;
 }
 
 .timelineItemLine {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  height: 100%;
-  border-left: 2px solid #FDBC2F;
-}
-
-.timelineItem:before {
-  content: "";
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  background-color: #FDBC2F;
-  border: 2px solid #FDBC2F;
-  border-radius: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-@media (max-width: 828px) {
-  
-  
-  .timelineItemLine {
     position: absolute;
-    left: 20%;
+    left: 50%;
     top: 0;
     height: 100%;
     border-left: 2px solid #FDBC2F;
-  }
-  
-  .timelineItem:before {
+}
+
+.timelineItem:before {
     content: "";
     position: absolute;
     width: 15px;
@@ -68,25 +44,50 @@
     background-color: #FDBC2F;
     border: 2px solid #FDBC2F;
     border-radius: 50%;
-    left: 20%;
+    left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-  }
+}
 
-  .timelineItemContentRight, .timelineItemContentLeft {
-    margin-left: 0;
-    display: flex;
-    justify-content: center;
-  }
+@media (max-width: 828px) {
 
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 
-  .wrapper > img {
-    width: 60%;
-  }
+    .timelineItemLine {
+        position: absolute;
+        left: 20%;
+        top: 0;
+        height: 100%;
+        border-left: 2px solid #FDBC2F;
+    }
+
+    .timelineItem:before {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: #FDBC2F;
+        border: 2px solid #FDBC2F;
+        border-radius: 50%;
+        left: 20%;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    .timelineItemContentRight,
+    .timelineItemContentLeft {
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wrapper>img {
+        width: 60%;
+    }
 
 }
