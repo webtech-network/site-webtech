@@ -1,8 +1,8 @@
-'use client'
-import { Banner } from "./components/Banner/banner";
 import CampoCard from "./components/CampoCard";
 import CampoEventos from "./components/CampoEventos";
 import GoogleMaps from "./components/GoogleMaps";
+import Banner from "./components/Banner/banner";
+
 
 export default function Home() {
     return (
