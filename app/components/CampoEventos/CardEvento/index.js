@@ -1,13 +1,30 @@
-import React from 'react';
+'use client'
+import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Loading from '@/app/loading';
-import getData from '@/app/sympla';
+import getData from '../../EventsCard/getdata';
 import { removeTags, truncateDescription } from '../../EventsCard/card';
 
-async function CardEvento() {
-    const data = await getData();
-    const events = data.data;
+export default function CardEvento() {
+    const [events, setEvents] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await getData();
+                const sortedEvents = data.data.sort((a, b) => new Date(b.end_date) - new Date(a.end_date));
+                setEvents(sortedEvents.slice(0, 3));
+                setLoading(false);
+            } catch (error) {
+                console.error('Erro ao obter os eventos:', error);
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -15,22 +32,14 @@ async function CardEvento() {
         return formattedDate;
     };
 
-    const compareEndDate = (a, b) => {
-        const dateA = new Date(a.end_date);
-        const dateB = new Date(b.end_date);
-        return dateA - dateB;
-    };
-
-    if (!events) {
+    if (loading) {
         return <Loading />;
     }
 
-    const sortedEvents = events.sort(compareEndDate).slice(0, 3);
-
     return (
         <div className="flex justify-center flex-wrap gap-4">
-            {sortedEvents.map(event => {
-                const description = event.detail ? truncateDescription(removeTags(event.detail), 50) : '';
+            {events.map(event => {
+                const description = event.detail ? truncateDescription(removeTags(event.detail), 100) : '';
                 const formattedDate = formatDate(event.end_date);
                 return (
                     <div key={event.id} className="flex flex-col justify-between gap-3 p-4 min-w-52 max-w-52 md:min-w-80 md:max-w-80 bg-cinza box-sombra-sm rounded-md">
@@ -55,5 +64,3 @@ async function CardEvento() {
         </div>
     );
 }
-
-export default CardEvento;
