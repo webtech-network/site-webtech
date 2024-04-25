@@ -1,6 +1,6 @@
 import Image from "next/image";
 import RepoCard from "../components/RepoCard";
-import Github from "../../github.js";
+import Github from "../github.js";
 
 export default async function Labs() {
   let { data } = await Github.rest.repos.listForOrg({
@@ -11,9 +11,12 @@ export default async function Labs() {
 
   const addedRepoIds = new Set();
 
+  data = data.filter(repo => repo.name.startsWith('lab-'));
+
+
   return (
-    <div className="px-4 md:px-7">
-      <div className="Container mx-auto py-5">
+    <div className="px-10 md:px-[74px]">
+      <div className="container mx-auto">
         <div className="main-labs">
           <section className="flex flex-col items-center">
             <h1 className="title-labs text-3xl font-bold text-secundaria text-center">
@@ -42,7 +45,7 @@ export default async function Labs() {
                 !addedRepoIds.has(repo.id) && (
                   <div key={repo.id}>
                     <a href={repo.html_url}>
-                      <p className="text-wrap">
+                      <p className="mt-1">
                         <strong className="font-bold text-primaria">
                           {repo.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
                         </strong>{" "}

@@ -1,7 +1,7 @@
 import Eventos from "./Eventos";
 import RedesSociais from "./RedesSociais";
 import Unidades from "./Unidades";
-import Github from "../../../github.js";
+import Github from "../../github.js";
 
 export default async function Footer() {
 
@@ -10,6 +10,8 @@ export default async function Footer() {
   });
 
   data.sort((a, b) => b.stargazers_count - a.stargazers_count);
+
+  data = data.filter(repo => repo.name.startsWith('lab-'));
 
   return (
 

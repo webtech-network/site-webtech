@@ -1,6 +1,6 @@
 import Image from "next/image";
 import "./style.css";
-import Github from "../../github.js";
+import Github from "../github.js";
 import TeamMemberRound from "../components/TeamMemberRound";
 import VerticalTimeline from "../components/VerticalTimeline";
 import BtnLink from "../components/BtnLink/index.js";
@@ -12,9 +12,11 @@ export default async function Equipe() {
     const teamSlugs = [GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG];
 
     const users = {
-        current: []
+        current: [],
+        alumni: [],
+        mentor: [],
     };
-
+    
     const addUser = (user, teamSlug) => {
         users[teamSlug].push({
             id: user.id,
@@ -24,33 +26,41 @@ export default async function Equipe() {
             teams: [teamSlug]
         });
     }
-
+    
     teamSlugs.forEach(async (teamSlug) => {
-
+    
         users[teamSlug] = [];
-
+    
         await Github.rest.teams.listMembersInOrg({
             org: GITHUB_ORG_NAME,
             team_slug: teamSlug,
         })
-            .then((response) => response.data.forEach((user) => addUser(user, teamSlug)))
-            .catch((error) => console.error(error));
-
+        .then((response) => response.data.forEach((user) => {
+            if (!user.alumni && !user.mentor) { // Verifica se o usuário não é alumni nem mentor
+                addUser(user, teamSlug);
+            }
+        }))
+        .catch((error) => console.error(error));
+    
     });
-
+    
     await Github.rest.orgs.listMembers({
         org: GITHUB_ORG_NAME,
     }).then((response) => response.data.forEach((user) => {
-
-        for (let teamSlug of teamSlugs) {
-            if (users[teamSlug].includes(user)) return;
+        if (!user.alumni && !user.mentor) { // Verifica se o usuário não é alumni nem mentor
+            let isMemberOfAnyTeam = false;
+            for (let teamSlug of teamSlugs) {
+                if (users[teamSlug].some(u => u.id === user.id)) {
+                    isMemberOfAnyTeam = true;
+                    break;
+                }
+            }
+            if (!isMemberOfAnyTeam) {
+                addUser(user, "current");
+            }
         }
-
-        addUser(user, "current")
-
     }));
-
-    console.log(users);
+    
 
     const timelineData = [
         {
@@ -73,13 +83,11 @@ export default async function Equipe() {
             description: "Descrição do Evento 4",
             image: "../../img-4.png",
         },
-        // etc.
     ];
 
     return (
-        <div className="px-4 md:px-7">
-            <div className="container">
-                <div className="flex flex-col items-center px-4 md:px-8 lg:px-16 xl:px-24">
+            <div className="px-10 md:px-[74px] flex items-center justify-center">
+                <div className="container mx-auto flex flex-col items-center px-4 md:px-8 lg:px-16 xl:px-24">
                     <section className="my-8">
                         <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
                             Equipe Atual
@@ -165,6 +173,5 @@ export default async function Equipe() {
                     </section>
                 </div>
             </div>
-        </div>
     );
 }
