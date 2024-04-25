@@ -2,8 +2,9 @@
 import { useEffect, useState } from 'react';
 import BtnLink from '../BtnLink';
 import getData from '../EventsCard/getdata';
-import Loading from '@/app/loading';
 import { removeTags, truncateDescription } from '../EventsCard/card';
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 
 export function Banner() {
   const [event, setEvent] = useState(null);
@@ -21,26 +22,35 @@ export function Banner() {
           });
 
           if (upcomingEvents.length > 0) {
-            upcomingEvents.sort((a, b) => new Date(a.end_date) - new Date(b.end_date));
+            upcomingEvents.sort((a, b) => new Date(b.end_date) - new Date(a.end_date));
             setEvent(upcomingEvents[0]);
           } else {
-            setError('No upcoming events. Displaying the last event.');
-            setEvent(data.data[data.data.length - 1]);
+            setError('Não há eventos futuros. Exibindo o último evento.');
+            data.data.sort((a, b) => new Date(b.end_date) - new Date(a.end_date));
+            setEvent(data.data[0]);
           }
         } else {
-          setError('Failed to fetch event data.');
+          setError('Falha ao obter os dados dos eventos.');
         }
         setLoading(false);
       })
       .catch((error) => {
-        setError('Failed to fetch event data.');
+        setError('Falha ao obter os dados dos eventos.');
         setLoading(false);
       });
   }, []);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const formattedDate = format(date, "EEE, dd 'de' MMM - HH:mm", { locale: ptBR });
+    return formattedDate;
+};
+
   const description = event ? truncateDescription(removeTags(event.detail), 250) : '';
+  const formattedDate = event ? formatDate(event.end_date) : '';
+
   return (
-    <section className="conteudo-banner max-w-[1536px] mx-auto grid gap-8 md:grid-cols-2 grid-cols-1 justify-between">
+    <section className="conteudo-banner container mx-auto grid gap-8 md:grid-cols-2 grid-cols-1 justify-between">
       {loading ? (
         <p />
       ) : error ? (
@@ -51,7 +61,7 @@ export function Banner() {
             <h1 className="text-3xl font-bold text-primaria text-sombra">{event.name}</h1>
             <div>
               <p className="text-xl text-whiteLight text-sombra">{description}</p>
-              <span className="block text-white font-bold text-sombra mt-10">Data: {event.end_date}</span>
+              <span className="block text-white font-bold text-sombra mb-2 mt-10">Data: {formattedDate}</span>
             </div>
             <BtnLink texto={'Inscrições abertas'} link={event.url} />
           </div>

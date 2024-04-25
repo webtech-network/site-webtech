@@ -1,9 +1,15 @@
 import Eventos from "./Eventos";
-import Labs from "./Labs";
 import RedesSociais from "./RedesSociais";
 import Unidades from "./Unidades";
+import Github from "../../../github.js";
 
-export default function Footer() {
+export default async function Footer() {
+
+  let { data } = await Github.rest.repos.listForOrg({
+    org: "WebTech-PUC-Minas",
+  });
+
+  data.sort((a, b) => b.stargazers_count - a.stargazers_count);
 
   return (
 
@@ -14,7 +20,15 @@ export default function Footer() {
 
 
             <div className="text-center md:text-start">
-              <Labs />
+            <h2 className="text-xl font-bold">Labs</h2>
+            {
+              data.slice(0, 4).map((data) => {
+                return (
+                  <a className="block" href={data.html_url}>{data.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</a>
+
+                );
+              })
+            }
             </div>
 
 
