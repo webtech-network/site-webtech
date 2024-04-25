@@ -1,3 +1,5 @@
+import GoogleMaps from "../components/GoogleMaps";
+
 function Depoimento({ image, name, description, text }) {
   return (
     <div className="rounded-lg bg-cinza p-8">
@@ -11,8 +13,8 @@ function Depoimento({ image, name, description, text }) {
 
 export default function AboutPage() {
   return (
-    <main className="px-10 md:px-20">
-      <div className="container mx-auto">
+    <main className="">
+      <div className="px-10 md:px-20 container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="">
             <h1 className="text-4xl mt-10 mb-7 text-center font-bold">Sobre</h1>
@@ -94,6 +96,7 @@ export default function AboutPage() {
           </div>
         </div>
       </div >
+      <GoogleMaps />
     </main>
   );
 } 
