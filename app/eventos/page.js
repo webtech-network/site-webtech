@@ -7,13 +7,13 @@ export default function EventsPage() {
         <div className="md:pt-0  pt-0 m-auto text-secondaryDark">
           <div className="">
             <EventsCard />
-            <h1 className="md:text-4xl md:my-[74px] my-5 text-xl text-center font-bold">
+            <h1 className="md:text-4xl md:my-[74px] mt-5 mb-3 text-xl text-center font-bold">
               Perdeu algum evento?
             </h1>
             <h3 className="md:text-2xl">
-              Não fique triste, nossa história está eternizada no nosso canal do
-              YouTube assista aos eventos incríveis que já foram registrados em
-              nosso canal:
+              Alguns de nossos eventos contam com transmissão ao vivo e cobertura completa
+              em nosso canal do YouTube. Assista a alguns eventos passados e fique por dentro de
+              tudo o que aconteceu.
             </h3>
             <div className="flex md:flex-row flex-col md:gap-[74px] gap-5 my-10 bg-[#F0F0F0] drop-shadow-lg rounded-2xl p-7">
               <div className="md:w-3/5 flex flex-col gap-5 justify-between">

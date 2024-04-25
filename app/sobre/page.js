@@ -1,3 +1,14 @@
+function Depoimento({ image, name, description, text }) {
+  return (
+    <div className="rounded-lg bg-cinza p-8">
+      <img className="h-48 w-48 object-cover rounded-full mx-auto mt-5 mb-5" src={image} alt="placeholder" />
+      <p className="text-2xl text-center">{name}</p>
+      <p className="text-center mb-5">{description}</p>
+      <p className="text-center">"{text}"</p>
+    </div>
+  )
+}
+
 export default function AboutPage() {
   return (
     <main className="px-10 md:px-20">
@@ -62,29 +73,23 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="sm:block hidden pb-20">
-            <h1 className="text-center sm:text-4xl sm:pb-16 pb-5 font-bold">Depoimentos e Feedback</h1>
+            <h1 className="text-center sm:text-4xl sm:pb-16 pb-5 font-bold">Depoimentos</h1>
             <div className="grid grid-cols-1 w-full gap-10 md:grid-cols-3">
-              <div className="grid gap-5 rounded-lg shadow-lg p-8">
-                <img className="w-6/12 rounded-full mx-auto mt-5" src="https://via.placeholder.com/400" alt="placeholder" />
-                <h4 className="text-2xl text-center">Guilherme Lana</h4>
-                <p>Depoimento:</p>
-                <p>     Minha experiência no Grupo WebTech foi transformadora. Aprendi Vue.js, aprimorei minhas habilidades de design e descobri a importância do trabalho
-                  colaborativo. Estou mais confiante e preparado para os desafios da área de tecnologia, graças ao apoio e à aprendizagem que encontrei aqui. </p>
-              </div>
-              <div className="grid gap-5 rounded-lg shadow-lg p-8">
-                <img className="w-6/12 rounded-full mx-auto mt-5" src="https://via.placeholder.com/400" alt="placeholder" />
-                <h4 className="text-2xl text-center">Guilherme Lana</h4>
-                <p>Depoimento:</p>
-                <p>     Minha experiência no Grupo WebTech foi transformadora. Aprendi Vue.js, aprimorei minhas habilidades de design e descobri a importância do trabalho
-                  colaborativo. Estou mais confiante e preparado para os desafios da área de tecnologia, graças ao apoio e à aprendizagem que encontrei aqui. </p>
-              </div>
-              <div className="grid gap-5 rounded-lg shadow-lg p-8">
-                <img className="w-6/12 rounded-full mx-auto mt-5" src="https://via.placeholder.com/400" alt="placeholder" />
-                <h4 className="text-2xl text-center">Guilherme Lana</h4>
-                <p>Depoimento:</p>
-                <p>     Minha experiência no Grupo WebTech foi transformadora. Aprendi Vue.js, aprimorei minhas habilidades de design e descobri a importância do trabalho
-                  colaborativo. Estou mais confiante e preparado para os desafios da área de tecnologia, graças ao apoio e à aprendizagem que encontrei aqui. </p>
-              </div>
+              <Depoimento
+                image="/sobre/depoimentos/Luca.png"
+                name="Luca Azalim"
+                description="Membro da WebTech"
+                text="Participar da WebTech me trouxe uma visão muito mais otimista sobre as possibilidades de aprendizado e contato com diferentes tecnologias dentro da universidade." />
+              <Depoimento
+                image="/sobre/depoimentos/Luca.png"
+                name="Luca Azalim"
+                description="Membro da WebTech"
+                text="Participar da WebTech me trouxe uma visão muito mais otimista sobre as possibilidades de aprendizado e contato com diferentes tecnologias dentro da universidade." />
+              <Depoimento
+                image="/sobre/depoimentos/Luca.png"
+                name="Luca Azalim"
+                description="Membro da WebTech"
+                text="Participar da WebTech me trouxe uma visão muito mais otimista sobre as possibilidades de aprendizado e contato com diferentes tecnologias dentro da universidade." />
             </div>
           </div>
         </div>
