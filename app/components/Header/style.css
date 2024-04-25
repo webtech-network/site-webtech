@@ -1,6 +1,10 @@
 .header {
     z-index: 100;
+<<<<<<< HEAD
     border-bottom: 2px solid rgba(0, 0, 0, 0.233);
+=======
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.233);
+>>>>>>> 7596f5e (correcao .env e exibicao dos eventos)
 }
 
 .transicao {
