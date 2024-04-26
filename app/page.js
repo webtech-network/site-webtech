@@ -1,7 +1,7 @@
-import CampoCard from "./components/CampoCard";
-import CampoEventos from "./components/CampoEventos";
-import GoogleMaps from "./components/GoogleMaps";
-import Banner from "./components/Banner/banner";
+import PartnerSection from "./components/home/PartnersSection";
+import CampoEventos from "./components/home/EventsSection";
+import Map from "./components/common/Map";
+import Banner from "./components/home/Banner";
 
 
 export default function Home() {
@@ -20,10 +20,10 @@ export default function Home() {
                         <h3 className="font-bold text-center text-2xl py-5 mt-2">Conheça nossas redes Sociais</h3>
                         <div className="flex pb-5 justify-center">
                             <div className="flex gap-3 justify-center items-center md:justify-start mt-2">
-                                <a href="https://www.linkedin.com/company/webtech-puc-minas/mycompany/" target="_blank"><img className="w-7" src="./linkedinHome.png" /></a>
-                                <a href="https://www.instagram.com/webtech.pucminas/" target="_blank"><img className="w-7" src="./instagramHome.png" /></a>
-                                <a href="https://github.com/WebTech-PUC-Minas" target="_blank"><img className="w-7" src="./githubHome.png" /></a>
-                                <a href="https://www.youtube.com/@Webtech.PUCMinas" target="_blank"><img className="w-7 " src="./youtubeHome.png" /></a>
+                                <a href="https://www.linkedin.com/company/webtech-puc-minas/mycompany/" target="_blank"><img className="w-7" src="/home/socials/linkedin.png" /></a>
+                                <a href="https://www.instagram.com/webtech.pucminas/" target="_blank"><img className="w-7" src="/home/socials/instagram.png" /></a>
+                                <a href="https://github.com/WebTech-PUC-Minas" target="_blank"><img className="w-7" src="/home/socials/github.png" /></a>
+                                <a href="https://www.youtube.com/@Webtech.PUCMinas" target="_blank"><img className="w-7 " src="/home/socials/youtube.png" /></a>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@ export default function Home() {
             </section>
             <div className="bg-primaria p-7 px-4 md:px-7">
                 <div className="container mx-auto py-5">
-                    <CampoCard />
+                    <PartnerSection />
                 </div>
             </div>
             <div className="p-7 px-4 md:px-7 mt-6">
@@ -42,7 +42,7 @@ export default function Home() {
                     <CampoEventos />
                 </div>
             </div>
-            <GoogleMaps />
+            <Map />
         </div>
     );
 }

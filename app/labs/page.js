@@ -1,8 +1,7 @@
-import Image from "next/image";
-import RepoCard from "../components/RepoCard";
+import RepoCard from "../components/labs/LabCard";
 import Github from "../github.js";
 
-export default async function Labs() {
+export default async function LabsPage() {
     let { data } = await Github.rest.repos.listForOrg({
         org: "WebTech-PUC-Minas",
     });

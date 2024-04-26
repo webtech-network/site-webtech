@@ -9,7 +9,7 @@
 }
 
 .banner {
-    background-image: url('/banner.png');
+    background-image: url('/home/banner.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
