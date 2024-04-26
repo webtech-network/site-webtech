@@ -90,7 +90,7 @@ export default async function Equipe() {
                     <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
                         Membros
                     </h2>
-                    <p className="mb-8">
+                    <p className="mb-8 text-xl">
                         O quadro de membros da WebTech é composto por alunos de graduação
                         dos cursos do Instituto de Ciências Exatas e Informática da PUC Minas.
                     </p>
@@ -100,7 +100,7 @@ export default async function Equipe() {
                     <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
                         Mentores
                     </h2>
-                    <p className="mb-8">
+                    <p className="mb-8 text-xl">
                         O quadro de mentores da WebTech é composto por professores e profissionais
                         do mercado que orientam os alunos em seus projetos e no desenvolvimento
                         de suas habilidades.
@@ -111,7 +111,7 @@ export default async function Equipe() {
                     <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
                         Membros Antigos
                     </h2>
-                    <p className="mb-8">
+                    <p className="mb-8 text-xl">
                         O quadro de membros antigos da WebTech é composto por alunos que já
                         participaram do grupo e que hoje não estão mais ativos.
                     </p>
@@ -119,11 +119,11 @@ export default async function Equipe() {
                 </section>
                 <section className="">
                     <h1 className="title-labs text-3xl font-bold text-secundaria text-center">
-                        Seja você também um membro da WebTech
+                        Participe você também da WebTech
                     </h1>
                     <div className="btn">
                         <BtnLink
-                            link="https://discord.com/invite/P85CYQ6U"
+                            link="https://webtech.network/discord"
                             texto="Entre para nossa comunidade do Discord"
                         />
                     </div>
