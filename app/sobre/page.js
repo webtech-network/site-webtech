@@ -37,40 +37,42 @@ export default function AboutPage() {
                 <h1 className="text-4xl mt-10 mb-7 text-center font-bold">Conquistas</h1>
                 <div className="max-w-screen-2xl m-auto text-secundariaDark	">
                     <div className="pb-20">
-                        <div className="grid grid-cols-1 w-full gap-10 md:grid-cols-4">
+                        <div className="grid grid-cols-1 w-full gap-10 md:grid-cols-3">
                             <div className="">
-                                <img className="w-full mb-5" src="https://via.placeholder.com/300x250" alt="placeholder" />
-                                <p className="sm:text-xl text-sm font-bold">Site da Pós em Tecnologias Digitais da PUC Minas</p>
+                                <img className="w-full mb-5" src="/sobre/conquistas/webtech-days.png" alt="placeholder" />
+                                <p className="font-bold text-2xl mb-2">WebTech Days bombou!</p>
+                                <p className="sm:text-xl text-sm">Reunimos 300 pessoas na primeira edição do WebTech Days, nosso principal evento de tecnologia.</p>
                             </div>
                             <div className="">
-                                <img className="w-full mb-5" src="https://via.placeholder.com/300x250" alt="placeholder" />
-                                <p className="sm:text-xl text-sm font-bold">Evento WebTech Days - JavaScript Edition</p>
+                                <img className="w-full mb-5" src="/sobre/conquistas/espaco.gif" alt="placeholder" />
+                                <p className="font-bold text-2xl mb-2">Espaços para chamar de nossos!</p>
+                                <p className="sm:text-xl text-sm">A WebTech conta com espaços próprios nas unidades Praça da Liberdade e Coração Eucarístico da PUC Minas.</p>
                             </div>
                             <div className="">
-                                <img className="w-full mb-5" src="https://via.placeholder.com/300x250" alt="placeholder" />
-                                <p className="sm:text-xl text-sm font-bold">Workshops bem recebidos pela comunidade acadêmica</p>
-                            </div>
-                            <div className="">
-                                <img className="w-full mb-5" src="https://via.placeholder.com/300x250" alt="placeholder" />
-                                <p className="sm:text-xl text-sm font-bold">Labs públicos que reúnem o conhecimento adquirido nos projetos</p>
+                                <img className="w-full mb-5" src="/sobre/conquistas/workshops.png" alt="placeholder" />
+                                <p className="font-bold text-2xl mb-2">Workshops com prática de verdade!</p>
+                                <p className="sm:text-xl text-sm">Mais de 100 alunos já participaram dos nossos workshops de Git, Node.js e Web-Scraping.</p>
                             </div>
                         </div>
                     </div>
 
                     <div className="sm:pb-20 pb-10">
-                        <h1 className="text-center sm:text-4xl sm:pb-16 pb-5 font-bold">Nosso dia a dia</h1>
+                        <h1 className="text-center sm:text-4xl sm:pb-16 pb-5 font-bold">Dia a dia</h1>
                         <div className="grid grid-cols-1 w-full gap-10 sm:grid-cols-3">
                             <div className="">
-                                <img className="w-full mb-5" src="https://via.placeholder.com/400x250" alt="placeholder" />
-                                <p className="sm:text-xl text-sm font-bold">Semanalmente, nos reunimos nos espaços da WebTech nos campi Praça da Liberdade e Coração Eucarístico</p>
+                                <img className="w-full mb-5" src="/sobre/dia-a-dia/reunioes.png" alt="placeholder" />
+                                <p className="font-bold text-2xl mb-2">Encontros diários!</p>
+                                <p className="sm:text-xl text-sm">A equipe da WebTech se reúne diariamente para compartilhar conhecimento e trabalhar em projetos.</p>
                             </div>
                             <div className="">
-                                <img className="w-full mb-5" src="https://via.placeholder.com/400x250" alt="placeholder" />
-                                <p className="sm:text-xl text-sm font-bold">A WebTech frequentemente organiza workshops e outros eventos para a comunidade</p>
+                                <img className="w-full mb-5" src="/sobre/dia-a-dia/workshops.png" alt="placeholder" />
+                                <p className="font-bold text-2xl mb-2">Workshops!</p>
+                                <p className="sm:text-xl text-sm">Ministramos workshops de tecnologia para os alunos e público geral.</p>
                             </div>
                             <div className="">
-                                <img className="w-full mb-5" src="https://via.placeholder.com/400x250" alt="placeholder" />
-                                <p className="sm:text-xl text-sm font-bold">Estamos sempre conectados com as empresas do mercado de tecnologia e com outros potenciais parceiros</p>
+                                <img className="w-full mb-5" src="/sobre/dia-a-dia/labs.png" alt="placeholder" />
+                                <p className="font-bold text-2xl mb-2">Criação de labs!</p>
+                                <p className="sm:text-xl text-sm">Todos os projetos que criamos geram labs públicos com informações técnicas sobre o que foi desenvolvido.</p>
                             </div>
                         </div>
                     </div>
@@ -78,20 +80,20 @@ export default function AboutPage() {
                         <h1 className="text-center sm:text-4xl sm:pb-16 pb-5 font-bold">Depoimentos</h1>
                         <div className="grid grid-cols-1 w-full gap-10 md:grid-cols-3">
                             <Depoimento
-                                image="/sobre/depoimentos/Luca.png"
+                                image="/sobre/depoimentos/luca.png"
                                 name="Luca Azalim"
                                 description="Membro da WebTech"
                                 text="Participar da WebTech me trouxe uma visão muito mais otimista sobre as possibilidades de aprendizado e contato com diferentes tecnologias dentro da universidade." />
                             <Depoimento
-                                image="/sobre/depoimentos/Luca.png"
-                                name="Luca Azalim"
+                                image="/sobre/depoimentos/julia.png"
+                                name="Julia Resende"
                                 description="Membro da WebTech"
-                                text="Participar da WebTech me trouxe uma visão muito mais otimista sobre as possibilidades de aprendizado e contato com diferentes tecnologias dentro da universidade." />
+                                text="A WebTech moldou e aprimorou minhas habilidades de trabalho em equipe, me levando a me conectar e aprender com pessoas com visões diferentes das minhas." />
                             <Depoimento
-                                image="/sobre/depoimentos/Luca.png"
-                                name="Luca Azalim"
+                                image="/sobre/depoimentos/jhonata.png"
+                                name="Jhonata Dias"
                                 description="Membro da WebTech"
-                                text="Participar da WebTech me trouxe uma visão muito mais otimista sobre as possibilidades de aprendizado e contato com diferentes tecnologias dentro da universidade." />
+                                text="Sou apaixonado por compartilhar conhecimento, e na WebTech consigo praticar isto diariamente, por meio dos nossos encontros e workshops." />
                         </div>
                     </div>
                 </div>
