@@ -118,12 +118,6 @@ export default async function Equipe() {
                     <div className="grid">{users[GITHUB_ALUMNI_TEAM_SLUG]}</div>
                 </section>
                 <section className="">
-                    <h2 className="title-labs text-3xl font-bold text-secundaria text-center">
-                        Conheça a nossa jornada
-                    </h2>
-                    <div>
-                        <VerticalTimeline items={TIMELINE_DATA} />
-                    </div>
                     <h1 className="title-labs text-3xl font-bold text-secundaria text-center">
                         Seja você também um membro da WebTech
                     </h1>
