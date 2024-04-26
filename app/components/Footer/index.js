@@ -11,6 +11,7 @@ export default async function Footer() {
 
     data.sort((a, b) => b.stargazers_count - a.stargazers_count);
 
+    console.log(data);
     data = data.filter(repo => repo.name.startsWith('lab-'));
 
     return (
@@ -26,7 +27,7 @@ export default async function Footer() {
                             {
                                 data.slice(0, 4).map((data) => {
                                     return (
-                                        <a className="block" href={data.html_url}>{data.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</a>
+                                        <a key={data.id} className="block" href={data.html_url}>{data.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</a>
 
                                     );
                                 })

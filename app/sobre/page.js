@@ -6,7 +6,7 @@ function Depoimento({ image, name, description, text }) {
             <img className="h-48 w-48 object-cover rounded-full mx-auto mt-5 mb-5" src={image} alt="placeholder" />
             <p className="text-2xl text-center">{name}</p>
             <p className="text-center mb-5">{description}</p>
-            <p className="text-center">"{text}"</p>
+            <p className="text-center">&quot;{text}&quot;</p>
         </div>
     )
 }
