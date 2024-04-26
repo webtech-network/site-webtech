@@ -22,7 +22,7 @@ export default function Home() {
                             <div className="flex gap-3 justify-center items-center md:justify-start mt-2">
                                 <a href="https://www.linkedin.com/company/webtech-puc-minas/mycompany/" target="_blank"><img className="w-7" src="./linkedinHome.png" /></a>
                                 <a href="https://www.instagram.com/webtech.pucminas/" target="_blank"><img className="w-7" src="./instagramHome.png" /></a>
-                                <a href="" target="_blank"><img className="w-7" src="./githubHome.png" /></a>
+                                <a href="https://github.com/WebTech-PUC-Minas" target="_blank"><img className="w-7" src="./githubHome.png" /></a>
                                 <a href="https://www.youtube.com/@Webtech.PUCMinas" target="_blank"><img className="w-7 " src="./youtubeHome.png" /></a>
                             </div>
                         </div>
