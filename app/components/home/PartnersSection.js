@@ -24,7 +24,7 @@ export default function PartnerSection() {
                     <i className="bi bi-chevron-left text-3xl text-secundaria hover:text-secundariaDark  "></i>
                 </div>
 
-                <div id="slider" className=" flex items-center gap-3 w-full h-full overflow-x-scroll scroll scroll-smooth ">
+                <div id="slider" className=" flex  gap-3 w-full h-full overflow-x-scroll scroll scroll-smooth ">
                     <PartnerCard imagem="/home/partners/sydle.png" texto="A SYDLE impulsiona a transformação digital. Sua plataforma SYDLE ONE reúne soluções de BPM, CRM, E-commerce, Billing, Service Desk e mais." titulo="Sydle" />
                     <PartnerCard imagem="/home/partners/dti.png" texto="A DTI Digital é uma empresa ágil e nativa digital que oferece soluções personalizadas para acelerar a transformação digital de grandes organizações." titulo="dti digital" />
                     <PartnerCard imagem="/home/partners/ioasys.png" texto="A ioasys é uma empresa de eficiência digital que impulsiona pessoas, empresas e futuros por meio de inovações que agregam ao negócio de seus clientes." titulo="ioasys" />

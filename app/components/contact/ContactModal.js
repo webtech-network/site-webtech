@@ -5,9 +5,10 @@ import Modal from 'react-modal';
 const customStyles = {
     overlay: {
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        backdropFilter: 'blur(4px)'
-    },
-    content: {
+        backdropFilter: 'blur(4px)',
+        zIndex: 1000 // Defina um valor alto para garantir que o overlay fique por cima de tudo
+      },
+      content: {
         top: '50%',
         left: '50%',
         right: 'auto',
@@ -18,7 +19,9 @@ const customStyles = {
         width: '90%',
         padding: '25px',
         borderRadius: '20px',
-    }
+        position: 'absolute',
+        zIndex: 1001 // Defina um valor alto para garantir que o modal fique por cima de tudo
+      }
 };
 
 export default function ContactModal({ isOpen, onRequestClose }) {
