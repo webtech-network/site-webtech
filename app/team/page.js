@@ -82,39 +82,37 @@ export default async function TeamPage() {
     await Promise.all(response.data.map(user => addUser(user, 'current')));
 
     return (
-        <div className="px-10 md:px-[74px] flex items-center justify-center">
-            <div className="container mx-auto items-center px-4 md:px-8 lg:px-16 xl:px-24">
-                <TeamSection
-                    title="Membros"
-                    description="O quadro de membros da WebTech é composto por alunos de graduação
+        <div className="container mx-auto">
+            <TeamSection
+                title="Membros"
+                description="O quadro de membros da WebTech é composto por alunos de graduação
                         dos cursos do Instituto de Ciências Exatas e Informática da PUC Minas."
-                    users={users.current}
-                />
-                <TeamSection
-                    title="Mentores"
-                    description="O quadro de mentores da WebTech é composto por professores e profissionais
+                users={users.current}
+            />
+            <TeamSection
+                title="Mentores"
+                description="O quadro de mentores da WebTech é composto por professores e profissionais
                         do mercado que orientam os alunos em seus projetos e no desenvolvimento
                         de suas habilidades."
-                    users={users[GITHUB_MENTORS_TEAM_SLUG]}
-                />
-                <TeamSection
-                    title="Membros Antigos"
-                    description="O quadro de membros antigos da WebTech é composto por alunos que já
+                users={users[GITHUB_MENTORS_TEAM_SLUG]}
+            />
+            <TeamSection
+                title="Membros Antigos"
+                description="O quadro de membros antigos da WebTech é composto por alunos que já
                         participaram do grupo e que hoje não estão mais ativos."
-                    users={users[GITHUB_ALUMNI_TEAM_SLUG]}
-                />
-                <section className="mb-10">
-                    <h1 className="title-labs text-3xl font-bold text-secundaria text-center">
-                        Participe da WebTech
-                    </h1>
-                    <div className="btn">
-                        <ButtonLink
-                            link="https://webtech.network/discord"
-                            texto="Entrar na comunidade do Discord"
-                        />
-                    </div>
-                </section>
-            </div>
+                users={users[GITHUB_ALUMNI_TEAM_SLUG]}
+            />
+            <section className="mb-10">
+                <h1 className="title-labs text-3xl font-bold text-secundaria text-center">
+                    Participe da WebTech
+                </h1>
+                <div className="btn">
+                    <ButtonLink
+                        link="https://webtech.network/discord"
+                        texto="Entrar na comunidade do Discord"
+                    />
+                </div>
+            </section>
         </div>
     );
 }
@@ -166,8 +164,8 @@ function TeamSection({ title, description, users }) {
 function MemberCard({ user }) {
 
     return (
-        <div className="flex flex-col items-center m-2 p-5">
-            <img src={user.avatar_url} className="w-40 h-40 rounded-full mb-5" />
+        <div className="flex flex-col items-center m-2 p-5 bg-gray-50">
+            <img src={user.avatar_url} className="w-44 h-44 rounded-full mb-5" />
             <p className="text-center text-2xl font-bold">{getUserName(user)}</p>
             <p className="text-center text-md">{user.bio}</p>
             <div className="flex gap-2">
