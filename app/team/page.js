@@ -5,6 +5,7 @@ import { faGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const { GITHUB_ORG_NAME, GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG } = process.env;
+const getUserName = (user) => user.name ? user.name.split(' ').slice(0, 2).join(' ') : user.login;
 
 const TIMELINE_DATA = [
     {
@@ -123,10 +124,31 @@ function TeamSection({ title, description, users }) {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3">
                 {users
-                    .sort((u1, u2) => u1.id > u2.id ? 1 : -1)
-                    .map(userData =>
-                        <MemberCard userData={userData} />
-                    )
+                    .sort((u1, u2) => {
+
+                        if (u1.bio && !u2.bio) {
+                            return -1;
+                        }
+
+                        if (!u1.bio && u2.bio) {
+                            return 1;
+                        }
+
+                        const name1 = getUserName(u1);
+                        const name2 = getUserName(u2);
+
+                        if (name1 < name2) {
+                            return -1;
+                        }
+
+                        if (name1 > name2) {
+                            return 1;
+                        }
+
+                        return 0;
+
+                    })
+                    .map(user => <MemberCard user={user} />)
                 }
             </div>
         </section>
@@ -134,19 +156,17 @@ function TeamSection({ title, description, users }) {
 
 }
 
-function MemberCard({ userData }) {
-
-    const name = userData.name ? userData.name.split(' ').slice(0, 2).join(' ') : userData.login;
+function MemberCard({ user }) {
 
     return (
-        <div className="flex flex-col items-center m-2 p-5" key={userData.id}>
-            <img src={userData.avatar_url} alt={name} className="w-40 h-40 rounded-full mb-5" />
-            <p className="text-center text-2xl font-bold">{name}</p>
-            <p className="text-center text-md">{userData.bio}</p>
+        <div className="flex flex-col items-center m-2 p-5" key={user.id}>
+            <img src={user.avatar_url} className="w-40 h-40 rounded-full mb-5" />
+            <p className="text-center text-2xl font-bold">{getUserName(user)}</p>
+            <p className="text-center text-md">{user.bio}</p>
             <div className="flex gap-3">
-                <SocialButton href={userData.html_url} icon={faGithub} />
-                {userData.twitter_username && <SocialButton href={"https://x.com/" + userData.twitter_username} icon={faXTwitter} />}
-                {userData.email && <SocialButton href={"mailto:" + userData.email} icon={faEnvelope} />}
+                <SocialButton href={user.html_url} icon={faGithub} />
+                {user.twitter_username && <SocialButton href={"https://x.com/" + user.twitter_username} icon={faXTwitter} />}
+                {user.email && <SocialButton href={"mailto:" + user.email} icon={faEnvelope} />}
             </div>
         </div>
     );
