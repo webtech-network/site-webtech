@@ -170,7 +170,7 @@ function MemberCard({ user }) {
             <img src={user.avatar_url} className="w-40 h-40 rounded-full mb-5" />
             <p className="text-center text-2xl font-bold">{getUserName(user)}</p>
             <p className="text-center text-md">{user.bio}</p>
-            <div className="flex gap-3">
+            <div className="flex gap-2">
                 <SocialButton href={user.html_url} icon={faGithub} />
                 {user.twitter_username && <SocialButton href={"https://x.com/" + user.twitter_username} icon={faXTwitter} />}
                 {user.email && <SocialButton href={"mailto:" + user.email} icon={faEnvelope} />}
