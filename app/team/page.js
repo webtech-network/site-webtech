@@ -148,7 +148,7 @@ function TeamSection({ title, description, users }) {
                         return 0;
 
                     })
-                    .map(user => <MemberCard user={user} />)
+                    .map(user => <MemberCard key={user.id} user={user} />)
                 }
             </div>
         </section>
@@ -159,7 +159,7 @@ function TeamSection({ title, description, users }) {
 function MemberCard({ user }) {
 
     return (
-        <div className="flex flex-col items-center m-2 p-5" key={user.id}>
+        <div className="flex flex-col items-center m-2 p-5">
             <img src={user.avatar_url} className="w-40 h-40 rounded-full mb-5" />
             <p className="text-center text-2xl font-bold">{getUserName(user)}</p>
             <p className="text-center text-md">{user.bio}</p>
