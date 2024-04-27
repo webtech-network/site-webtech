@@ -40,7 +40,7 @@ export default async function Banner() {
     const formattedDate = event ? formatDate(event.end_date) : '';
 
     return (
-        <section className="conteudo-banner container mx-auto grid gap-8 md:grid-cols-2 grid-cols-1 justify-between">
+        <section className="conteudo-banner container mx-auto grid gap-8 grid-cols-1 lg:grid-cols-2  justify-between">
             {error ? (
                 <p>{error}</p>
             ) : (
@@ -54,7 +54,7 @@ export default async function Banner() {
                         <ButtonLink texto={'Inscrições abertas'} link={event.url} />
                     </div>
                     <div className="flex md:justify-end justify-center col-span-2/6">
-                        <img src={event.image} alt="" className="max-w-full rounded-xl h-auto drop-shadow-2xl" />
+                        <img src={event.image} alt="" className="max-w-full rounded-xl h-auto drop-shadow-2xl imagem-banner" />
                     </div>
                 </>
             )}

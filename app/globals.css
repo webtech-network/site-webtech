@@ -137,3 +137,6 @@
     border: 0px;
 
 }
+.imagem-banner{
+    object-fit: contain;
+}
