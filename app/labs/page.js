@@ -1,4 +1,4 @@
-import RepoCard from "../components/labs/LabCard";
+import LabCard from "../components/labs/LabCard";
 import Github from "../github.js";
 
 export default async function LabsPage() {
@@ -26,7 +26,7 @@ export default async function LabsPage() {
                                 if (!addedRepoIds.has(repo.id)) {
                                     addedRepoIds.add(repo.id);
                                     return (
-                                        <RepoCard className="card" key={repo.id} repo={repo} />
+                                        <LabCard className="card" key={repo.id} repo={repo} />
                                     );
                                 }
                                 return null;

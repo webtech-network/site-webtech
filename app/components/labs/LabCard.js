@@ -1,6 +1,6 @@
 import ButtonCard from "../common/ButtonCard";
 
-const RepoCard = ({ repo }) => {
+export default function LabCard({ repo }) {
     return (
         <div className="bg-white rounded-lg overflow-hidden shadow-lg w-64 h-64 md:w-72 lg:w-80 flex flex-col justify-between">
             <div className="p-4">
@@ -13,5 +13,3 @@ const RepoCard = ({ repo }) => {
         </div>
     );
 };
-
-export default RepoCard;

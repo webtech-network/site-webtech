@@ -6,12 +6,10 @@ import Github from "../../../github.js";
 export default async function Footer() {
 
     let { data } = await Github.rest.repos.listForOrg({
-        org: "WebTech-PUC-Minas",
+        org: process.env.GITHUB_ORG_NAME,
     });
 
     data.sort((a, b) => b.stargazers_count - a.stargazers_count);
-
-    console.log(data);
     data = data.filter(repo => repo.name.startsWith('lab-'));
 
     return (

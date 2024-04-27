@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Github from "../github.js";
-import Membro from "../components/team/Member.js";
-import VerticalTimeline from "../components/team/Journey.js";
 import ButtonLink from "../components/common/ButtonLink.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const { GITHUB_ORG_NAME, GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG } = process.env;
 
@@ -29,7 +29,7 @@ const TIMELINE_DATA = [
     },
 ];
 
-export default async function Equipe() {
+export default async function TeamPage() {
 
     const teamSlugs = [GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG];
 
@@ -45,18 +45,7 @@ export default async function Equipe() {
         users.all.push(user.id);
 
         const response = await Github.rest.users.getByUsername({ username: user.login });
-        const userData = response.data;
-
-        users[teamSlug].push(
-            <div>
-                <Membro
-                    gitlink={userData.html_url}
-                    id={userData.id}
-                    name={userData.name ? userData.name.split(' ').slice(0, 2).join(' ') : userData.login}
-                    picture={userData.avatar_url}
-                />
-            </div>
-        );
+        users[teamSlug].push(response.data);
 
     };
 
@@ -87,49 +76,91 @@ export default async function Equipe() {
     return (
         <div className="px-10 md:px-[74px] flex items-center justify-center">
             <div className="container mx-auto items-center px-4 md:px-8 lg:px-16 xl:px-24">
-                <section className="my-8">
-                    <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
-                        Membros
-                    </h2>
-                    <p className="mb-8 text-xl">
-                        O quadro de membros da WebTech é composto por alunos de graduação
-                        dos cursos do Instituto de Ciências Exatas e Informática da PUC Minas.
-                    </p>
-                    <div className="grid grid-cols-2">{users.current}</div>
-                </section>
-                <section className="my-8">
-                    <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
-                        Mentores
-                    </h2>
-                    <p className="mb-8 text-xl">
-                        O quadro de mentores da WebTech é composto por professores e profissionais
+                <TeamSection
+                    title="Membros"
+                    description="O quadro de membros da WebTech é composto por alunos de graduação
+                        dos cursos do Instituto de Ciências Exatas e Informática da PUC Minas."
+                    users={users.current}
+                />
+                <TeamSection
+                    title="Mentores"
+                    description="O quadro de mentores da WebTech é composto por professores e profissionais
                         do mercado que orientam os alunos em seus projetos e no desenvolvimento
-                        de suas habilidades.
-                    </p>
-                    <div className="grid">{users[GITHUB_MENTORS_TEAM_SLUG]}</div>
-                </section>
-                <section className="my-8">
-                    <h2 className="title-labs text-3xl font-bold text-secundaria text-center mb-4">
-                        Membros Antigos
-                    </h2>
-                    <p className="mb-8 text-xl">
-                        O quadro de membros antigos da WebTech é composto por alunos que já
-                        participaram do grupo e que hoje não estão mais ativos.
-                    </p>
-                    <div className="grid">{users[GITHUB_ALUMNI_TEAM_SLUG]}</div>
-                </section>
-                <section className="">
+                        de suas habilidades."
+                    users={users[GITHUB_MENTORS_TEAM_SLUG]}
+                />
+                <TeamSection
+                    title="Membros Antigos"
+                    description="O quadro de membros antigos da WebTech é composto por alunos que já
+                        participaram do grupo e que hoje não estão mais ativos."
+                    users={users[GITHUB_ALUMNI_TEAM_SLUG]}
+                />
+                <section className="mb-10">
                     <h1 className="title-labs text-3xl font-bold text-secundaria text-center">
-                        Participe você também da WebTech
+                        Participe da WebTech
                     </h1>
                     <div className="btn">
                         <ButtonLink
                             link="https://webtech.network/discord"
-                            texto="Entre para nossa comunidade do Discord"
+                            texto="Entrar na comunidade do Discord"
                         />
                     </div>
                 </section>
             </div>
         </div>
+    );
+}
+
+function TeamSection({ title, description, users }) {
+
+    return (
+        <section className="py-10 border-b-4 border-gray-200">
+            <h2 className="text-3xl font-bold text-secundaria text-center mb-4">
+                {title}
+            </h2>
+            <p className="mb-8 text-xl text-center">
+                {description}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3">
+                {users
+                    .sort((u1, u2) => u1.id > u2.id ? 1 : -1)
+                    .map(userData =>
+                        <MemberCard userData={userData} />
+                    )
+                }
+            </div>
+        </section>
+    );
+
+}
+
+function MemberCard({ userData }) {
+
+    const name = userData.name ? userData.name.split(' ').slice(0, 2).join(' ') : userData.login;
+
+    return (
+        <div className="flex flex-col items-center m-2 p-5" key={userData.id}>
+            <img src={userData.avatar_url} alt={name} className="w-40 h-40 rounded-full mb-5" />
+            <p className="text-center text-2xl font-bold">{name}</p>
+            <p className="text-center text-md">{userData.bio}</p>
+            <div className="flex gap-3">
+                <SocialButton href={userData.html_url} icon={faGithub} />
+                {userData.twitter_username && <SocialButton href={"https://x.com/" + userData.twitter_username} icon={faXTwitter} />}
+                {userData.email && <SocialButton href={"mailto:" + userData.email} icon={faEnvelope} />}
+            </div>
+        </div>
+    );
+};
+
+function SocialButton({ href, icon }) {
+    return (
+        <a
+            href={href}
+            target="_blank"
+            className="mt-5 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-4 border border-gray-400 rounded shadow">
+            <FontAwesomeIcon
+                icon={icon}
+                className="text-xl" />
+        </a>
     );
 }
