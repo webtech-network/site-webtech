@@ -1,4 +1,6 @@
 import Map from "../components/common/Map";
+import SectionDescription from "../components/common/SectionDescription";
+import SectionTitle from "../components/common/SectionTitle";
 
 function TestimonialCard({ image, name, description, text }) {
     return (
@@ -18,26 +20,26 @@ export default function AboutPage() {
 
                 <section class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
                     <div>
-                        <h1 className="text-4xl mt-10 mb-7 text-center font-bold">Sobre</h1>
-                        <p className="text-xl text-center">
+                        <SectionTitle>Sobre</SectionTitle>
+                        <SectionDescription>
                             A WebTech é um projeto de extensão da PUC Minas que tem como objetivo
                             gerar espaço de trabalho para que alunos e professores criem juntos
                             aplicações, ferramentas e conteúdo para interessados em criar soluções
                             e produtos digitais.
-                        </p>
+                        </SectionDescription>
                     </div>
                     <div>
-                        <h1 className="text-4xl mt-10 mb-7 text-center font-bold">Propósito</h1>
-                        <p className="text-xl text-center">
+                        <SectionTitle>Propósito</SectionTitle>
+                        <SectionDescription>
                             O propósito da WebTech é promover a troca de conhecimento e experiência
                             entre alunos e professores, para que juntos possam criar soluções inovadoras
                             e tecnológicas para a sociedade.
-                        </p>
+                        </SectionDescription>
                     </div>
                 </section>
 
                 <section className="mt-20 mb-20">
-                    <h1 className="text-4xl mb-8 text-center font-bold">Conquistas</h1>
+                    <SectionTitle>Conquistas</SectionTitle>
                     <div className="grid grid-cols-1 w-full gap-10 md:grid-cols-3">
                         <div className="">
                             <img className="w-full mb-5" src="/about/achievements/webtech-days.png" alt="placeholder" />
@@ -58,7 +60,7 @@ export default function AboutPage() {
                 </section>
 
                 <section className="mt-20 mb-20">
-                    <h1 className="text-4xl mb-8 text-center font-bold">Dia a Dia</h1>
+                    <SectionTitle>Dia a Dia</SectionTitle>
                     <div className="grid grid-cols-1 w-full gap-10 sm:grid-cols-3">
                         <div className="">
                             <img className="w-full mb-5" src="/about/day-to-day/reunioes.png" alt="placeholder" />
@@ -79,7 +81,7 @@ export default function AboutPage() {
                 </section>
 
                 <section className="mt-20 mb-20">
-                    <h1 className="text-4xl mb-8 text-center font-bold">Depoimentos</h1>
+                    <SectionTitle>Depoimentos</SectionTitle>
                     <div className="grid grid-cols-1 w-full gap-10 md:grid-cols-3">
                         <TestimonialCard
                             image="/about/testimonials/luca.png"

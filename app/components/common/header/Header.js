@@ -21,6 +21,13 @@ export default function Header() {
                         </li>
                         <li>
                             <Link
+                                href="/labs"
+                                className="font-bold text-secundaria hover:text-secundariaDark text-lg hover:text-xl transition-all">
+                                Labs
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
                                 href="/events"
                                 className="font-bold text-secundaria hover:text-secundariaDark text-lg hover:text-xl transition-all">
                                 Eventos

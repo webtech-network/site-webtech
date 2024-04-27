@@ -1,5 +1,7 @@
 import Github from "../github.js";
-import ButtonLink from "../components/common/ButtonLink.js";
+import ButtonLink from "../components/common/ButtonLink";
+import SectionTitle from "../components/common/SectionTitle";
+import SectionDescription from "../components/common/SectionDescription";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
@@ -103,9 +105,7 @@ export default async function TeamPage() {
                 users={users[GITHUB_ALUMNI_TEAM_SLUG]}
             />
             <section className="mb-10">
-                <h1 className="title-labs text-3xl font-bold text-secundaria text-center">
-                    Participe da WebTech
-                </h1>
+                <SectionTitle>Participe da WebTech</SectionTitle>
                 <div className="btn">
                     <ButtonLink
                         link="https://webtech.network/discord"
@@ -121,12 +121,8 @@ function TeamSection({ title, description, users }) {
 
     return (
         <section className="py-10 border-b-4 border-gray-200">
-            <h2 className="text-3xl font-bold text-secundaria text-center mb-4">
-                {title}
-            </h2>
-            <p className="mb-8 text-xl text-center">
-                {description}
-            </p>
+            <SectionTitle>{title}</SectionTitle>
+            <SectionDescription>{description}</SectionDescription>
             <div className="grid grid-cols-1 md:grid-cols-3">
                 {users
                     .sort((u1, u2) => {

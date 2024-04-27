@@ -1,8 +1,10 @@
 export default function ButtonLink({ texto, link }) {
     return (
-
-        <form action={link} target="_blank">
-            <input type="submit" className="w-full h-12 bg-primaria rounded-lg cursor-pointer font-bold text-secundariaDark" value={texto} />
-        </form>
+        <a
+            href={link}
+            target="_blank"
+            className="w-full h-12 bg-primaria hover:bg-primariaLight rounded-lg cursor-pointer font-bold text-secundariaDark flex items-center justify-center">
+            {texto}
+        </a>
     );
 }

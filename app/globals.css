@@ -109,34 +109,3 @@
         opacity: 0.35;
     }
 }
-
-
-/* Labs */
-
-.wrapper-cards {
-    width: 95em;
-    align-items: center;
-    justify-content: center;
-}
-
-.wrapper-text {
-    width: 95em;
-}
-
-.title-labs {
-    margin: 1em;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.iframe-border {
-    border: 0px;
-
-}
-.imagem-banner{
-    object-fit: contain;
-}
