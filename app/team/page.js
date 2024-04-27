@@ -2,10 +2,17 @@ import Github from "../github.js";
 import ButtonLink from "../components/common/ButtonLink.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
 
 const { GITHUB_ORG_NAME, GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG } = process.env;
 const getUserName = (user) => user.name ? user.name.split(' ').slice(0, 2).join(' ') : user.login;
+const getUserBlogUrl = (user) => {
+    if (user.blog.startsWith('http://') || user.blog.startsWith('https://')) {
+        return user.blog;
+    } else {
+        return 'http://' + user.blog;
+    }
+};
 
 const TIMELINE_DATA = [
     {
@@ -167,6 +174,7 @@ function MemberCard({ user }) {
                 <SocialButton href={user.html_url} icon={faGithub} />
                 {user.twitter_username && <SocialButton href={"https://x.com/" + user.twitter_username} icon={faXTwitter} />}
                 {user.email && <SocialButton href={"mailto:" + user.email} icon={faEnvelope} />}
+                {user.blog && <SocialButton href={getUserBlogUrl(user)} icon={faGlobe} />}
             </div>
         </div>
     );
