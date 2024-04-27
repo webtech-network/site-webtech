@@ -1,8 +1,10 @@
-import PartnerSection from "./components/home/PartnersSection";
-import CampoEventos from "./components/home/EventsSection";
+import PartnersSection from "./components/home/PartnersSection";
+import EventsSection from "./components/home/EventsSection";
 import Map from "./components/common/Map";
 import Banner from "./components/home/Banner";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faInstagram, faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 export default function Home() {
     return (
@@ -17,29 +19,42 @@ export default function Home() {
                         <p className="mt-2 text-justify">
                             Um dos objetivos da WebTech é a formação de uma comunidade de desenvolvedores, designers e entusiastas de tecnologia. Para isso, promovemos eventos, cursos e workshops, além de mantermos um canal no Discord para a troca de conhecimento e experiências.
                         </p>
-                        <h3 className="font-bold text-center text-2xl py-5 mt-2">Conheça nossas redes Sociais</h3>
+                        <h3 className="font-bold text-center text-2xl py-5 mt-2">Acompanhe-nos nas redes!</h3>
                         <div className="flex pb-5 justify-center">
                             <div className="flex gap-3 justify-center items-center md:justify-start mt-2">
-                                <a href="https://www.linkedin.com/company/webtech-puc-minas/mycompany/" target="_blank"><img className="w-7" src="/home/socials/linkedin.png" /></a>
-                                <a href="https://www.instagram.com/webtech.pucminas/" target="_blank"><img className="w-7" src="/home/socials/instagram.png" /></a>
-                                <a href="https://github.com/WebTech-PUC-Minas" target="_blank"><img className="w-7" src="/home/socials/github.png" /></a>
-                                <a href="https://www.youtube.com/@Webtech.PUCMinas" target="_blank"><img className="w-7 " src="/home/socials/youtube.png" /></a>
+
+                                <a href="https://www.linkedin.com/company/webtech-puc-minas/mycompany/" target="_blank">
+                                    <FontAwesomeIcon icon={faLinkedin} className="text-4xl" />
+                                </a>
+
+                                <a href="https://www.instagram.com/webtech.pucminas/" target="_blank">
+                                    <FontAwesomeIcon icon={faInstagram} className="text-4xl" />
+                                </a>
+
+                                <a href="https://github.com/WebTech-PUC-Minas" target="_blank">
+                                    <FontAwesomeIcon icon={faGithub} className="text-4xl" />
+                                </a>
+
+                                <a href="https://www.youtube.com/@Webtech.PUCMinas" target="_blank">
+                                    <FontAwesomeIcon icon={faYoutube} className="text-4xl" />
+                                </a>
+
                             </div>
                         </div>
                     </div>
-                    <div className=" col-span-12 md:col-span-5 flex justify-center">
-                        <iframe className=" iframe-border w-96 h-64 md:h-96 mt-5 md:mt-0 md:w-full lg:w-[380px]" src="https://discord.com/widget?id=1167587327376359424&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                    <div className="col-span-12 md:col-span-5 flex justify-center">
+                        <iframe className="w-96 h-64 md:h-96 mt-5 md:mt-0 md:w-full lg:w-[380px]" src="https://discord.com/widget?id=1167587327376359424&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                     </div>
                 </div>
             </section>
             <div className="bg-primaria p-7 px-4 md:px-7">
                 <div className="container mx-auto py-5">
-                    <PartnerSection />
+                    <PartnersSection />
                 </div>
             </div>
             <div className="p-7 px-4 md:px-7 mt-6">
                 <div className="container mx-auto py-5">
-                    <CampoEventos />
+                    <EventsSection />
                 </div>
             </div>
             <Map />
