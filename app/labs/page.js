@@ -45,7 +45,7 @@ function LabCard({ repo }) {
                 <div className="flex justify-between gap-1">
                     <h5 className="text-lg font-bold mb-2">{repo.name}</h5>
                     <div className="flex justify-end gap-1">
-                        {repo.contributors.slice(0, 5).map(contributor => (
+                        {repo.contributors.slice(0, 3).map(contributor => (
                             <LabContributor key={contributor.id} contributor={contributor} />
                         ))}
                     </div>
@@ -66,7 +66,7 @@ function LabCard({ repo }) {
 function LabContributor({ contributor }) {
     return (
         <a href={contributor.html_url} target="_blank">
-            <img src={contributor.avatar_url} className="w-7 h-7 rounded-full" alt={contributor.login} />
+            <img src={contributor.avatar_url} className="w-7 h-7 rounded-full filter hover:brightness-90" alt={contributor.login} />
         </a>
     );
 }
