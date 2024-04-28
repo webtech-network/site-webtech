@@ -1,11 +1,11 @@
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import ButtonLink from '../common/ButtonLink';
-import getData from '@/app/sympla';
+import getAllEvents from '@/app/sympla';
 import { removeTags, truncateDescription } from '../events/EventsSection';
 
 export default async function Banner() {
-    const data = await getData();
+    const data = await getAllEvents();
     const events = data.data;
 
     let event = null;

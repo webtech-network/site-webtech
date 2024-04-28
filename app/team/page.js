@@ -160,7 +160,7 @@ function TeamSection({ title, description, users }) {
 function MemberCard({ user }) {
 
     return (
-        <div className="flex flex-col items-center m-2 p-5 bg-gray-50">
+        <div className="flex flex-col items-center m-2 p-5 bg-gray-100 rounded-lg">
             <img src={user.avatar_url} className="w-44 h-44 rounded-full mb-5" />
             <p className="text-center text-2xl font-bold">{getUserName(user)}</p>
             <p className="text-center text-md">{user.bio}</p>

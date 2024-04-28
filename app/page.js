@@ -2,6 +2,8 @@ import PartnersSection from "./components/home/PartnersSection";
 import EventsSection from "./components/home/EventsSection";
 import Map from "./components/common/Map";
 import Banner from "./components/home/Banner";
+import SectionTitle from "./components/common/SectionTitle";
+import SectionDescription from "./components/common/SectionDescription";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faInstagram, faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
@@ -15,13 +17,15 @@ export default function Home() {
             <section className="px-10 md:px-20">
                 <div className="container mx-auto py-5 grid grid-cols-1 md:grid-cols-12 gap-4">
                     <div className="col-span-12 md:col-span-7">
-                        <h2 className="font-bold text-center text-3xl py-5">Comunidade WebTech</h2>
-                        <p className="mt-2 text-justify">
-                            Um dos objetivos da WebTech é a formação de uma comunidade de desenvolvedores, designers e entusiastas de tecnologia. Para isso, promovemos eventos, cursos e workshops, além de mantermos um canal no Discord para a troca de conhecimento e experiências.
-                        </p>
+                        <SectionTitle>Comunidade WebTech</SectionTitle>
+                        <SectionDescription>
+                            Um dos objetivos da WebTech é a formação de uma comunidade de desenvolvedores,
+                            designers e entusiastas de tecnologia. Para isso, promovemos eventos, cursos e workshops,
+                            além de mantermos um canal no Discord para a troca de conhecimento e experiências.
+                        </SectionDescription>
                         <h3 className="font-bold text-center text-2xl py-5 mt-2">Acompanhe-nos nas redes!</h3>
                         <div className="flex pb-5 justify-center">
-                            <div className="flex gap-3 justify-center items-center md:justify-start mt-2">
+                            <div className="flex gap-3 justify-center items-center md:justify-start mt-2 text-primaria">
 
                                 <a href="https://www.linkedin.com/company/webtech-puc-minas/mycompany/" target="_blank">
                                     <FontAwesomeIcon icon={faLinkedin} className="text-4xl" />
@@ -52,10 +56,8 @@ export default function Home() {
                     <PartnersSection />
                 </div>
             </div>
-            <div className="p-7 px-4 md:px-7 mt-6">
-                <div className="container mx-auto py-5">
-                    <EventsSection />
-                </div>
+            <div className="container mx-auto mb-10">
+                <EventsSection />
             </div>
             <Map />
         </div>

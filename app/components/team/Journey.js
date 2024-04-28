@@ -1,10 +1,10 @@
 import React from 'react';
 import './journey.css';
-import getData from '../../sympla';
+import getAllEvents from '../../sympla';
 
 async function VerticalTimeline() {
 
-    const data = await getData();
+    const data = await getAllEvents();
     const events = data.data;
 
     return (

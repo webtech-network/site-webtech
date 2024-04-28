@@ -2,11 +2,11 @@ import React from 'react';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Loading from '@/app/loading';
-import getData from '@/app/sympla';
+import getAllEvents from '@/app/sympla';
 import { removeTags, truncateDescription } from '../events/EventsSection';
 
 async function EventCard() {
-    const data = await getData();
+    const data = await getAllEvents();
     const events = data.data;
 
     const formatDate = (dateString) => {
@@ -30,7 +30,7 @@ async function EventCard() {
     return (
         <div className="flex justify-center flex-wrap gap-4">
             {sortedEvents.map(event => {
-                const description = event.detail ? truncateDescription(removeTags(event.detail), 50) : '';
+                const description = event.detail ? truncateDescription(removeTags(event.detail), 100) : '';
                 const formattedDate = formatDate(event.end_date);
                 return (
                     <div key={event.id} className="flex flex-col justify-between gap-3 p-4 min-w-52 max-w-52 md:min-w-80 md:max-w-80 bg-cinza box-sombra-sm rounded-md">

@@ -1,11 +1,12 @@
-import CardEvent from "./EventCard";
+import EventCard from "./EventCard";
+import SectionTitle from "../common/SectionTitle";
 
 export default function CampoEventos() {
     return (
         <>
-            <h1 className="font-bold text-3xl text-center mb-10 text-secundariaDark">Eventos</h1>
+            <SectionTitle>Eventos</SectionTitle>
             <div className="flex items-center flex-wrap justify-center gap-4">
-                <CardEvent />
+                <EventCard />
             </div>
         </>
     );
