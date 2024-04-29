@@ -30,6 +30,6 @@ export default async function Labs() {
                 )
             }
         </div>
-    );˝
+    );
 
 }
