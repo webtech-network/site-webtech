@@ -73,6 +73,6 @@ function LabContributor({ contributor }) {
 
 function LabLabel({ children }) {
     return (
-        <div className="bg-secundariaDark text-white text-sm py-1 px-3 rounded-2xl">{children}</div>
+        <div className="bg-secondary-dark text-white text-sm py-1 px-3 rounded-2xl">{children}</div>
     );
 }

@@ -3,7 +3,7 @@ export default function ButtonLink({ texto, link }) {
         <a
             href={link}
             target="_blank"
-            className="w-full h-12 bg-primaria hover:bg-primariaLight rounded-lg cursor-pointer font-bold text-secundariaDark flex items-center justify-center">
+            className="w-full h-12 bg-primary hover:bg-primary-light rounded-lg cursor-pointer font-bold text-secondary-dark flex items-center justify-center">
             {texto}
         </a>
     );

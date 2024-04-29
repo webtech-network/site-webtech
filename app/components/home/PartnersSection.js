@@ -1,6 +1,10 @@
 'use client'
 
 import PartnerCard from "./PartnerCard";
+import SectionTitle from "../common/SectionTitle";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function PartnerSection() {
 
@@ -17,11 +21,11 @@ export default function PartnerSection() {
     return (
         <>
 
-            <h1 className="font-bold text-3xl text-center mb-10 text-secundariaDark">Parceiros</h1>
+            <SectionTitle>Parceiros</SectionTitle>
             <div className="relative flex items-center">
 
                 <div onClick={slideLeft} className="justify-center h-72 flex items-center cursor-pointer">
-                    <i className="bi bi-chevron-left text-3xl text-secundaria hover:text-secundariaDark  "></i>
+                    <FontAwesomeIcon icon={faChevronLeft} className="text-2xl mr-3" />
                 </div>
 
                 <div id="slider" className=" flex  gap-3 w-full h-full overflow-x-scroll scroll scroll-smooth ">
@@ -32,7 +36,7 @@ export default function PartnerSection() {
                 </div>
 
                 <div onClick={slideRigth} className="justify-center h-72 flex items-center cursor-pointer">
-                    <i className="bi bi-chevron-right text-3xl text-secundaria hover:text-secundariaDark "></i>
+                    <FontAwesomeIcon icon={faChevronRight} className="text-2xl ml-3" />
                 </div>
             </div>
 

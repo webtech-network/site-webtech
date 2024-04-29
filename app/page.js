@@ -25,7 +25,7 @@ export default function Home() {
                         </SectionDescription>
                         <h3 className="font-bold text-center text-2xl py-5 mt-2">Acompanhe-nos nas redes!</h3>
                         <div className="flex pb-5 justify-center">
-                            <div className="flex gap-3 justify-center items-center md:justify-start mt-2 text-primaria">
+                            <div className="flex gap-3 justify-center items-center md:justify-start mt-2 text-primary">
 
                                 <a href="https://www.linkedin.com/company/webtech-puc-minas/mycompany/" target="_blank">
                                     <FontAwesomeIcon icon={faLinkedin} className="text-4xl" />
@@ -51,7 +51,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <div className="bg-primaria p-7 px-4 md:px-7">
+            <div className="bg-primary p-7 px-4 md:px-7">
                 <div className="container mx-auto py-5">
                     <PartnersSection />
                 </div>

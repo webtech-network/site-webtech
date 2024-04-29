@@ -9,26 +9,16 @@ module.exports = {
         extend: {
             colors: {
                 // Configure your color palette here
-                primaria: "#FDBC2F",
-                primariaDark: "#DB9A0D",
-                primariaLight: "#FFC64A",
-                secundaria: "#2A3341",
-                secundariaDark: "#1F2733",
-                secundariaLight: "#404957",
-                white: "#FFFFFF",
-                whiteDark: "#D9D5D5",
-                whiteLight: "#F8FAFF",
+                primary: "#FDBC2F",
+                'primary-dark': "#DB9A0D",
+                'primary-light': "#FFC64A",
+                secondary: "#2A3341",
+                'secondary-dark': "#1F2733",
+                'secondary-light': "#404957",
                 danger: "#EC3434",
-                dangerDark: "#C70E0E",
-                dangerLight: "#FF4D4D",
-                success: "#65D73D",
-                successDark: "#4DD71C",
-                successLight: "#82F05B",
-                cinza: "#F4F1F1",
-                preto: "#0000"
-
-
-
+                'danger-dark': "#C70E0E",
+                'danger-light': "#FF4D4D",
+                gray: "#F4F1F1"
             },
             container: {
                 // you can configure the container to be centered

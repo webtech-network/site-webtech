@@ -7,7 +7,7 @@ export default function EventsPage() {
     return (
         <main className="px-10 md:px-[74px]">
             <div className="container mx-auto">
-                <div className="md:pt-0  pt-0 m-auto text-secondaryDark">
+                <div className="md:pt-0  pt-0 m-auto text-secondary-dark">
                     <div className="">
 
                         <EventsSection />
@@ -36,7 +36,7 @@ export default function EventsPage() {
                                 href="https://www.youtube.com/@Webtech.PUCMinas/featured"
                                 target="blank"
                             >
-                                <button className="drop-shadow-md bg-primaria text-secundariaDark px-16 py-2 mb-5 rounded-md font-bold hover:bg-primariaLight md:text">Ver mais</button>
+                                <button className="drop-shadow-md bg-primary text-secondary-dark px-16 py-2 mb-5 rounded-md font-bold hover:bg-primary-light md:text">Ver mais</button>
                             </a>
                         </div>
 

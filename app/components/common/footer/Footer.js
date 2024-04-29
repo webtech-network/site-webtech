@@ -6,7 +6,7 @@ export default async function Footer() {
 
     return (
 
-        <footer className="bg-secundariaDark text-white ">
+        <footer className="bg-secondary-dark text-white ">
             <div className="py-10 px-4 md:px-7">
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
@@ -27,7 +27,7 @@ export default async function Footer() {
                 </div>
             </div>
 
-            <div className="bg-secundaria h-10 flex items-center justify-center">
+            <div className="bg-secondary h-10 flex items-center justify-center">
                 <p> &#169; WebTech - PUC Minas</p>
             </div>
         </footer>
