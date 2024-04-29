@@ -26,7 +26,7 @@ export default async function LabsPage() {
         .sort((a, b) => b.updated_at > a.updated_at ? 1 : -1);
 
     return (
-        <div className="container mx-auto my-5">
+        <div className="container mx-auto my-10">
             <section>
                 <SectionTitle>Labs</SectionTitle>
                 <SectionDescription>Todo projeto desenvolvido pelos membros da WebTech gera um ou mais labs, que são repositórios no GitHub que contam com todo o detalhamento técnico das tecnologias utilizadas e dos conhecimentos desenvolvidos.</SectionDescription>
@@ -40,7 +40,7 @@ export default async function LabsPage() {
 
 function LabCard({ repo }) {
     return (
-        <div className="p-4 bg-gray-100 rounded-lg flex flex-col justify-between">
+        <div className="p-4 bg-gray rounded-lg flex flex-col justify-between">
             <div>
                 <div className="flex justify-between gap-1">
                     <h5 className="text-lg font-bold mb-2">{repo.name}</h5>
