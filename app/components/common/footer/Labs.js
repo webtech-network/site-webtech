@@ -21,15 +21,15 @@ export default async function Labs() {
                 data.slice(0, 5).map((repo) =>
                     <a
                         key={repo.id}
-                        className="block mb-1"
+                        className="mb-1"
                         href={repo.html_url}
                         target="_blank"
                     >
-                        {repo.name}
+                        <p>{repo.name}</p>
                     </a>
                 )
             }
         </div>
-    );
+    );˝
 
 }
