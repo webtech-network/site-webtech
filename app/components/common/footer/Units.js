@@ -10,7 +10,7 @@ export default function Units() {
             <p className="font-bold">Coreu</p>
             <p>PUC Minas - Coração Eucarístico</p>
             <p>Av. Dom José Gaspar, 500 - Coração Eucarístico</p>
-            <p>Hackerspace</p>
+            <p>Prédio 34 - HackerSpace</p>
             <br />
             <p className="font-bold">Praça</p>
             <p>PUC Minas - Unidade Praça da Liberdade</p>
