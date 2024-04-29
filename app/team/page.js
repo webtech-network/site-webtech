@@ -16,29 +16,6 @@ const getUserBlogUrl = (user) => {
     }
 };
 
-const TIMELINE_DATA = [
-    {
-        imageName: "milestone-1",
-        description: "Descrição do Evento 1",
-        image: "../../img-1.png",
-    },
-    {
-        imageName: "milestone-2",
-        description: "Descrição do Evento 2",
-        image: "../../img-2.png",
-    },
-    {
-        imageName: "milestone-3",
-        description: "Descrição do Evento 3",
-        image: "../../img-3.png",
-    },
-    {
-        imageName: "milestone-4",
-        description: "Descrição do Evento 4",
-        image: "../../img-4.png",
-    },
-];
-
 export default async function TeamPage() {
 
     const teamSlugs = [GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG];
@@ -120,7 +97,7 @@ export default async function TeamPage() {
 function TeamSection({ title, description, users }) {
 
     return (
-        <section className="py-10 border-b-4 border-gray-200">
+        <section className="py-10 border-b-4 border-gray">
             <SectionTitle>{title}</SectionTitle>
             <SectionDescription>{description}</SectionDescription>
             <div className="grid grid-cols-1 md:grid-cols-3">
@@ -160,7 +137,7 @@ function TeamSection({ title, description, users }) {
 function MemberCard({ user }) {
 
     return (
-        <div className="flex flex-col items-center m-2 p-5 bg-gray-100 rounded-lg">
+        <div className="flex flex-col items-center m-2 p-5 bg-gray rounded-lg">
             <img src={user.avatar_url} className="w-44 h-44 rounded-full mb-5" />
             <p className="text-center text-2xl font-bold">{getUserName(user)}</p>
             <p className="text-center text-md">{user.bio}</p>

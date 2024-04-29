@@ -97,7 +97,7 @@ export default function ContactModal({ isOpen, onRequestClose }) {
                     <label htmlFor="message" className="block text-base text-secondary-dark">Mensagem</label>
                     <textarea id="message" name="message" value={formData.message} onChange={handleChange} className="mt-1 p-2 text-secondary-dark w-full border rounded-md font-normal text-base"></textarea>
                 </div>
-                <button id="submitButton" type="submit" className="drop-shadow-md text-base float-right bg-primary text-secondary-dark px-4 py-2 rounded-md">Enviar</button>
+                <button id="submitButton" type="submit" className="text-base text-secondary-dark float-right bg-primary hover:bg-primary-light px-4 py-2 rounded-md">Enviar</button>
             </form>
             <style jsx>{`
         #submitButton:active {
