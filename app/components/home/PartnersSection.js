@@ -21,7 +21,7 @@ export default function PartnerSection() {
     return (
         <>
 
-            <SectionTitle color="text-white">Parceiros</SectionTitle>
+            <SectionTitle>Parceiros</SectionTitle>
             <div className="relative flex items-center">
 
                 <div onClick={slideLeft} className="justify-center h-72 flex items-center cursor-pointer">

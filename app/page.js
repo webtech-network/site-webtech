@@ -20,7 +20,7 @@ export default function Home() {
                 <div className="container py-5 grid grid-cols-1 md:grid-cols-12 gap-10">
                     <div className="col-span-12 lg:col-span-7">
                         <div className="flex flex-col items-center">
-                            <SectionTitle>Comunidade WebTech</SectionTitle>
+                            <SectionTitle>WebTech Community</SectionTitle>
                             <SectionDescription>
                                 Um dos objetivos da WebTech é a formação de uma comunidade de desenvolvedores,
                                 designers e entusiastas de tecnologia. Para isso, promovemos eventos, cursos e workshops,
@@ -30,7 +30,7 @@ export default function Home() {
                                 <a
                                     href="/discord"
                                     target="_blank"
-                                    className="rounded-full transition-colors duration-300 bg-secondary hover:bg-secondary-light text-white border-secondary border-2 p-4"
+                                    className="rounded-2xl transition-colors duration-300 bg-secondary hover:bg-secondary-light text-white border-secondary border-2 p-4"
                                 >
                                     <FontAwesomeIcon icon={faGlobe} className="text-xl mr-2" />
                                     <span className="font-bold">Faça parte da nossa comunidade</span>
@@ -43,14 +43,14 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <div className="bg-primary pb-10">
+            <section className="bg-primary pb-10">
                 <div className="container mx-auto py-5">
                     <PartnersSection />
                 </div>
-            </div>
-            <div className="container mx-auto mb-10">
+            </section>
+            <section className="container mx-auto mb-10">
                 <EventsSection />
-            </div>
+            </section>
             <Map />
         </div>
     );
