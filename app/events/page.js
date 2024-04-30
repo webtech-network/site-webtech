@@ -3,6 +3,8 @@ import SectionTitle from "../components/common/SectionTitle";
 import SectionDescription from "../components/common/SectionDescription";
 import RecordedEvent from "../components/events/RecordedEvent";
 
+export const revalidate = 60;
+
 export default function EventsPage() {
     return (
         <main className="px-10 md:px-[74px]">
