@@ -25,7 +25,7 @@ export default function PartnerSection() {
             <div className="relative flex items-center">
 
                 <div onClick={slideLeft} className="justify-center h-72 flex items-center cursor-pointer">
-                    <FontAwesomeIcon icon={faChevronLeft} className="text-2xl mr-3" />
+                    <FontAwesomeIcon icon={faChevronLeft} className="text-secondary text-2xl mr-3" />
                 </div>
 
                 <div id="slider" className=" flex  gap-3 w-full h-full overflow-x-scroll scroll scroll-smooth ">
@@ -36,7 +36,7 @@ export default function PartnerSection() {
                 </div>
 
                 <div onClick={slideRigth} className="justify-center h-72 flex items-center cursor-pointer">
-                    <FontAwesomeIcon icon={faChevronRight} className="text-2xl ml-3" />
+                    <FontAwesomeIcon icon={faChevronRight} className="text-secondary text-2xl ml-3" />
                 </div>
             </div>
 
