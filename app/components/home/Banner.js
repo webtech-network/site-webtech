@@ -43,7 +43,7 @@ export default async function Banner() {
     const formattedDate = event ? formatDate(event.end_date) : '';
 
     return (
-        <section className="w-100 p-7 rounded-2xl bg-neutral-900 container mx-auto grid gap-8 grid-cols-1 lg:grid-cols-2  justify-between">
+        <section className="w-100 p-7 rounded-xl bg-neutral-900 container mx-auto grid gap-8 grid-cols-1 lg:grid-cols-2  justify-between">
             {error ? (
                 <p>{error}</p>
             ) : (

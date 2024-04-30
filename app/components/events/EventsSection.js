@@ -27,7 +27,13 @@ function getDayAndMonth(dateString) {
 }
 
 export function removeTags(text) {
-    return text.replace(/<[^>]*>/g, '');
+    // Remove HTML tags
+    let cleanedText = text.replace(/<[^>]*>/g, '');
+
+    // Add a space after punctuation if there isn't one already
+    cleanedText = cleanedText.replace(/([.,!?;:])\b(?![\s.,!?;:])/, '$1 ');
+
+    return cleanedText;
 }
 
 export function truncateDescription(text, maxLength) {
@@ -41,33 +47,33 @@ function Event({ event, buttonName }) {
     const description = truncateDescription(removeTags(event.detail), 120);
 
     return (
-        <div className="flex xl:flex-row flex-col xl:space-x-5 xl:space-y-0 space-y-5 mb-20">
-            <div className="xl:w-full xl:max-w-[400px]  aspect-16/9">
+        <div className="flex lg:flex-row flex-col lg:space-x-5 lg:space-y-0 space-y-3 mb-5 bg-gray p-4 rounded-xl">
+            <div className="lg:w-full lg:max-w-[400px]  aspect-16/9">
                 <img
-                    className="w-full h-full object-contain rounded-2xl"
+                    className="w-full h-full object-contain rounded-xl"
                     src={event.image}
                     alt={event.name}
                 />
             </div>
 
-            <div className="xl:w-3/5 flex flex-col xl:justify-between">
-                <h2 className="xl:text-3xl text-xl font-bold overflow-hidden whitespace-nowrap text-ellipsis" style={{ maxWidth: '550px' }} title={event.name}>{event.name}</h2>
-                <p className="xl:text-xl pt-2 text-base">{description}</p>
+            <div className="lg:w-3/5 flex flex-col lg:justify-between">
+                <h2 className="lg:text-2xl text-xl font-bold overflow-hidden whitespace-nowrap text-ellipsis" style={{ maxWidth: '550px' }} title={event.name}>{event.name}</h2>
+                <p className="lg:text-xl pt-2 text-base">{description}</p>
                 <br />
                 <div className="flex b-0">
-                    <h4 className="xl:text-xl xl:block hidden font-bold">
+                    <h4 className="lg:text-lg lg:block hidden font-bold">
                         <FontAwesomeIcon icon={faLocationDot} className="mr-2" />{event.address.address_alt} - {event.address.name}
                     </h4>
                 </div>
             </div>
 
-            <div className="xl:w-1/5 flex xl:flex-col relative justify-between">
-                <div className="xl:text-right text-left">
-                    <h4 className="xl:text-6xl text-2xl font-bold">{day}</h4>
-                    <p className="xl:text-2xl">{months[month]}</p>
+            <div className="lg:w-1/5 flex lg:flex-col relative justify-between">
+                <div className="lg:text-right text-left">
+                    <h4 className="lg:text-6xl text-2xl font-bold">{day}</h4>
+                    <p className="lg:text-2xl">{months[month]}</p>
                 </div>
                 <a href={event.url} target="_blank" rel="noreferrer">
-                    <button className="drop-shadow-md absolute bottom-0 right-0 float-right bg-primary text-secondary-dark px-4 py-2 rounded-md font-bold hover:bg-primary-light cursor-pointer ">
+                    <button className="absolute bottom-0 right-0 float-right bg-primary text-secondary-dark px-4 py-2 rounded-xl font-bold hover:bg-primary-light cursor-pointer ">
                         {buttonName}
                     </button>
                 </a>

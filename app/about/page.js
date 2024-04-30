@@ -4,7 +4,7 @@ import SectionTitle from "../components/common/SectionTitle";
 
 function TestimonialCard({ image, name, description, text }) {
     return (
-        <div className="rounded-lg bg-gray p-8">
+        <div className="rounded-xl bg-gray p-8">
             <img className="h-48 w-48 object-cover rounded-full mx-auto mt-5 mb-5" src={image} alt="placeholder" />
             <p className="text-2xl text-center font-bold">{name}</p>
             <p className="text-center mb-5">{description}</p>

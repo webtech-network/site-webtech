@@ -42,7 +42,7 @@ export default async function LabsPage() {
 
 function LabCard({ repo }) {
     return (
-        <div className="p-4 bg-gray rounded-lg flex flex-col justify-between">
+        <div className="p-4 bg-gray rounded-xl flex flex-col justify-between">
             <div>
                 <div className="flex justify-between gap-1">
                     <h5 className="text-lg font-bold mb-2">{repo.name}</h5>
@@ -75,6 +75,6 @@ function LabContributor({ contributor }) {
 
 function LabLabel({ children }) {
     return (
-        <div className="bg-secondary-dark text-white text-sm py-1 px-3 rounded-2xl">{children}</div>
+        <div className="bg-secondary-dark text-white text-sm py-1 px-3 rounded-xl">{children}</div>
     );
 }

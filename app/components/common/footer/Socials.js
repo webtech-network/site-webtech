@@ -2,12 +2,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faLinkedin, faInstagram, faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import ButtonLink from "../ButtonLink";
 
-export default function RedesSociais() {
+export default function Socials() {
     return (
         <>
             <h2 className="text-xl font-bold mb-5">
-                <FontAwesomeIcon icon={faGlobe} className="opacity-30 mr-3" />Redes Sociais
+                <FontAwesomeIcon icon={faGlobe} className="opacity-30 mr-3" />Acompanhe-nos!
             </h2>
 
             <div className="flex gap-5 justify-center md:justify-start mt-2">

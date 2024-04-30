@@ -25,9 +25,9 @@ export default function Map() {
                     <div className=" px-3 py-2 flex  justify-between   items-center">
                         <h2 className="text-secondary-dark font-bold text-2xl ">Unidades</h2>
                         <div className="flex gap-3">
-                            <button id="btn-coreu " onClick={clickCoreu} className={`text-xs sm:text-lg font-bold px-3 py-1 rounded-md ${mostrarCoreu ? 'text-white bg-secondary' : 'bg-white'
+                            <button id="btn-coreu " onClick={clickCoreu} className={`text-xs sm:text-lg font-bold px-3 py-1 rounded-xl ${mostrarCoreu ? 'text-white bg-secondary' : 'bg-white'
                                 }`}>Coração Eucarístico</button>
-                            <button id="btn-praca" onClick={clickPracaDaLiberdade} className={`text-xs sm:text-lg font-bold px-3 py-1 rounded-md ${mostrarPraca ? 'text-white bg-secondary' : 'bg-white'
+                            <button id="btn-praca" onClick={clickPracaDaLiberdade} className={`text-xs sm:text-lg font-bold px-3 py-1 rounded-xl ${mostrarPraca ? 'text-white bg-secondary' : 'bg-white'
                                 }`}>Praça da Liberdade</button>
                         </div>
 
