@@ -43,15 +43,15 @@ export default async function Banner() {
     const formattedDate = event ? formatDate(event.end_date) : '';
 
     return (
-        <section className="w-100 p-7 rounded-xl bg-neutral-900 container mx-auto grid gap-8 grid-cols-1 lg:grid-cols-2  justify-between">
+        <section className="w-100 p-7 rounded-xl bg-neutral-900 container mx-auto grid gap-5 grid-cols-1 lg:grid-cols-2 justify-between">
             {error ? (
                 <p>{error}</p>
             ) : (
                 <>
-                    <div className="flex flex-col justify-between col-span-4/6 ">
-                        <h1 className="text-3xl font-bold text-primary">{event.name}</h1>
+                    <div className="flex flex-col justify-between col-span-4/6 gap-2">
+                        <h1 className="text-3xl font-semibold text-primary">{event.name}</h1>
                         <div>
-                            <p className="text-xl text-white">{description}</p>
+                            <p className="text-lg text-white">{description}</p>
                             <span className="block text-white font-bold mb-2 mt-10">
                                 <FontAwesomeIcon icon={faCalendar} className="mr-2" />{formattedDate}
                             </span>

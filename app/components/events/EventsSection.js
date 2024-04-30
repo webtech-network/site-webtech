@@ -44,7 +44,7 @@ export function truncateDescription(text, maxLength) {
 function Event({ event, buttonName }) {
 
     const { day, month } = getDayAndMonth(event.start_date);
-    const description = truncateDescription(removeTags(event.detail), 120);
+    const description = truncateDescription(removeTags(event.detail), 160);
 
     return (
         <div className="flex lg:flex-row flex-col lg:space-x-5 lg:space-y-0 space-y-3 mb-5 bg-gray p-4 rounded-xl">
@@ -57,11 +57,12 @@ function Event({ event, buttonName }) {
             </div>
 
             <div className="lg:w-3/5 flex flex-col lg:justify-between">
-                <h2 className="lg:text-2xl text-xl font-bold overflow-hidden whitespace-nowrap text-ellipsis" style={{ maxWidth: '550px' }} title={event.name}>{event.name}</h2>
-                <p className="lg:text-xl pt-2 text-base">{description}</p>
-                <br />
+                <div>
+                    <h2 className="text-xl font-bold overflow-hidden whitespace-nowrap text-ellipsis" style={{ maxWidth: '550px' }} title={event.name}>{event.name}</h2>
+                    <p className="pt-2 text-lg">{description}</p>
+                </div>
                 <div className="flex b-0">
-                    <h4 className="lg:text-lg lg:block hidden font-bold">
+                    <h4 className="text-md font-bold">
                         <FontAwesomeIcon icon={faLocationDot} className="mr-2" />{event.address.address_alt} - {event.address.name}
                     </h4>
                 </div>
