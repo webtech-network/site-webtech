@@ -59,7 +59,7 @@ function LabCard({ repo }) {
                     {repo.language && <LabLabel><FontAwesomeIcon icon={faCode} /> {repo.language}</LabLabel>}
                     {repo.stargazers_count > 0 && <LabLabel><FontAwesomeIcon icon={faStar} /> {repo.stargazers_count}</LabLabel>}
                 </div>
-                <ButtonLink texto="Saiba mais" link={repo.html_url} />
+                <ButtonLink text="Saiba mais" link={repo.html_url} />
             </div>
         </div>
     );

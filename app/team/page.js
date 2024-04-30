@@ -88,7 +88,7 @@ export default async function TeamPage() {
                 <div className="btn">
                     <ButtonLink
                         link="https://webtech.network/discord"
-                        texto="Entrar na comunidade do Discord"
+                        text="Entrar na comunidade do Discord"
                     />
                 </div>
             </section>

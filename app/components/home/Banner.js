@@ -56,7 +56,7 @@ export default async function Banner() {
                                 <FontAwesomeIcon icon={faCalendar} className="mr-2" />{formattedDate}
                             </span>
                         </div>
-                        <ButtonLink texto="Inscreva-se" link={event.url} />
+                        <ButtonLink text="Inscreva-se" link={event.url} />
                     </div>
                     <div className="flex md:justify-end justify-center col-span-2/6">
                         <img src={event.image} alt="" className="max-w-full rounded-xl h-auto drop-shadow-2xl" />

@@ -29,10 +29,10 @@ export default function PartnerSection() {
                 </div>
 
                 <div id="slider" className=" flex  gap-3 w-full h-full overflow-x-scroll scroll scroll-smooth ">
-                    <PartnerCard imagem="/home/partners/sydle.png" texto="A SYDLE impulsiona a transformação digital. Sua plataforma SYDLE ONE reúne soluções de BPM, CRM, E-commerce, Billing, Service Desk e mais." titulo="Sydle" />
-                    <PartnerCard imagem="/home/partners/dti.png" texto="A DTI Digital é uma empresa ágil e nativa digital que oferece soluções personalizadas para acelerar a transformação digital de grandes organizações." titulo="dti digital" />
-                    <PartnerCard imagem="/home/partners/ioasys.png" texto="A ioasys é uma empresa de eficiência digital que impulsiona pessoas, empresas e futuros por meio de inovações que agregam ao negócio de seus clientes." titulo="ioasys" />
-                    <PartnerCard imagem="/home/partners/waymind.png" texto="A Way Minder é uma plataforma online que fortalece a resiliência emocional e previne transtornos mentais, combinando práticas de saúde mental, tecnologia e comunidade." titulo="Way Minder" />
+                    <PartnerCard imagem="/home/partners/sydle.png" text="A SYDLE impulsiona a transformação digital. Sua plataforma SYDLE ONE reúne soluções de BPM, CRM, E-commerce, Billing, Service Desk e mais." titulo="Sydle" />
+                    <PartnerCard imagem="/home/partners/dti.png" text="A DTI Digital é uma empresa ágil e nativa digital que oferece soluções personalizadas para acelerar a transformação digital de grandes organizações." titulo="dti digital" />
+                    <PartnerCard imagem="/home/partners/ioasys.png" text="A ioasys é uma empresa de eficiência digital que impulsiona pessoas, empresas e futuros por meio de inovações que agregam ao negócio de seus clientes." titulo="ioasys" />
+                    <PartnerCard imagem="/home/partners/waymind.png" text="A Way Minder é uma plataforma online que fortalece a resiliência emocional e previne transtornos mentais, combinando práticas de saúde mental, tecnologia e comunidade." titulo="Way Minder" />
                 </div>
 
                 <div onClick={slideRigth} className="justify-center h-72 flex items-center cursor-pointer">
