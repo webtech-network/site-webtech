@@ -33,7 +33,7 @@ async function EventCard() {
                 const description = event.detail ? truncateDescription(removeTags(event.detail), 100) : '';
                 const formattedDate = formatDate(event.end_date);
                 return (
-                    <div key={event.id} className="flex flex-col justify-between gap-3 p-4 min-w-52 max-w-52 md:min-w-80 md:max-w-80 bg-gray box-sombra-sm rounded-md">
+                    <div key={event.id} className="flex flex-col justify-between gap-3 p-4 min-w-52 max-w-52 md:min-w-80 md:max-w-80 bg-gray rounded-md">
                         <div className='flex flex-col justify-between'>
                             <img className="w-full h-40 hidden md:block" src={event.image} alt="" />
                             <h1 className="text-secondary-dark font-bold text-xl mt-3">{event.name}</h1>

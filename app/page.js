@@ -51,7 +51,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <div className="bg-primary p-7 px-4 md:px-7">
+            <div className="bg-primary pb-10">
                 <div className="container mx-auto py-5">
                     <PartnersSection />
                 </div>
