@@ -6,37 +6,43 @@ import ModalChild from "../../contact/ModalChild";
 export default function Header() {
     return (
         <header className="header sticky top-0 bg-primary overflow-hidden px-4 md:px-7 ">
-            <nav className="container  mx-auto  py-5 ">
+            <nav className="container mx-auto py-5">
                 <div className="flex items-center justify-between">
-                    <Link href="/" className="flex-shrink-0">
-                        <img src="/logo.svg" alt="" />
+                    <Link href="/" className="flex-shrink-0 flex">
+                        <div className="flex">
+                            <img src="/lamp.png" className="w-10 h-full object-contain" />
+                            <div className="flex relative text-neutral-900">
+                                <span className="absolute font-bold text-sm block">PUC Minas</span>
+                                <span className="font-bold text-3xl mt-3">WebTech</span>
+                            </div>
+                        </div>
                     </Link>
                     <ul className="hidden md:flex gap-5">
                         <li>
                             <Link
                                 href="/about"
-                                className="font-bold text-secondary hover:text-secondary-dark text-lg hover:text-xl transition-all">
+                                className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
                                 Sobre
                             </Link>
                         </li>
                         <li>
                             <Link
                                 href="/labs"
-                                className="font-bold text-secondary hover:text-secondary-dark text-lg hover:text-xl transition-all">
+                                className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
                                 Labs
                             </Link>
                         </li>
                         <li>
                             <Link
                                 href="/events"
-                                className="font-bold text-secondary hover:text-secondary-dark text-lg hover:text-xl transition-all">
+                                className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
                                 Eventos
                             </Link>
                         </li>
                         <li>
                             <Link
                                 href="/team"
-                                className="font-bold text-secondary hover:text-secondary-dark text-lg hover:text-xl transition-all">
+                                className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
                                 Equipe
                             </Link>
                         </li>
@@ -55,28 +61,28 @@ export default function Header() {
                         <li className="py-2">
                             <Link
                                 href="/about"
-                                className="font-bold text-secondary-dark text-xl transition-all">
+                                className="font-bold text-neutral-900-dark text-xl transition-all">
                                 Sobre
                             </Link>
                         </li>
                         <li className="py-2">
                             <Link
                                 href="/labs"
-                                className="font-bold text-secondary-dark text-xl transition-all">
+                                className="font-bold text-neutral-900-dark text-xl transition-all">
                                 Labs
                             </Link>
                         </li>
                         <li className="py-2">
                             <Link
                                 href="/events"
-                                className="font-bold text-secondary-dark text-xl transition-all">
+                                className="font-bold text-neutral-900-dark text-xl transition-all">
                                 Eventos
                             </Link>
                         </li>
                         <li className="py-2">
                             <Link
                                 href="/team"
-                                className="font-bold text-secondary-dark text-xl transition-all">
+                                className="font-bold text-neutral-900-dark text-xl transition-all">
                                 Equipe
                             </Link>
                         </li>
@@ -86,7 +92,7 @@ export default function Header() {
                     </ul>
                 </div>
             </nav>
-        </header>
+        </header >
     );
 }
 

@@ -16,7 +16,7 @@ export default function ModalChild() {
 
     return (
         <>
-            <button onClick={openModal} className='font-bold text-secondary hover:text-secondary-dark md:text-lg text-xl hover:text-xl transition-all'>Contato</button>
+            <button onClick={openModal} className='font-bold text-secondary hover:text-secondary-light md:text-lg text-xl transition-all'>Contato</button>
             <ContactModal isOpen={isModalOpen} onRequestClose={closeModal} />
         </>
     );

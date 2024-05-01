@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
                 <title>WebTech - PUC Minas</title>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></link>
             </head>
-            <body className={inter.className}>
+            <body className="">
                 <Header></Header>
                 <main className="">
                     {children}

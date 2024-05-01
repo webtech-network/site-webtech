@@ -18,7 +18,7 @@ export default function Home() {
             </header>
             <section className="px-10 md:px-20">
                 <div className="container py-5 grid grid-cols-1 md:grid-cols-12 gap-10">
-                    <div className="col-span-12 lg:col-span-7">
+                    <div className="md:col-span-7">
                         <div className="flex flex-col items-center">
                             <SectionTitle>WebTech Community</SectionTitle>
                             <SectionDescription>
@@ -38,7 +38,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-12 lg:col-span-5 flex justify-center md:justify-end">
+                    <div className="md:col-span-5 flex justify-center md:justify-end">
                         <iframe className="w-96 h-64 md:h-96 mt-5 md:mt-0 md:w-full lg:w-[380px]" src="https://discord.com/widget?id=1167587327376359424&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                     </div>
                 </div>

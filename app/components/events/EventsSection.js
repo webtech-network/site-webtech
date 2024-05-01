@@ -48,7 +48,7 @@ function Event({ event, buttonName }) {
 
     return (
         <div className="flex lg:flex-row flex-col lg:space-x-5 lg:space-y-0 space-y-3 mb-5 bg-gray p-4 rounded-xl">
-            <div className="lg:w-full lg:max-w-[400px]  aspect-16/9">
+            <div className="lg:w-full lg:max-w-[400px] aspect-16/9">
                 <img
                     className="w-full h-full object-contain rounded-xl"
                     src={event.image}
@@ -61,6 +61,7 @@ function Event({ event, buttonName }) {
                     <h2 className="text-xl font-bold overflow-hidden whitespace-nowrap text-ellipsis" style={{ maxWidth: '550px' }} title={event.name}>{event.name}</h2>
                     <p className="pt-2 text-lg">{description}</p>
                 </div>
+                <br />
                 <div className="flex b-0">
                     <h4 className="text-md font-bold">
                         <FontAwesomeIcon icon={faLocationDot} className="mr-2" />{event.address.address_alt} - {event.address.name}
