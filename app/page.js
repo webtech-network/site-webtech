@@ -13,7 +13,8 @@ import ButtonLink from "./components/common/ButtonLink";
 export default function Home() {
     return (
         <div className="">
-            <header className="banner md:px-20 px-10 py-10 w-full">
+            <header
+                className="md:px-20 p-10 animated-background bg-gradient-to-r from-pink-500 to-indigo-500" >
                 <Banner />
             </header>
             <section className="px-10 md:px-20">
