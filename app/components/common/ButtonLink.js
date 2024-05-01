@@ -3,7 +3,7 @@ export default function ButtonLink({ text, link }) {
         <a
             href={link}
             target="_blank"
-            className="w-full h-12 transition-colors bg-primary hover:bg-primary-light rounded-xl cursor-pointer font-bold text-secondary-dark flex items-center justify-center">
+            className="p-3 transition-colors bg-primary hover:bg-primary-light rounded-xl cursor-pointer font-bold text-secondary-dark flex items-center justify-center">
             {text}
         </a>
     );

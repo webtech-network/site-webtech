@@ -48,18 +48,22 @@ export default async function Banner() {
                 <p>{error}</p>
             ) : (
                 <>
-                    <div className="flex flex-col justify-between col-span-4/6 gap-2">
-                        <h1 className="text-3xl font-semibold text-primary">{event.name}</h1>
+                    <div className="flex flex-col justify-between col-span-4/6 gap-5">
                         <div>
+                            <h1 className="text-3xl font-semibold text-primary mb-3">{event.name}</h1>
                             <p className="text-lg text-white">{description}</p>
-                            <span className="block text-white font-bold mb-2 mt-10">
-                                <FontAwesomeIcon icon={faCalendar} className="mr-2" />{formattedDate}
-                            </span>
                         </div>
-                        <ButtonLink text="Inscreva-se" link={event.url} />
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+                            <div className="flex flex-col justify-center">
+                                <span className="text-white font-semibold">
+                                    <FontAwesomeIcon icon={faCalendar} className="mr-2 opacity-50" />{formattedDate}
+                                </span>
+                            </div>
+                            <ButtonLink text="Inscreva-se" link={event.url} />
+                        </div>
                     </div>
                     <div className="flex md:justify-end justify-center col-span-2/6">
-                        <img src={event.image} alt="" className="max-w-full rounded-xl h-auto drop-shadow-2xl" />
+                        <img src={event.image} className="max-w-full rounded-xl" />
                     </div>
                 </>
             )}
