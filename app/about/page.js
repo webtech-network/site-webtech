@@ -42,17 +42,17 @@ export default function AboutPage() {
                     <SectionTitle>Conquistas</SectionTitle>
                     <div className="grid grid-cols-1 w-full gap-10 md:grid-cols-3">
                         <div className="">
-                            <img className="w-full mb-5" src="/about/achievements/webtech-days.png" alt="placeholder" />
+                            <img className="rounded-xl w-full mb-5" src="/about/achievements/webtech-days.png" alt="placeholder" />
                             <p className="font-semibold text-2xl mb-2">WebTech Days bombou!</p>
                             <p className="sm:text-xl text-sm">Reunimos 300 pessoas na primeira edição do WebTech Days, nosso principal evento de tecnologia.</p>
                         </div>
                         <div className="">
-                            <img className="w-full mb-5" src="/about/achievements/espaco.gif" alt="placeholder" />
+                            <img className="rounded-xl w-full mb-5" src="/about/achievements/espaco.gif" alt="placeholder" />
                             <p className="font-semibold text-2xl mb-2">Espaços para chamar de nossos!</p>
                             <p className="sm:text-xl text-sm">A WebTech conta com espaços próprios nas unidades Praça da Liberdade e Coração Eucarístico da PUC Minas.</p>
                         </div>
                         <div className="">
-                            <img className="w-full mb-5" src="/about/achievements/workshops.png" alt="placeholder" />
+                            <img className="rounded-xl w-full mb-5" src="/about/achievements/workshops.png" alt="placeholder" />
                             <p className="font-semibold text-2xl mb-2">Workshops com prática de verdade!</p>
                             <p className="sm:text-xl text-sm">Mais de 100 alunos já participaram dos nossos workshops de Git, Node.js e Web-Scraping.</p>
                         </div>
@@ -63,17 +63,17 @@ export default function AboutPage() {
                     <SectionTitle>Dia a Dia</SectionTitle>
                     <div className="grid grid-cols-1 w-full gap-10 sm:grid-cols-3">
                         <div className="">
-                            <img className="w-full mb-5" src="/about/day-to-day/reunioes.png" alt="placeholder" />
+                            <img className="rounded-xl w-full mb-5" src="/about/day-to-day/reunioes.png" alt="placeholder" />
                             <p className="font-semibold text-2xl mb-2">Encontros diários!</p>
                             <p className="sm:text-xl text-sm">A equipe da WebTech se reúne diariamente para compartilhar conhecimento e trabalhar em projetos.</p>
                         </div>
                         <div className="">
-                            <img className="w-full mb-5" src="/about/day-to-day/workshops.png" alt="placeholder" />
+                            <img className="rounded-xl w-full mb-5" src="/about/day-to-day/workshops.png" alt="placeholder" />
                             <p className="font-semibold text-2xl mb-2">Workshops!</p>
                             <p className="sm:text-xl text-sm">Ministramos workshops de tecnologia para os alunos e público geral.</p>
                         </div>
                         <div className="">
-                            <img className="w-full mb-5" src="/about/day-to-day/labs.png" alt="placeholder" />
+                            <img className="rounded-xl w-full mb-5" src="/about/day-to-day/labs.png" alt="placeholder" />
                             <p className="font-semibold text-2xl mb-2">Criação de labs!</p>
                             <p className="sm:text-xl text-sm">Todos os projetos que criamos geram labs públicos com informações técnicas sobre o que foi desenvolvido.</p>
                         </div>
