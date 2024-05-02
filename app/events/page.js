@@ -2,6 +2,7 @@ import EventsSection from "../components/events/EventsSection";
 import SectionTitle from "../components/common/SectionTitle";
 import SectionDescription from "../components/common/SectionDescription";
 import RecordedEvent from "../components/events/RecordedEvent";
+import ButtonLink from "../components/common/ButtonLink";
 
 export const revalidate = 60;
 
@@ -33,12 +34,7 @@ export default function EventsPage() {
                     </div>
 
                     <div className="flex justify-center">
-                        <a
-                            href="https://www.youtube.com/@Webtech.PUCMinas/featured"
-                            target="blank"
-                        >
-                            <button className="drop-shadow-md bg-primary text-secondary-dark px-16 py-2 mb-5 rounded-xl font-bold hover:bg-primary-light md:text">Ver mais</button>
-                        </a>
+                        <ButtonLink link="https://www.youtube.com/@Webtech.PUCMinas/featured" text="Ver mais" />
                     </div>
 
                     <SectionTitle>Parceiros</SectionTitle>

@@ -4,7 +4,7 @@ import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 export default function RecordedEvent({ title, description, date, videoUrl }) {
 
     return (
-        <div className="flex md:flex-row flex-col md:gap-[74px] gap-5 my-10 bg-[#F0F0F0] drop-shadow-lg rounded-xl p-7">
+        <div className="flex md:flex-row flex-col md:gap-[74px] gap-5 my-10 bg-gray rounded-xl p-7">
             <div className="md:w-3/5 flex flex-col gap-5 justify-between">
                 <div className="flex flex-col gap-2">
                     <h2 className="md:text-2xl font-bold">
