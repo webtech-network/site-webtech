@@ -28,13 +28,11 @@ export default function Home() {
                                 além de mantermos um canal no Discord para a troca de conhecimento e experiências.
                             </SectionDescription>
                             <div className="mt-5">
-                                <a
-                                    href="/discord"
-                                    target="_blank"
-                                    className="rounded-2xl transition-colors duration-300 bg-secondary hover:bg-secondary-light text-white border-secondary border-2 p-4"
-                                >
-                                    <FontAwesomeIcon icon={faGlobe} className="text-xl mr-2" />
-                                    <span className="font-bold">Faça parte da nossa comunidade</span>
+                                <a href="/discord" target="_blank">
+                                    <div className="rounded-2xl transition-colors duration-300 bg-secondary hover:bg-secondary-light text-white border-secondary border-2 p-4">
+                                        <FontAwesomeIcon icon={faGlobe} className="text-xl mr-2" />
+                                        <span className="font-bold">Faça parte da nossa comunidade</span>
+                                    </div>
                                 </a>
                             </div>
                         </div>
