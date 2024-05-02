@@ -8,14 +8,14 @@ export default function Units() {
                 <FontAwesomeIcon icon={faLocationDot} className="opacity-30 mr-3" />Unidades
             </h2>
             <p className="font-bold">Coreu</p>
-            <p>PUC Minas - Coração Eucarístico</p>
-            <p>Av. Dom José Gaspar, 500 - Coração Eucarístico</p>
-            <p>Prédio 34 - HackerSpace</p>
+            <p className="opacity-50">PUC Minas - Coração Eucarístico</p>
+            <p className="opacity-50">Av. Dom José Gaspar, 500 - Coração Eucarístico</p>
+            <p className="opacity-50">Prédio 34 - HackerSpace</p>
             <br />
             <p className="font-bold">Praça</p>
-            <p>PUC Minas - Unidade Praça da Liberdade</p>
-            <p>R. Cláudio Manoel, 1162 - Savassi</p>
-            <p>Prédio 4 - Sala 1106</p>
+            <p className="opacity-50">PUC Minas - Unidade Praça da Liberdade</p>
+            <p className="opacity-50">R. Cláudio Manoel, 1162 - Savassi</p>
+            <p className="opacity-50">Prédio 4 - Sala 1106</p>
         </>
     );
 
