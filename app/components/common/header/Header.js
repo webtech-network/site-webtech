@@ -17,37 +17,37 @@ export default function Header() {
                             </div>
                         </div>
                     </Link>
-                    <ul className="hidden md:flex gap-5">
-                        <li>
+                    <ul className="hidden md:flex gap-5 nav-list">
+                        <li className="nav-item">
                             <Link
                                 href="/about"
                                 className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
                                 Sobre
                             </Link>
                         </li>
-                        <li>
+                        <li className="nav-item">
                             <Link
                                 href="/labs"
                                 className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
                                 Labs
                             </Link>
                         </li>
-                        <li>
+                        <li className="nav-item">
                             <Link
                                 href="/events"
                                 className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
                                 Eventos
                             </Link>
                         </li>
-                        <li>
+                        <li className="nav-item">
                             <Link
                                 href="/team"
                                 className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
                                 Equipe
                             </Link>
                         </li>
-                        <li>
-                            <ModalChild>Contato</ModalChild>
+                        <li className="nav-item">
+                            <ModalChild >Contato</ModalChild>
                         </li>
                     </ul>
                     <div className="block md:hidden">
