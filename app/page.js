@@ -36,8 +36,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                        <iframe className="
-                        rounded-lg h-96 w-96 lg:h-full lg:w-full" src="https://discord.com/widget?id=1167587327376359424&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                        <iframe className="rounded-lg h-96 w-96 lg:h-full lg:w-full" src="https://discord.com/widget?id=1167587327376359424&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                     </div>
                 </div>
             </section>
