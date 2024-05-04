@@ -43,30 +43,32 @@ export default async function Banner() {
     const formattedDate = event ? formatDate(event.end_date) : '';
 
     return (
-        <section className="w-100 p-7 rounded-xl bg-neutral-900 container mx-auto grid gap-5 grid-cols-1 lg:grid-cols-2 justify-between">
-            {error ? (
-                <p>{error}</p>
-            ) : (
-                <>
-                    <div className="flex flex-col justify-between col-span-4/6 gap-5">
-                        <div>
-                            <h1 className="text-3xl font-semibold text-primary mb-3">{event.name}</h1>
-                            <p className="text-lg text-white">{description}</p>
-                        </div>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-                            <div className="flex flex-col justify-center">
-                                <span className="text-white font-semibold">
-                                    <FontAwesomeIcon icon={faCalendar} className="mr-2 opacity-50" />{formattedDate}
-                                </span>
+        <section className="container px-auto hover:scale-[1.02] transition-all">
+            <div className="p-7 rounded-xl bg-neutral-900 mx-auto grid gap-5 grid-cols-1 lg:grid-cols-2 justify-between">
+                {error ? (
+                    <p>{error}</p>
+                ) : (
+                    <>
+                        <div className="flex flex-col justify-between col-span-4/6 gap-5">
+                            <div>
+                                <h1 className="text-3xl font-semibold text-primary mb-3">{event.name}</h1>
+                                <p className="text-lg text-white">{description}</p>
                             </div>
-                            <ButtonLink text="Inscreva-se" link={event.url} />
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+                                <div className="flex flex-col justify-center">
+                                    <span className="text-white font-semibold">
+                                        <FontAwesomeIcon icon={faCalendar} className="mr-2 opacity-50" />{formattedDate}
+                                    </span>
+                                </div>
+                                <ButtonLink text="Inscreva-se" link={event.url} />
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex md:justify-end justify-center col-span-2/6">
-                        <img src={event.image} className="max-w-full rounded-xl" />
-                    </div>
-                </>
-            )}
+                        <div className="flex md:justify-end justify-center col-span-2/6">
+                            <img src={event.image} className="max-w-full rounded-xl" />
+                        </div>
+                    </>
+                )}
+            </div>
         </section>
     );
 }

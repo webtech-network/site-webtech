@@ -14,31 +14,30 @@ export default function Home() {
     return (
         <div className="">
             <header
-                className="md:px-20 p-10 animated-background bg-gradient-to-r from-pink-500 to-indigo-500" >
+                className="p-10 animated-background bg-gradient-to-r from-pink-500 to-indigo-500" >
                 <Banner />
             </header>
-            <section className="px-10 md:px-20">
-                <div className="container py-5 grid grid-cols-1 md:grid-cols-12 gap-10">
-                    <div className="md:col-span-7">
-                        <div className="flex flex-col items-center">
-                            <SectionTitle>WebTech Community</SectionTitle>
-                            <SectionDescription>
-                                Um dos objetivos da WebTech é a formação de uma comunidade de desenvolvedores,
-                                designers e entusiastas de tecnologia. Para isso, promovemos eventos, cursos e workshops,
-                                além de mantermos um canal no Discord para a troca de conhecimento e experiências.
-                            </SectionDescription>
-                            <div className="mt-5">
-                                <a href="/discord" target="_blank">
-                                    <div className="rounded-2xl transition-colors duration-300 bg-secondary hover:bg-secondary-light text-white border-secondary border-2 p-4">
-                                        <FontAwesomeIcon icon={faGlobe} className="text-xl mr-2" />
-                                        <span className="font-bold">Faça parte da nossa comunidade</span>
-                                    </div>
-                                </a>
-                            </div>
+            <section className="container mt-5 mb-10 lg:mb-5">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    <div className="lg:mb-10 lg:col-span-8 flex flex-col items-center">
+                        <SectionTitle>WebTech Community</SectionTitle>
+                        <SectionDescription>
+                            <p className="px-10">Queremos formar uma comunidade de apaixonados por tecnologia e inovação,
+                                para compartilharmos conhecimento e experiências sobre desenvolvimento
+                                de ferramentas e soluções digitais.</p>
+                        </SectionDescription>
+                        <div className="">
+                            <a href="/discord" target="_blank">
+                                <div className="hover:scale-[1.05] rounded-2xl transition-all duration-300 bg-secondary hover:bg-secondary-light text-white border-secondary border-2 p-4">
+                                    <FontAwesomeIcon icon={faGlobe} className="text-xl mr-2" />
+                                    <span className="font-bold">Faça parte da nossa comunidade</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
-                    <div className="md:col-span-5 flex justify-center md:justify-end">
-                        <iframe className="w-96 h-64 md:h-96 mt-5 md:mt-0 md:w-full lg:w-[380px]" src="https://discord.com/widget?id=1167587327376359424&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                    <div className="lg:col-span-4 flex justify-center lg:justify-end">
+                        <iframe className="
+                        rounded-lg h-96 w-96 lg:h-full lg:w-full" src="https://discord.com/widget?id=1167587327376359424&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                     </div>
                 </div>
             </section>
