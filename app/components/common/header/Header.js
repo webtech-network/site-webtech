@@ -101,10 +101,10 @@ export function openMenu() {
 
     if (menu.classList.contains('hidden')) {
         menu.classList.remove('hidden');
-        menu.classList.add('transicao');
+        menu.classList.add('transition');
     }
     else {
         menu.classList.add('hidden');
-        menu.classList.remove('transicao');
+        menu.classList.remove('transition');
     }
 }
