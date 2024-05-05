@@ -21,11 +21,13 @@ export default function Home() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
                     <div className="lg:mb-10 lg:col-span-8 flex flex-col items-center">
                         <SectionTitle>WebTech Community</SectionTitle>
-                        <SectionDescription>
-                            <p className="px-10">Queremos formar uma comunidade de apaixonados por tecnologia e inovação,
+                        <div className="px-10">
+                            <SectionDescription>
+                                Queremos formar uma comunidade de apaixonados por tecnologia e inovação,
                                 para compartilharmos conhecimento e experiências sobre desenvolvimento
-                                de ferramentas e soluções digitais.</p>
-                        </SectionDescription>
+                                de ferramentas e soluções digitais.
+                            </SectionDescription>
+                        </div>
                         <div className="">
                             <a href="/discord" target="_blank">
                                 <div className="hover:scale-[1.05] rounded-2xl transition-all duration-300 bg-secondary hover:bg-secondary-light text-white border-secondary border-2 p-4">
