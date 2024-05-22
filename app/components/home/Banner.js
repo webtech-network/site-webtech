@@ -1,35 +1,23 @@
+'use client';
+import React, { useEffect } from 'react';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import ButtonLink from '../common/ButtonLink';
-import getAllEvents from '@/app/sympla';
 import { removeTags, truncateDescription } from '../events/EventsSection';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar } from '@fortawesome/free-regular-svg-icons';
+import './Banner.css';
 
-export default async function Banner() {
-      const data = await getAllEvents();
-      const events = data.data;
+function Banner({ events, initialIndex }) {
+      const [currentIndex, setCurrentIndex] = React.useState(initialIndex);
 
-      let event = null;
-      let error = null;
+      useEffect(() => {
+            const interval = setInterval(() => {
+                  setCurrentIndex((currentIndex + 1) % events.length);
+            }, 10000);
 
-      if (events && Array.isArray(events) && events.length > 0) {
-            const upcomingEvents = events.filter((event) => {
-                  const endDate = new Date(event.end_date);
-                  const currentDate = new Date();
-                  return endDate > currentDate;
-            });
-
-            if (upcomingEvents.length > 0) {
-                  upcomingEvents.sort((a, b) => new Date(a.end_date) - new Date(b.end_date));
-                  event = upcomingEvents[0];
-            } else {
-                  event = events[0];
-            }
-      } else {
-            error = 'Falha ao obter os dados dos eventos.';
-      }
+            return () => clearInterval(interval);
+      }, [currentIndex, events.length]);
 
       const formatDate = (dateString) => {
             const date = new Date(dateString);
@@ -37,15 +25,14 @@ export default async function Banner() {
             return formattedDate;
       };
 
+      const event = events[currentIndex];
       const description = event ? truncateDescription(removeTags(event.detail), 150) : '';
       const formattedDate = event ? formatDate(event.end_date) : '';
 
       return (
-            <section className="container px-auto hover:scale-[1.02] transition-all">
-                  <div className="p-7 rounded-xl bg-neutral-900 mx-auto grid gap-5 grid-cols-1 lg:grid-cols-2 justify-between">
-                        {error ? (
-                              <p>{error}</p>
-                        ) : (
+            <div className="slider container">
+                  <section className="slide">
+                        <div className="p-7 rounded-xl bg-neutral-900 mx-auto grid gap-5 grid-cols-1 lg:grid-cols-2 justify-between">
                               <>
                                     <div className="flex flex-col justify-between col-span-4/6 gap-5">
                                           <div>
@@ -55,7 +42,8 @@ export default async function Banner() {
                                           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
                                                 <div className="flex flex-col justify-center">
                                                       <span className="text-white font-semibold">
-                                                            <FontAwesomeIcon icon={faCalendar} className="mr-2 opacity-50" />{formattedDate}
+                                                            <FontAwesomeIcon icon={faCalendar} className="mr-2 opacity-50" />
+                                                            {formattedDate}
                                                       </span>
                                                 </div>
                                                 <ButtonLink text="Inscreva-se" link={event.url} />
@@ -65,8 +53,19 @@ export default async function Banner() {
                                           <img src={event.image} className="max-w-full rounded-xl" />
                                     </div>
                               </>
-                        )}
-                  </div>
-            </section>
+                        </div>
+                        <div className="dots">
+                              {[...Array(5)].map((_, index) => (
+                                    <span
+                                          key={index}
+                                          className={`dot ${index === currentIndex % 5 ? 'active' : ''}`}
+                                          onClick={() => setCurrentIndex(index)}
+                                    ></span>
+                              ))}
+                        </div>
+                  </section>
+            </div>
       );
 }
+
+export default Banner;
