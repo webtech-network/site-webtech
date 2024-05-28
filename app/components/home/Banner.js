@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar } from '@fortawesome/free-regular-svg-icons';
 import './Banner.css';
 
+export const revalidate = 60;
+
 function Banner({ events, initialIndex }) {
       const [currentIndex, setCurrentIndex] = React.useState(initialIndex);
 
