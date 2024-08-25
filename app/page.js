@@ -11,6 +11,7 @@ import { faLinkedin, faInstagram, faGithub, faYoutube } from "@fortawesome/free-
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import ButtonLink from "./components/common/ButtonLink";
 
+export const revalidate = 60;
 
 export default async function Home() {
       const events = await fetchEvents();
