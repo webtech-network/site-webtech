@@ -2,6 +2,7 @@
 import Link from "next/link";
 import "./style.css";
 import ModalChild from "../../contact/ModalChild";
+// import { Logo } from "../../icons/Logo";
 
 export default function Header() {
     return (

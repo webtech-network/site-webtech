@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect } from 'react';
 import { format } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
+import { is, ptBR } from 'date-fns/locale';
 import ButtonLink from '../common/ButtonLink';
 import { removeTags, truncateDescription } from '../events/EventsSection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,14 +12,17 @@ export const revalidate = 60;
 
 function Banner({ events, initialIndex }) {
       const [currentIndex, setCurrentIndex] = React.useState(initialIndex);
+      
+      const currentTime = new Date().getTime(); //data atual
+      const upcomingEvents = events.filter(event => new Date(event.end_date).getTime() > currentTime); //filtro de eventos futuros 
 
       useEffect(() => {
             const interval = setInterval(() => {
-                  setCurrentIndex((currentIndex + 1) % events.length);
+                setCurrentIndex((currentIndex + 1) % upcomingEvents.length);
             }, 10000);
 
             return () => clearInterval(interval);
-      }, [currentIndex, events.length]);
+      }, [currentIndex, upcomingEvents.length]);
 
       const formatDate = (dateString) => {
             const date = new Date(dateString);
@@ -27,9 +30,24 @@ function Banner({ events, initialIndex }) {
             return formattedDate;
       };
 
-      const event = events[currentIndex];
+      if (upcomingEvents.length === 0) { //caso nao tenha eventos futuros
+        return (
+            <div className="slider container">
+                  <section className="slide">
+                        <div className="p-7 rounded-xl bg-neutral-900 mx-auto flex justify-center items-center">
+                                <div className="text-center">
+                                    <h1 className=" text-2xl font-semibold text-primary mb-1 ">Em breve divulgaremos novos eventos.</h1>
+                                </div>
+                        </div>
+                  </section>
+            </div>
+        );
+      } 
+
+      const event = upcomingEvents[currentIndex];
       const description = event ? truncateDescription(removeTags(event.detail), 150) : '';
       const formattedDate = event ? formatDate(event.end_date) : '';
+
 
       return (
             <div className="slider container">
@@ -57,10 +75,10 @@ function Banner({ events, initialIndex }) {
                               </>
                         </div>
                         <div className="dots">
-                              {[...Array(5)].map((_, index) => (
+                              {[...Array(upcomingEvents.length)].map((_, index) => (
                                     <span
                                           key={index}
-                                          className={`dot ${index === currentIndex % 5 ? 'active' : ''}`}
+                                          className={`dot ${index === currentIndex ? 'active' : ''}`}
                                           onClick={() => setCurrentIndex(index)}
                                     ></span>
                               ))}
