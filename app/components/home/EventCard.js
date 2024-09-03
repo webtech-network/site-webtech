@@ -25,8 +25,21 @@ async function EventCard() {
         return dateA - dateB;
     };
 
-    if (!events) {
-        return <Loading />;
+    const currentTime = new Date().getTime(); //data atual
+    const upcomingEvents = events.filter(event => new Date(event.end_date).getTime() > currentTime); //filtro de eventos futuros 
+
+    if (upcomingEvents.length === 0) { //caso nao tenha eventos futuros
+        return (
+            <div className="slider container">
+                <section className="slide">
+                    <div className="p-7 rounded-xl bg-neutral-900 mx-auto flex justify-center items-center">
+                        <div className="text-center">
+                            <h1 className=" text-2xl font-semibold text-primary mb-1 ">Nenhum evento futuro da WebTech disponível.</h1>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        );
     }
 
     const sortedEvents = events.sort(compareEndDate).slice(0, 3);

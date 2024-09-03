@@ -19,7 +19,7 @@ export default async function Home() {
       return (
             <div className="">
                   <header
-                        className="py-10 animated-background bg-gradient-to-r from-pink-500 to-indigo-500" >
+                        className="py-10 animated-background bg-gradient-to-r from-amber-500 via-slate-600 to-sky-700" >
                         <Banner events={events} initialIndex={initialIndex} />
                   </header>
                   <section className="container mt-5 mb-10 lg:mb-5">
