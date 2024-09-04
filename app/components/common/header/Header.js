@@ -2,7 +2,6 @@
 import Link from "next/link";
 import "./style.css";
 import ModalChild from "../../contact/ModalChild";
-import { Logo } from "/public/logo.svg";
 
 export default function Header() {
     return (
@@ -12,7 +11,7 @@ export default function Header() {
                     <Link href="/" className="flex-shrink-0 flex">
                         <div className="flex">
                             <div className="">
-                                <img src="/logo.svg" className="w-48 h-auto md:w-60" />
+                                <img src="/logo.png" className="w-40 h-auto md:w-50" />
                             </div>
                         </div>
                     </Link>
