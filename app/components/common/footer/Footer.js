@@ -28,7 +28,7 @@ export default async function Footer() {
             </div>
 
             <div className="bg-secondary h-10 flex items-center justify-center">
-                <p> &#169; WebTech - PUC Minas</p>
+                <p>© WebTech Network | <a className="text-primary hover:underline" href="/terms">Termos de uso</a> | <a className="text-primary hover:underline" href="/privacy">Política de Privacidade</a></p>
             </div>
         </footer>
 
