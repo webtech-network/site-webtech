@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default async function Terms() {
 
     return (
@@ -44,7 +42,7 @@ export default async function Terms() {
                                     Remover quaisquer direitos autorais ou outras notações de propriedade dos materiais; ou
                                 </li>
                                 <li>
-                                    Transferir os materiais para outra pessoa ou 'espelhe' os materiais em qualquer outro servidor.
+                                    Transferir os materiais para outra pessoa ou ´espelhe` os materiais em qualquer outro servidor.
                                 </li>
                             </ul>
                     
@@ -59,7 +57,7 @@ export default async function Terms() {
                         <h2 className="text-3xl font-bold text-primary-dark">3. Isenção de responsabilidade</h2>
                         <ul className="list-disc list-inside py-3 text-lg text-secondary-dark">
                             <li className="py-2" >
-                                Os materiais no site da WebTech Network são fornecidos 'como estão'. WebTech Network não oferece garantias, 
+                                Os materiais no site da WebTech Network são fornecidos ´como estão`. WebTech Network não oferece garantias, 
                                 expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, 
                                 incluindo, sem limitação, garantias implícitas ou condições de comercialização, 
                                 adequação a um fim específico ou não violação de propriedade intelectual ou outra violação de direitos.
