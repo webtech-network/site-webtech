@@ -6,14 +6,12 @@ import ModalChild from "../../contact/ModalChild";
 export default function Header() {
     return (
         <header className="header sticky top-0 bg-primary overflow-hidden px-4 md:px-7 ">
-            <nav className="container mx-auto py-5">
+            <nav className="container mx-auto py-1">
                 <div className="flex items-center justify-between">
                     <Link href="/" className="flex-shrink-0 flex">
                         <div className="flex">
-                            <img src="/lamp.png" className="w-10 h-full object-contain" />
-                            <div className="flex relative text-neutral-900">
-                                <span className="absolute font-bold text-sm block">PUC Minas</span>
-                                <span className="font-bold text-3xl mt-3">WebTech</span>
+                            <div className="">
+                                <img src="/logo.png" className="w-40 h-auto md:w-50" />
                             </div>
                         </div>
                     </Link>
