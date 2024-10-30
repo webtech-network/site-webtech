@@ -24,7 +24,7 @@ export default function Socials() {
                     <FontAwesomeIcon icon={faInstagram} className="text-3xl" />
                 </a>
 
-                <a href="https://github.com/WebTech-PUC-Minas" target="_blank">
+                <a href="https://github.com/webtech-network" target="_blank">
                     <FontAwesomeIcon icon={faGithub} className="text-3xl" />
                 </a>
 
