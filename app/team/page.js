@@ -46,6 +46,7 @@ export default async function TeamPage() {
             const response = await Github.rest.teams.listMembersInOrg({
                 org: GITHUB_ORG_NAME,
                 team_slug: teamSlug,
+                per_page: 100,
             });
 
             await Promise.all(response.data.map(user => addUser(user, teamSlug)));
@@ -58,9 +59,10 @@ export default async function TeamPage() {
 
     const response = await Github.rest.orgs.listMembers({
         org: GITHUB_ORG_NAME,
+        per_page: 100,
     });
 
-    await Promise.all(response.data.map(user => addUser(user, 'current')));
+    await Promise.all(response.data.map(user =>  (user.user_view_type == 'public') ? addUser(user, 'current') : null));
 
     return (
         <div className="container mx-auto">
