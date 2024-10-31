@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="pt-br">
             <head>
-                <title>WebTech - PUC Minas</title>
+                <title>WebTech Network</title>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></link>
             </head>
             <body className="">
