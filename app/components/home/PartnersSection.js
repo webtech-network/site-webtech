@@ -29,6 +29,7 @@ export default function PartnerSection() {
                 </div>
 
                 <div id="slider" className=" flex  gap-3 w-full h-full overflow-x-scroll scroll scroll-smooth ">
+                    <PartnerCard imagem="/home/partners/netproject.png" text="A NetProject oferece serviços e soluções integradas para práticas híbridas de Gestão de Projetos para o que importa de verdade: boas decisões e resultados." titulo="NetProject" />
                     <PartnerCard imagem="/home/partners/sydle.png" text="A SYDLE impulsiona a transformação digital. Sua plataforma SYDLE ONE reúne soluções de BPM, CRM, E-commerce, Billing, Service Desk e mais." titulo="Sydle" />
                     <PartnerCard imagem="/home/partners/dti.png" text="A DTI Digital é uma empresa ágil e nativa digital que oferece soluções personalizadas para acelerar a transformação digital de grandes organizações." titulo="dti digital" />
                     <PartnerCard imagem="/home/partners/ioasys.png" text="A ioasys é uma empresa de eficiência digital que impulsiona pessoas, empresas e futuros por meio de inovações que agregam ao negócio de seus clientes." titulo="ioasys" />

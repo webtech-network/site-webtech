@@ -39,10 +39,10 @@ export default function EventsPage() {
 
                     <SectionTitle>Parceiros</SectionTitle>
                     <div className="grid md:grid-cols-4 grid-cols-2 gap-5 pb-[74px]">
-                        <a href="https://www.sydle.com/br/" target="blank"><img className="w-[200px] h-[100px] object-cover rounded-xl mx-auto mt-5 drop-shadow-md" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT91t3QEKoeNLm5zkIJFMxlGQvIzrlf9AKtS9qf-p-hbQ&s" alt="placeholder" /></a>
-                        <a href="https://www.dtidigital.com.br/" target="blank"><img className="w-[200px] h-[100px] object-cover rounded-xl mx-auto mt-5 drop-shadow-md" src="https://activecs.co/wp-content/uploads/2019/01/case-dti.jpg" alt="placeholder" /></a>
-                        <a href="https://ioasys.com.br/" target="blank"><img className="w-[200px] h-[100px] object-cover rounded-xl mx-auto mt-5 drop-shadow-md" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd38la2GhtRTT_d7xIyc2KId7HYNcY8j_-y2VsfrJpqg&s" alt="placeholder" /></a>
-                        <a href="https://mobile.wayminder.com.br/" target="blank"><img className="w-[200px] h-[100px] object-cover rounded-xl mx-auto mt-5 drop-shadow-md" src="https://www.projetodraft.com/wp-content/uploads/2023/07/way-minder.png" alt="placeholder" /></a>
+                        <a href="https://www.sydle.com/br/" target="blank"><img className="w-[200px] h-[100px] object-cover rounded-xl mx-auto mt-5 drop-shadow-md" src="/home/partners/sydle.png" alt="placeholder" /></a>
+                        <a href="https://www.dtidigital.com.br/" target="blank"><img className="w-[200px] h-[100px] object-cover rounded-xl mx-auto mt-5 drop-shadow-md" src="/home/partners/dti.png" alt="placeholder" /></a>
+                        <a href="https://ioasys.com.br/" target="blank"><img className="w-[200px] h-[100px] object-cover rounded-xl mx-auto mt-5 drop-shadow-md" src="/home/partners/ioasys.png" alt="placeholder" /></a>
+                        <a href="https://mobile.wayminder.com.br/" target="blank"><img className="w-[200px] h-[100px] object-cover rounded-xl mx-auto mt-5 drop-shadow-md" src="/home/partners/waymind.png" alt="placeholder" /></a>
                     </div>
 
                 </div>
