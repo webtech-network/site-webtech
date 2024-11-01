@@ -13,6 +13,34 @@ import ButtonLink from "./components/common/ButtonLink";
 
 export const revalidate = 60;
 
+const partners = [
+    {
+        "titulo": "NetProject",
+        "imagem": "/home/partners/netproject.png",
+        "descricao": "A NetProject oferece serviços e soluções integradas para práticas híbridas de Gestão de Projetos para o que importa de verdade: boas decisões e resultados."
+    },
+    {
+        "titulo": "Sydle",
+        "imagem": "/home/partners/sydle.png",
+        "descricao": "A SYDLE impulsiona a transformação digital. Sua plataforma SYDLE ONE reúne soluções de BPM, CRM, E-commerce, Billing, Service Desk e mais."
+    },
+    {
+        "titulo": "dti digital",
+        "imagem": "/home/partners/dti.png",
+        "descricao": "A DTI Digital é uma empresa ágil e nativa digital que oferece soluções personalizadas para acelerar a transformação digital de grandes organizações."
+    },
+    {
+        "titulo": "ioasys",
+        "imagem": "/home/partners/ioasys.png",
+        "descricao": "A ioasys é uma empresa de eficiência digital que impulsiona pessoas, empresas e futuros por meio de inovações que agregam ao negócio de seus clientes."
+    },
+    {
+        "titulo": "Way Minder",
+        "imagem": "/home/partners/waymind.png",
+        "descricao": "A Way Minder é uma plataforma online que fortalece a resiliência emocional e previne transtornos mentais, combinando práticas de saúde mental, tecnologia e comunidade."
+    }
+];
+
 export default async function Home() {
       const events = await fetchEvents();
       const initialIndex = 0;
@@ -49,10 +77,12 @@ export default async function Home() {
                   </section>
                   <section className="bg-primary pb-10">
                         <div className="container mx-auto py-5">
-                              <PartnersSection />
+                            <SectionTitle>Parceiros WebTech</SectionTitle>
+                            <PartnersSection partners={partners} />
                         </div>
                   </section>
                   <section className="container mx-auto mb-10">
+                        <SectionTitle>Eventos</SectionTitle>
                         <EventsSection />
                   </section>
                   <Map />

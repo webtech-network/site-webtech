@@ -39,6 +39,13 @@ export default function Header() {
                         </li>
                         <li className="nav-item">
                             <Link
+                                href="/journey"
+                                className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
+                                Journey
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link
                                 href="/team"
                                 className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
                                 Equipe
@@ -75,6 +82,13 @@ export default function Header() {
                                 href="/events"
                                 className="font-bold text-neutral-900-dark text-xl transition-all">
                                 Eventos
+                            </Link>
+                        </li>
+                        <li className="py-2">
+                            <Link
+                                href="/journey"
+                                className="font-bold text-neutral-900-dark text-xl transition-all">
+                                Journey
                             </Link>
                         </li>
                         <li className="py-2">

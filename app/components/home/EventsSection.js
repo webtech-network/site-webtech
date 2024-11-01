@@ -34,7 +34,6 @@ export default async function EventsSection() {
 
     return (
         <>
-            <SectionTitle>Eventos</SectionTitle>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 {sortedEvents.map(event => {
                     const description = event.detail ? truncateDescription(removeTags(event.detail), 100) : '';
