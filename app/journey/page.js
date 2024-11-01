@@ -116,7 +116,7 @@ export default function JourneyPage() {
                             <details className="mt-2">
                                 <summary className="font-semibold">Etapa 1 - Site Estático (HTML e CSS)</summary>
                                 <div className="mt-2 ml-4 p-4 border-b-4  border-amber-400 bg-neutral-300">
-                                    <p>É criado um site web simples usando HTML para estrutura e CSS para estilização que contenha múltiplas páginas interligadas, como uma página inicial, uma página "Sobre", dados dos produtos ou serviços e uma página de contato.</p>
+                                    <p>É criado um site web simples usando HTML para estrutura e CSS para estilização que contenha múltiplas páginas interligadas, como uma página inicial, uma página Sobre, dados dos produtos ou serviços e uma página de contato.</p>
                                 </div>
                             </details>
 
