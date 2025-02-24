@@ -66,40 +66,40 @@ export default function Header() {
                         <li className="py-2">
                             <Link
                                 href="/about"
-                                className="font-bold text-neutral-100-dark text-xl transition-all">
+                                className="font-bold text-neutral-100 text-xl transition-all">
                                 Sobre
                             </Link>
                         </li>
                         <li className="py-2">
                             <Link
                                 href="/labs"
-                                className="font-bold text-neutral-100-dark text-xl transition-all">
+                                className="font-bold text-neutral-100 text-xl transition-all">
                                 Labs
                             </Link>
                         </li>
                         <li className="py-2">
                             <Link
                                 href="/events"
-                                className="font-bold text-neutral-100-dark text-xl transition-all">
+                                className="font-bold text-neutral-100 text-xl transition-all">
                                 Eventos
                             </Link>
                         </li>
                         <li className="py-2">
                             <Link
                                 href="/journey"
-                                className="font-bold text-neutral-100-dark text-xl transition-all">
+                                className="font-bold text-neutral-100 text-xl transition-all">
                                 Journey
                             </Link>
                         </li>
                         <li className="py-2">
                             <Link
                                 href="/team"
-                                className="font-bold text-neutral-100-dark text-xl transition-all">
+                                className="font-bold text-neutral-100 text-xl transition-all">
                                 Equipe
                             </Link>
                         </li>
                         <li className="py-2">
-                            <ModalChild  className="text-neutral-100-dark">Contato</ModalChild>
+                            <ModalChild  className="text-neutral-100">Contato</ModalChild>
                         </li>
                     </ul>
                 </div>
