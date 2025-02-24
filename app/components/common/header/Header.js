@@ -5,7 +5,7 @@ import ModalChild from "../../contact/ModalChild";
 
 export default function Header() {
     return (
-        <header className="header sticky top-0 bg-primary overflow-hidden px-4 md:px-7 ">
+        <header className="header sticky top-0 bg-secondary-dark overflow-hidden px-4 md:px-7 ">
             <nav className="container mx-auto py-1">
                 <div className="flex items-center justify-between">
                     <Link href="/" className="flex-shrink-0 flex">
@@ -19,40 +19,40 @@ export default function Header() {
                         <li className="nav-item">
                             <Link
                                 href="/about"
-                                className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
+                                className="font-bold text-neutral-100 hover:text-neutral-100-light text-lg transition-all">
                                 Sobre
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link
                                 href="/labs"
-                                className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
+                                className="font-bold text-neutral-100 hover:text-neutral-100-light text-lg transition-all">
                                 Labs
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link
                                 href="/events"
-                                className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
+                                className="font-bold text-neutral-100 hover:text-neutral-100-light text-lg transition-all">
                                 Eventos
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link
                                 href="/journey"
-                                className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
+                                className="font-bold text-neutral-100 hover:text-neutral-100-light text-lg transition-all">
                                 Journey
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link
                                 href="/team"
-                                className="font-bold text-neutral-900 hover:text-neutral-900-light text-lg transition-all">
+                                className="font-bold text-neutral-100 hover:text-neutral-100-light text-lg transition-all">
                                 Equipe
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <ModalChild >Contato</ModalChild>
+                            <ModalChild>Contato</ModalChild>
                         </li>
                     </ul>
                     <div className="block md:hidden">
@@ -66,40 +66,40 @@ export default function Header() {
                         <li className="py-2">
                             <Link
                                 href="/about"
-                                className="font-bold text-neutral-900-dark text-xl transition-all">
+                                className="font-bold text-neutral-100-dark text-xl transition-all">
                                 Sobre
                             </Link>
                         </li>
                         <li className="py-2">
                             <Link
                                 href="/labs"
-                                className="font-bold text-neutral-900-dark text-xl transition-all">
+                                className="font-bold text-neutral-100-dark text-xl transition-all">
                                 Labs
                             </Link>
                         </li>
                         <li className="py-2">
                             <Link
                                 href="/events"
-                                className="font-bold text-neutral-900-dark text-xl transition-all">
+                                className="font-bold text-neutral-100-dark text-xl transition-all">
                                 Eventos
                             </Link>
                         </li>
                         <li className="py-2">
                             <Link
                                 href="/journey"
-                                className="font-bold text-neutral-900-dark text-xl transition-all">
+                                className="font-bold text-neutral-100-dark text-xl transition-all">
                                 Journey
                             </Link>
                         </li>
                         <li className="py-2">
                             <Link
                                 href="/team"
-                                className="font-bold text-neutral-900-dark text-xl transition-all">
+                                className="font-bold text-neutral-100-dark text-xl transition-all">
                                 Equipe
                             </Link>
                         </li>
                         <li className="py-2">
-                            <ModalChild>Contato</ModalChild>
+                            <ModalChild  className="text-neutral-100-dark">Contato</ModalChild>
                         </li>
                     </ul>
                 </div>
