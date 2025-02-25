@@ -11,7 +11,7 @@ export default function Header() {
                     <Link href="/" className="flex-shrink-0 flex">
                         <div className="flex">
                             <div className="">
-                                <img src="/logo.png" className="w-40 h-auto md:w-50" />
+                                <img src="/logo.png" className="w-40 h-auto md:w-60" />
                             </div>
                         </div>
                     </Link>
