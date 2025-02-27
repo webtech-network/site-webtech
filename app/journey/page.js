@@ -83,7 +83,7 @@ export default function JourneyPage() {
 
                         <h2 className="text-2xl font-semibold mt-10 mb-7">Estrutura do Programa</h2>
                         <SectionDescription>
-                        O jornada é dividida em etapas que vão aumentando a complexidade na construção de uma aplicação completa e com tecnologias utilizadas no mercado. 
+                        O WebTech Journey é dividido em etapas que vão aumentando a complexidade na construção de uma aplicação completa e com tecnologias utilizadas no mercado. 
                         </SectionDescription>
                         <SectionDescription>Na medida em que avança nas etapas, os participantes podem ir conquistando bônus na disciplina e também reconhecimento que podem compartilhar com seus colegas. A imagem a seguir sintetiza essa dinâmica.
                             <img src="/icons/journey-estrutura.png" className="w-400 h-auto md:w-50" />
