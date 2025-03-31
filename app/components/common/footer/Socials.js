@@ -28,7 +28,7 @@ export default function Socials() {
                     <FontAwesomeIcon icon={faGithub} className="text-3xl" />
                 </a>
 
-                <a href="https://www.youtube.com/@Webtech.PUCMinas" target="_blank">
+                <a href="https://www.youtube.com/@webtech.network" target="_blank">
                     <FontAwesomeIcon icon={faYoutube} className="text-3xl" />
                 </a>
             </div>
