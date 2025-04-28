@@ -16,7 +16,7 @@ export default function Socials() {
                     <FontAwesomeIcon icon={faDiscord} className="text-3xl" />
                 </Link>
 
-                <a href="https://www.linkedin.com/company/webtech-puc-minas/mycompany/" target="_blank">
+                <a href="https://www.linkedin.com/company/webtech-network/" target="_blank">
                     <FontAwesomeIcon icon={faLinkedin} className="text-3xl" />
                 </a>
 
