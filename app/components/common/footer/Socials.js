@@ -20,7 +20,7 @@ export default function Socials() {
                     <FontAwesomeIcon icon={faLinkedin} className="text-3xl" />
                 </a>
 
-                <a href="https://www.instagram.com/webtech.pucminas/" target="_blank">
+                <a href="https://www.instagram.com/webtech.network/" target="_blank">
                     <FontAwesomeIcon icon={faInstagram} className="text-3xl" />
                 </a>
 

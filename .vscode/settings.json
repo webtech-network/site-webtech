@@ -1,4 +1,5 @@
 {
     "editor.detectIndentation": false,
-    "editor.indentSize": "tabSize"
+    "editor.indentSize": "tabSize",
+    "postman.settings.dotenv-detection-notification-visibility": false
 }
