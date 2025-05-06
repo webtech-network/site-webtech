@@ -8,7 +8,7 @@ import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
 
 export const revalidate = 60;
 
-const { GITHUB_ORG_NAME, GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG } = process.env;
+const { GITHUB_ORG_NAME, GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG, GITHUB_CERT_PREFIX, GITHUB_CERT_MEMBERS } = process.env;
 const getUserName = (user) => user.name ? user.name.split(' ').slice(0, 2).join(' ') : user.login;
 const getUserBlogUrl = (user) => {
     if (user.blog.startsWith('http://') || user.blog.startsWith('https://')) {
@@ -20,7 +20,7 @@ const getUserBlogUrl = (user) => {
 
 export default async function TeamPage() {
 
-    const teamSlugs = [GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG];
+    const teamSlugs = [GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG, GITHUB_CERT_MEMBERS];
 
     const users = {
         all: [],
@@ -29,17 +29,24 @@ export default async function TeamPage() {
 
     const addUser = async (user, teamSlug) => {
 
-        if (users.all.includes(user.id)) return;
-
-        users.all.push(user.id);
+        // ignore check for users already included for teamSlugs associated with certification teams
+        if (!teamSlug.startsWith (GITHUB_CERT_PREFIX)) {
+            if (users.all.includes(user.id)) return;
+            users.all.push(user.id);
+        }
 
         const response = await Github.rest.users.getByUsername({ username: user.login });
         users[teamSlug].push(response.data);
 
     };
 
-    await Promise.all(teamSlugs.map(async (teamSlug) => {
+    // check if the user is certified (GIT_CERT_MEMBERS)
+    const isUserCertified = (user) => {
+        return !!users[GITHUB_CERT_MEMBERS].find(u => u.id == user.id);
+    }
 
+    // Get all members of the teams
+    await Promise.all(teamSlugs.map(async (teamSlug) => {
         users[teamSlug] = [];
 
         try {
@@ -57,12 +64,25 @@ export default async function TeamPage() {
 
     }));
 
+    // Get all current members of the organization if view_type is public
     const response = await Github.rest.orgs.listMembers({
         org: GITHUB_ORG_NAME,
         per_page: 100,
     });
-
     await Promise.all(response.data.map(user =>  (user.user_view_type == 'public') ? addUser(user, 'current') : null));
+    
+
+    // set certified attribute in users in users[GITHUB_ALUMNI_TEAM_SLUG] array checking with isUserCertified function
+    users[GITHUB_ALUMNI_TEAM_SLUG] = users[GITHUB_ALUMNI_TEAM_SLUG].map(user => ({
+        ...user,
+        certified: isUserCertified(user)
+    }));
+
+    // set certified attribute in users in users['current'] array checking with isUserCertified function
+    users.current = users.current.map(user => ({
+        ...user,
+        certified: isUserCertified(user)
+    }));
 
     return (
         <div className="container mx-auto">
@@ -143,7 +163,7 @@ function MemberCard({ user }) {
     return (
         <div className="flex flex-col items-center m-2 p-5 bg-gray rounded-xl">
             <img src={user.avatar_url} className="w-44 h-44 rounded-full mb-5" />
-            <p className="text-center text-2xl font-bold">{getUserName(user)}</p>
+            <p className="text-center text-2xl font-bold">{getUserName(user)} <span className="text-5xl" title="Membro WebTech Certificado">{user.certified ? '🏅' : ''}</span></p>
             <p className="text-center text-md">{user.bio}</p>
             <div className="flex gap-2">
                 <SocialButton href={user.html_url} icon={faGithub} />

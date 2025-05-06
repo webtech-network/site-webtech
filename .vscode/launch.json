@@ -1,0 +1,45 @@
+{
+    // .vscode/launch.json
+    "version": "0.2.0",
+    "configurations": [
+
+      {
+        // 1️⃣ Inicia o servidor Next.js em modo debug
+        "name": "Next.js - Servidor",
+        "type": "pwa-node",
+        "request": "launch",
+        "runtimeExecutable": "npm",
+        "runtimeArgs": ["run", "dev"],
+        "env": { "NODE_OPTIONS": "--inspect" }, // porta 9229 por padrão
+        "skipFiles": ["<node_internals>/**"],
+        "console": "integratedTerminal",
+        "sourceMaps": true
+      },
+      {
+        // 2️⃣ Anexa-se ao processo Node já iniciado (útil se você deu `yarn dev` no terminal)
+        "name": "Next.js - Anexar",
+        "type": "pwa-node",
+        "request": "attach",
+        "port": 9229,
+        "restart": true
+      },
+      {
+        // 3️⃣ Abre o navegador e depura o lado cliente (React)
+        "name": "Next.js - Cliente (Chrome)",
+        "type": "pwa-chrome",
+        "request": "launch",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}",
+        "preLaunchTask": "npm: dev" // garante que o servidor suba antes
+      }
+    ],
+  
+    // Opcional: dispara configs 1 + 3 juntos com Ctrl + F5/F5
+    "compounds": [
+      {
+        "name": "Next.js - Full Stack",
+        "configurations": ["Next.js - Servidor", "Next.js - Cliente (Chrome)"]
+      }
+    ]
+  }
+  
