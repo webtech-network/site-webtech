@@ -171,7 +171,7 @@ export default function JourneyPage() {
                     </section>
 
                     <SectionTitle>Parceiros do WebTech Journey</SectionTitle>
-                    <p className="text-xl my-8">As empresas parceriras participam da estruturação do programa, contribuindo com conteúdos e ações de engajamento, mas principalmente recebendo os participantes para rodadas de oportunidades de estágio e emprego.</p>
+                    <p className="text-xl my-8">As empresas parceiras participam da estruturação do programa, contribuindo com conteúdos e ações de engajamento, mas principalmente recebendo os participantes para rodadas de oportunidades de estágio e emprego.</p>
                     <section className="container bg-primary mb-10">
                         <div className="container mx-auto py-5">
                               <PartnersSection partners={partners} />
