@@ -20,6 +20,11 @@ const partners = [
         "descricao": "A NetProject oferece serviços e soluções integradas para práticas híbridas de Gestão de Projetos para o que importa de verdade: boas decisões e resultados."
     },
     {
+        "titulo": "Levty",
+        "imagem": "/home/partners/levty.png",
+        "descricao": "Times de profissionais qualificados em plataforma digital corporativa que trabalham de forma dedicada como parte da sua organização."
+    },
+    {
         "titulo": "Sydle",
         "imagem": "/home/partners/sydle.png",
         "descricao": "A SYDLE impulsiona a transformação digital. Sua plataforma SYDLE ONE reúne soluções de BPM, CRM, E-commerce, Billing, Service Desk e mais."
