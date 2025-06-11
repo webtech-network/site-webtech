@@ -18,7 +18,7 @@ export default function AboutPage() {
         <div className="">
             <div className="container">
 
-                <section class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+                <section className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
                     <div>
                         <SectionTitle>Sobre</SectionTitle>
                         <SectionDescription>
