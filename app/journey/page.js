@@ -51,6 +51,11 @@ const cardData = [
         "titulo": "NetProject",
         "imagem": "/home/partners/netproject.png",
         "descricao": "A NetProject oferece serviços e soluções integradas para práticas híbridas de Gestão de Projetos para o que importa de verdade: boas decisões e resultados."
+    },
+    {
+        "titulo": "Levty",
+        "imagem": "/home/partners/levty.png",
+        "descricao": "Times de profissionais qualificados em plataforma digital corporativa que trabalham de forma dedicada como parte da sua organização."
     }
   ];
 
