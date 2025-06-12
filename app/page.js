@@ -25,6 +25,11 @@ const partners = [
         "descricao": "Times de profissionais qualificados em plataforma digital corporativa que trabalham de forma dedicada como parte da sua organização."
     },
     {
+        "titulo": "A3Data",
+        "imagem": "/home/partners/a3data.png",
+        "descricao": "A A3Data é uma consultoria especializada em dados e inteligência artificial com o propósito de empoderar pessoas e corporações por meio de dados."
+    },
+    {
         "titulo": "Sydle",
         "imagem": "/home/partners/sydle.png",
         "descricao": "A SYDLE impulsiona a transformação digital. Sua plataforma SYDLE ONE reúne soluções de BPM, CRM, E-commerce, Billing, Service Desk e mais."
