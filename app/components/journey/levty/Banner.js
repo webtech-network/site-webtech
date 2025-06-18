@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Banner() {
   return (
-    <div className="relative w-full h-[415px] flex items-center px-8 md:px-32 overflow-hidden">
+    <div className="relative w-full h-[415px] flex items-center px-8 overflow-hidden">
       <Image
         src="/journey/levty/bg_levty.png"
         alt="Fundo"
@@ -12,7 +12,7 @@ export default function Banner() {
         className="z-0"
       />
 
-      <div className="z-10 flex flex-col md:px-4">
+      <div className="container z-10 flex flex-col md:px-4">
         <Image
           src="/journey/levty/logo_journey.svg"
           alt="Journey Backend"
