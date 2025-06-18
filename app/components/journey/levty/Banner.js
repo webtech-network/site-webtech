@@ -21,7 +21,8 @@ export default function Banner() {
         />
 
         <a
-          href="#"
+          href="https://www.sympla.com.br/evento-online/journey-backend/3002580"
+        target="_blank"
           className="bg-white text-[#0096D5] font-bold px-4 py-2 w-fit rounded-2xl text-base"
         >
           Garantir minha vaga →

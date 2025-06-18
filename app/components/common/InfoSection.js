@@ -7,14 +7,15 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 // Componente para o Popup
 const InfoPopup = ({ children, title, description, onClose }) => (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-    <div className="relative bg-neutral-600 p-8 rounded-lg shadow-lg max-w-4xl text-center">
-      <h2 className="text-3xl text-white font-semibold mb-4">{title}</h2>
-      <div className="text-neutral-300 text-left text-xl" dangerouslySetInnerHTML={{ __html: children }}></div>
+    <div className="relative bg-white p-8 rounded-lg shadow-lg max-w-4xl">
+      <h2 className="text-3xl text-secondary font-semibold mb-14">{title}</h2>
+      <p>{description}</p>
+      <div className="text-secondary text-left text-xl" dangerouslySetInnerHTML={{ __html: children }}></div>
       <button
         onClick={onClose}
-        className="absolute bg-transparent top-2 right-2 text-amber-400 px-4 py-2 rounded-md"
+        className="absolute bg-transparent top-6 right-2 text-amber-400 px-4 py-2 rounded-md"
       >
-         <FontAwesomeIcon icon={faXmark} className="text-white text-4xl animate-pulse" />
+         <FontAwesomeIcon icon={faXmark} className="text-secondary text-4xl animate-pulse" />
       </button>
     </div>
   </div>
