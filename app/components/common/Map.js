@@ -30,7 +30,6 @@ export default function Map() {
                             <button id="btn-lourdes" onClick={clickLourdes} className={`text-xs sm:text-lg font-bold px-3 py-1 rounded-xl ${mostrarLourdes ? 'text-white bg-secondary' : 'bg-white'
                                 }`}>Lourdes</button>
                         </div>
-
                     </div>
                 </div>
 
