@@ -49,7 +49,7 @@ export default function AboutPage() {
                         <div className="">
                             <img className="rounded-xl w-full mb-5" src="/about/achievements/espaco.gif" alt="placeholder" />
                             <p className="font-semibold text-2xl mb-2">Espaços para chamar de nossos!</p>
-                            <p className="sm:text-xl text-sm">A WebTech conta com espaços próprios nas unidades Praça da Liberdade e Coração Eucarístico da PUC Minas.</p>
+                            <p className="sm:text-xl text-sm">A WebTech conta com espaços próprios nas unidades Lourdes e Coração Eucarístico da PUC Minas.</p>
                         </div>
                         <div className="">
                             <img className="rounded-xl w-full mb-5" src="/about/achievements/workshops.png" alt="placeholder" />

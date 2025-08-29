@@ -23,12 +23,12 @@ export default function EventsPage() {
                         </SectionDescription>
                         <RecordedEvent
                             title="WebTech Days - JavaScript Edition | Await, async não é sync. I promise (Rommel Carneiro)"
-                            description="WebTech Days - JavaScript Edition que aconteceu no dia 06/12/2023 na PUC Minas Praça da Liberdade em Belo Horizonte/MG."
+                            description="WebTech Days - JavaScript Edition que aconteceu no dia 06/12/2023 na PUC Minas Lourdes em Belo Horizonte/MG."
                             date="06/12/2023"
                             videoUrl="https://www.youtube.com/embed/bMi6UUm_o7A" />
                         <RecordedEvent
                             title="WebTech Days - JavaScript Edition | Frameworks Front-End mais populares (Samuel Martins)"
-                            description="WebTech Days - JavaScript Edition que aconteceu no dia 06/12/2023 na PUC Minas Praça da Liberdade em Belo Horizonte/MG."
+                            description="WebTech Days - JavaScript Edition que aconteceu no dia 06/12/2023 na PUC Minas Lourdes em Belo Horizonte/MG."
                             date="06/12/2023"
                             videoUrl="https://www.youtube.com/embed/bMi6UUm_o7A" />
                     </div>
