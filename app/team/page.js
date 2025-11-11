@@ -4,11 +4,12 @@ import SectionTitle from "../components/common/SectionTitle";
 import SectionDescription from "../components/common/SectionDescription";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faGlobe, faUser, faMedal, faClock } from "@fortawesome/free-solid-svg-icons";
+import TeamNavigation from "../components/common/TeamNavigation";
 
 export const revalidate = 60;
 
-const { GITHUB_ORG_NAME, GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG, GITHUB_CERT_PREFIX, GITHUB_CERT_MEMBERS } = process.env;
+const { GITHUB_ORG_NAME, GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG, GITHUB_CERT_PREFIX, GITHUB_CERT_MEMBERS_1, GITHUB_CERT_MEMBERS_2, GITHUB_CERT_MEMBERS_3 } = process.env;
 const getUserName = (user) => user.name ? user.name.split(' ').slice(0, 2).join(' ') : user.login;
 const getUserBlogUrl = (user) => {
     if (user.blog.startsWith('http://') || user.blog.startsWith('https://')) {
@@ -18,9 +19,35 @@ const getUserBlogUrl = (user) => {
     }
 };
 
-export default async function TeamPage() {
+function NavigationButtons({ activeFilter, totalCount, membersCount, mentorsCount, alumniCount }) {
+    const buttons = [
+        { id: 'all', label: 'Todos', count: totalCount, icon: faGithub },
+        { id: 'members', label: 'Membros', count: membersCount, icon: faUser },
+        { id: 'mentors', label: 'Mentores', count: mentorsCount, icon: faMedal },
+        { id: 'alumni', label: 'Alumni', count: alumniCount, icon: faClock }
+    ];
 
-    const teamSlugs = [GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG, GITHUB_CERT_MEMBERS];
+    return (
+        <div className="flex justify-center gap-4 mb-8 mt-12">
+            {buttons.map(button => (
+                <a
+                    key={button.id}
+                    href={`#${button.id}`}
+                    className="nav-button flex items-center gap-3 px-6 py-3 rounded-xl transition-all duration-200 bg-white hover:bg-[#f2bc0d]"
+                >
+                    <FontAwesomeIcon icon={button.icon} className="text-lg" />
+                    <span className="font-light">{button.label}</span>
+                    <span className="relative z-10 inline-flex items-center justify-center min-w-[36px] h-8 px-3 rounded-md text-sm font-semibold !bg-gray-300 !text-black shadow-sm">
+                        {button.count}
+                    </span>
+                </a>
+            ))}
+        </div>
+    );
+}
+
+export default async function TeamPage() {
+    const teamSlugs = [GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG, GITHUB_CERT_MEMBERS_1, GITHUB_CERT_MEMBERS_2, GITHUB_CERT_MEMBERS_3];
 
     const users = {
         all: [],
@@ -40,9 +67,21 @@ export default async function TeamPage() {
 
     };
 
-    // check if the user is certified (GIT_CERT_MEMBERS)
+    // check certification level of the user
     const isUserCertified = (user) => {
-        return !!users[GITHUB_CERT_MEMBERS].find(u => u.id == user.id);
+        // Check level 3 first
+        if (users[process.env.GITHUB_CERT_MEMBERS_3]?.find(u => u.id === user.id)) {
+            return 3;
+        }
+        // Check level 2
+        if (users[process.env.GITHUB_CERT_MEMBERS_2]?.find(u => u.id === user.id)) {
+            return 2;
+        }
+        // Check level 1
+        if (users[process.env.GITHUB_CERT_MEMBERS_1]?.find(u => u.id === user.id)) {
+            return 1;
+        }
+        return 0;
     }
 
     // Get all members of the teams
@@ -72,40 +111,104 @@ export default async function TeamPage() {
     await Promise.all(response.data.map(user =>  (user.user_view_type == 'public') ? addUser(user, 'current') : null));
     
 
-    // set certified attribute in users in users[GITHUB_ALUMNI_TEAM_SLUG] array checking with isUserCertified function
+    // set certified level attribute for alumni users
     users[GITHUB_ALUMNI_TEAM_SLUG] = users[GITHUB_ALUMNI_TEAM_SLUG].map(user => ({
         ...user,
         certified: isUserCertified(user)
     }));
 
-    // set certified attribute in users in users['current'] array checking with isUserCertified function
+    // set certified level attribute for current users
     users.current = users.current.map(user => ({
         ...user,
         certified: isUserCertified(user)
     }));
 
     return (
-        <div className="container mx-auto">
-            <TeamSection
-                title="Membros"
-                description="O quadro de membros da WebTech é composto por alunos de graduação
-                        dos cursos do Instituto de Ciências Exatas e Informática da PUC Minas."
-                users={users.current}
+        <main className="bg-[#f3f4f7] min-h-screen w-full">
+        <div className="container mx-auto px-4 py-4">
+            <TeamNavigation />
+            <NavigationButtons 
+                activeFilter="all"
+                totalCount={users.current.length + users[GITHUB_MENTORS_TEAM_SLUG].length + users[GITHUB_ALUMNI_TEAM_SLUG].length}
+                membersCount={users.current.length}
+                mentorsCount={users[GITHUB_MENTORS_TEAM_SLUG].length}
+                alumniCount={users[GITHUB_ALUMNI_TEAM_SLUG].length}
+                partnersCount={0} // Adicionar quando implementar parceiros
             />
-            <TeamSection
-                title="Mentores"
-                description="O quadro de mentores da WebTech é composto por professores e profissionais
-                        do mercado que orientam os alunos em seus projetos e no desenvolvimento
-                        de suas habilidades."
-                users={users[GITHUB_MENTORS_TEAM_SLUG]}
-            />
-            <TeamSection
-                title="Membros Antigos"
-                description="O quadro de membros antigos da WebTech é composto por alunos que já
-                        participaram do grupo e que hoje não estão mais ativos."
-                users={users[GITHUB_ALUMNI_TEAM_SLUG]}
-            />
-            <section className="mb-10">
+
+            <div id="all">
+                {/* Seção de Membros Atuais */}
+                {users.current.length > 0 && (
+                    <div className="mb-12">
+                        <SectionTitle>Membros</SectionTitle>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            {users.current.map(user => (
+                                <MemberCard key={user.id} user={user} />
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Seção de Mentores */}
+                {users[GITHUB_MENTORS_TEAM_SLUG].length > 0 && (
+                    <div className="mb-12">
+                        <SectionTitle>Mentores</SectionTitle>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            {users[GITHUB_MENTORS_TEAM_SLUG].map(user => (
+                                <MemberCard key={user.id} user={user} />
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Seção de Membros Antigos */}
+                {users[GITHUB_ALUMNI_TEAM_SLUG].length > 0 && (
+                    <div className="mb-12">
+                        <SectionTitle>Membros Antigos</SectionTitle>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            {users[GITHUB_ALUMNI_TEAM_SLUG].map(user => (
+                                <MemberCard key={user.id} user={user} />
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            {/* Seção de Membros */}
+            <div id="members" className="hidden">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {users.current.map(user => (
+                        <MemberCard key={user.id} user={user} />
+                    ))}
+                </div>
+            </div>
+
+            {/* Seção de Mentores */}
+            <div id="mentors" className="hidden">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {users[GITHUB_MENTORS_TEAM_SLUG].map(user => (
+                        <MemberCard key={user.id} user={user} />
+                    ))}
+                </div>
+            </div>
+
+            {/* Seção de Alumni */}
+            <div id="alumni" className="hidden">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {users[GITHUB_ALUMNI_TEAM_SLUG].map(user => (
+                        <MemberCard key={user.id} user={user} />
+                    ))}
+                </div>
+            </div>
+
+            {/* Seção de Parceiros (a ser implementada) */}
+            <div id="partners" className="hidden">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {/* Adicionar parceiros quando implementado */}
+                </div>
+            </div>
+
+            <section className="mb-10 mt-16">
                 <SectionTitle>Participe da WebTech</SectionTitle>
                 <div className="btn">
                     <ButtonLink
@@ -115,6 +218,7 @@ export default async function TeamPage() {
                 </div>
             </section>
         </div>
+        </main>
     );
 }
 
@@ -124,7 +228,7 @@ function TeamSection({ title, description, users }) {
         <section className="py-10 border-b-4 border-gray">
             <SectionTitle>{title}</SectionTitle>
             <SectionDescription>{description}</SectionDescription>
-            <div className="grid grid-cols-1 md:grid-cols-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {users
                     .sort((u1, u2) => {
 
@@ -159,18 +263,129 @@ function TeamSection({ title, description, users }) {
 }
 
 function MemberCard({ user }) {
+    const getBadgeImage = (level) => {
+        if (level === 0) return null;
+        return `/badges/SVG/Badge Membro - Nivel ${level} 2025.svg`;
+    };
+
+    const getBadges = () => {
+        const badges = [];
+        for (let i = 1; i <= user.certified; i++) {
+            badges.push(i);
+        }
+        return badges;
+    };
+
+    const ProfilePopup = () => (
+        <div className="absolute z-50 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 left-0 right-0 top-0 bg-white rounded-xl shadow-lg p-6 min-w-[300px]">
+            <div className="flex flex-col items-center">
+                <img src={user.avatar_url} className="w-32 h-32 rounded-full mb-4" />
+                <h3 className="text-xl font-bold">{getUserName(user)}</h3>
+                <span className="text-gray-600">@{user.login}</span>
+                {user.bio && <p className="text-center mt-3 text-gray-700">{user.bio}</p>}
+                
+                <div className="flex gap-4 mt-4 justify-center">
+                    <div className="flex flex-col items-center">
+                        <span className="font-bold">{user.followers}</span>
+                        <span className="text-sm text-gray-600">Seguidores</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                        <span className="font-bold">{user.following}</span>
+                        <span className="text-sm text-gray-600">Seguindo</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                        <span className="font-bold">{user.public_repos}</span>
+                        <span className="text-sm text-gray-600">Repos</span>
+                    </div>
+                </div>
+
+                {user.certified > 0 && (
+                    <div className="mt-4">
+                        <div className="flex gap-3 justify-center">
+                            {getBadges().map(level => (
+                                <img 
+                                    key={level}
+                                    src={getBadgeImage(level)} 
+                                    alt={`Badge Nível ${level}`}
+                                    title={`Membro WebTech Certificado - Nível ${level}`}
+                                    className="h-16 w-16 object-contain"
+                                />
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                <div className="flex gap-3 mt-4">
+                    <a
+                        href={user.html_url}
+                        target="_blank"
+                        className="bg-[#24292e] text-white hover:bg-[#1b1f23] p-2 rounded-md flex items-center justify-center"
+                        title="Perfil no GitHub"
+                    >
+                        <FontAwesomeIcon icon={faGithub} className="text-lg" />
+                    </a>
+                    {user.blog && (
+                        <a
+                            href={getUserBlogUrl(user)}
+                            target="_blank"
+                            className="bg-blue-600 text-white hover:bg-blue-700 p-2 rounded-md flex items-center justify-center"
+                            title="Website"
+                        >
+                            <FontAwesomeIcon icon={faGlobe} className="text-lg" />
+                        </a>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
 
     return (
-        <div className="flex flex-col items-center m-2 p-5 bg-gray rounded-xl">
-            <img src={user.avatar_url} className="w-44 h-44 rounded-full mb-5" />
-            <p className="text-center text-2xl font-bold">{getUserName(user)} <span className="text-5xl" title="Membro WebTech Certificado">{user.certified ? '🏅' : ''}</span></p>
-            <p className="text-center text-md">{user.bio}</p>
-            <div className="flex gap-2">
-                <SocialButton href={user.html_url} icon={faGithub} />
-                {user.twitter_username && <SocialButton href={"https://x.com/" + user.twitter_username} icon={faXTwitter} />}
-                {user.email && <SocialButton href={"mailto:" + user.email} icon={faEnvelope} />}
-                {user.blog && <SocialButton href={getUserBlogUrl(user)} icon={faGlobe} />}
+        <div className="group flex bg-white rounded-xl p-4 relative shadow-sm hover:shadow-md transition-all duration-300">
+            {/* Avatar */}
+            <img src={user.avatar_url} className="w-20 h-20 rounded-full" />
+
+            <div className="flex flex-col flex-grow min-w-0 ml-4">
+                <div className="flex-grow min-w-0">
+                    {/* Nome e Username */}
+                    <h3 className="font-bold text-base truncate">{getUserName(user)}</h3>
+                    <span className="text-sm text-gray-600 block truncate">@{user.login}</span>
+
+                    {/* Estatísticas */}
+                    <div className="flex items-center gap-1.5 mt-1 text-xs text-gray-600">
+                        <FontAwesomeIcon icon={faUser} className="text-xs" />
+                        <span className="font-bold">{user.followers}</span>
+                    </div>
+                </div>
+
+                {/* Bottom Row with Badges and GitHub Button */}
+                <div className="flex justify-between items-center mt-2">
+                    {/* Badges */}
+                    <div className="flex gap-2">
+                        {user.certified > 0 && getBadges().map(level => (
+                            <img 
+                                key={level}
+                                src={getBadgeImage(level)} 
+                                alt={`Badge Nível ${level}`}
+                                title={`Membro WebTech Certificado - Nível ${level}`}
+                                className="h-8 w-8 object-contain"
+                            />
+                        ))}
+                    </div>
+
+                    {/* GitHub Button */}
+                    <a
+                        href={user.html_url}
+                        target="_blank"
+                        className="bg-[#24292e] text-white hover:bg-[#1b1f23] p-2 rounded-md flex items-center justify-center ml-2"
+                        title="Perfil no GitHub"
+                    >
+                        <FontAwesomeIcon icon={faGithub} className="text-lg" />
+                    </a>
+                </div>
             </div>
+
+            {/* Profile Popup */}
+            <ProfilePopup />
         </div>
     );
 };

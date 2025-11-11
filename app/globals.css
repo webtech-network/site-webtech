@@ -25,3 +25,11 @@
         background-position: 100% 50%;
     }
 }
+
+/* Ensure nav button badge is always visible */
+.nav-button span:last-child {
+    position: relative;
+    z-index: 10;
+    background-color: #d1d5db !important;
+    color: #000000 !important;
+}

@@ -1,4 +1,4 @@
-import getAllEvents from '@/app/sympla';
+import getAllEvents from '../../sympla';
 
 export async function fetchEvents() {
       try {
