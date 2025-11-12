@@ -1,7 +1,7 @@
-import SectionDescription from "@/app/components/common/SectionDescription";
-import SectionTitle from "@/app/components/common/SectionTitle";
-import Banner from "@/app/components/journey/levty/Banner";
-import TopicCard from "@/app/components/journey/levty/TopicCard";
+import SectionDescription from "../../components/common/SectionDescription";
+import SectionTitle from "../../components/common/SectionTitle";
+import Banner from "../../components/journey/levty/Banner";
+import TopicCard from "../../components/journey/levty/TopicCard";
 import Image from "next/image";
 
 import {
@@ -11,7 +11,7 @@ import {
   faBriefcase,
   faArrowTrendUp,
 } from "@fortawesome/free-solid-svg-icons";
-import StepCard from "@/app/components/journey/levty/StepCard";
+import StepCard from "../../components/journey/levty/StepCard";
 
 export default function Levty() {
   return (
