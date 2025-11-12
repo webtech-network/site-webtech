@@ -1,5 +1,5 @@
-import Loading from '@/app/loading';
-import getAllEvents from '@/app/sympla';
+import Loading from '../../loading';
+import getAllEvents from '../../sympla';
 import SectionTitle from '../common/SectionTitle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';

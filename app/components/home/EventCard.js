@@ -1,8 +1,8 @@
 import React from 'react';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import Loading from '@/app/loading';
-import getAllEvents from '@/app/sympla';
+import Loading from '../../loading';
+import getAllEvents from '../../sympla';
 import { removeTags, truncateDescription } from '../events/EventsSection';
 import ButtonLink from '../common/ButtonLink';
 
