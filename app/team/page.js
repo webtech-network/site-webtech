@@ -27,17 +27,35 @@ function NavigationButtons({ activeFilter, totalCount, membersCount, mentorsCoun
         { id: 'alumni', label: 'Alumni', count: alumniCount, icon: faClock }
     ];
 
-    return (
-        <div className="flex justify-center gap-4 mb-8 mt-12">
+        return (
+        <div className="
+            grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-4 
+            mb-8 mt-12
+        ">
             {buttons.map(button => (
                 <a
                     key={button.id}
                     href={`#${button.id}`}
-                    className="nav-button flex items-center gap-3 px-6 py-3 rounded-xl transition-all duration-200 bg-white hover:bg-[#f2bc0d]"
+                    className="
+                        nav-button flex items-center justify-center gap-3 
+                        px-6 py-3 rounded-xl 
+                        transition-all duration-200 
+                        bg-white hover:bg-[#f2bc0d]"
                 >
-                    <FontAwesomeIcon icon={button.icon} className="text-lg" />
-                    <span className="font-light">{button.label}</span>
-                    <span className="relative z-10 inline-flex items-center justify-center min-w-[36px] h-8 px-3 rounded-md text-sm font-semibold !bg-gray-300 !text-black shadow-sm">
+                    <FontAwesomeIcon 
+                        icon={button.icon} 
+                        className="text-base md:text-lg" 
+                    />
+                    
+                    <span className="font-light text-xs md:text-md lg:text-lg">
+                        {button.label}
+                    </span>
+
+                    <span className="
+                        hidden md:inline-flex relative z-10 items-center justify-center 
+                        min-w-[36px] h-8 px-3 rounded-md text-sm font-semibold 
+                        bg-gray/70 text-black shadow-sm 
+                    ">
                         {button.count}
                     </span>
                 </a>
@@ -218,6 +236,54 @@ export default async function TeamPage() {
                 </div>
             </section>
         </div>
+
+        {/* Script para fechar/abrir popup ao clicar no X e no card */}
+        <script
+            dangerouslySetInnerHTML={{
+                __html: `
+(function(){
+  document.addEventListener('click', function(e){
+    var closeBtn = e.target.closest && e.target.closest('.close-card-btn');
+    if(closeBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      var popup = closeBtn.closest && closeBtn.closest('.profile-popup');
+      if(popup) {
+        popup.style.pointerEvents = 'none';
+        popup.style.visibility = 'hidden';
+        popup.style.opacity = '0';
+      }
+      return;
+    }
+    var card = e.target.closest && e.target.closest('.member-card');
+    if(card && window.innerWidth < 640) {
+      var popup = card.querySelector && card.querySelector('.profile-popup');
+      if(popup) {
+        popup.style.pointerEvents = 'auto';
+        popup.style.visibility = 'visible';
+        popup.style.opacity = '1';
+      }
+    }
+  }, false);
+
+  // Reset popup on hover for desktop (sm+)
+  document.addEventListener('mouseover', function(e){
+    if(window.innerWidth >= 640) {
+      var card = e.target.closest && e.target.closest('.member-card');
+      if(card) {
+        var popup = card.querySelector && card.querySelector('.profile-popup');
+        if(popup) {
+          popup.style.pointerEvents = '';
+          popup.style.visibility = '';
+          popup.style.opacity = '';
+        }
+      }
+    }
+  }, true);
+})();
+                `,
+            }}
+        />
         </main>
     );
 }
@@ -277,7 +343,7 @@ function MemberCard({ user }) {
     };
 
     const ProfilePopup = () => (
-        <div className="absolute z-50 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 left-0 right-0 top-0 bg-white rounded-xl shadow-lg p-6 min-w-[300px]">
+        <div className="profile-popup absolute z-50 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 left-0 right-0 top-0 bg-white rounded-xl shadow-lg p-6 min-w-[300px]" style={{pointerEvents: 'auto'}}>
             <div className="flex flex-col items-center">
                 <img src={user.avatar_url} className="w-32 h-32 rounded-full mb-4" />
                 <h3 className="text-xl font-bold">{getUserName(user)}</h3>
@@ -334,13 +400,20 @@ function MemberCard({ user }) {
                             <FontAwesomeIcon icon={faGlobe} className="text-lg" />
                         </a>
                     )}
+                    <button
+                        type="button"
+                        aria-label="Fechar card"
+                        className="close-card-btn sm:hidden absolute top-2 right-2 z-40 inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/90 shadow-md text-gray-700 focus:outline-none"
+                    >
+                        ×
+                    </button>
                 </div>
             </div>
         </div>
     );
 
     return (
-        <div className="group flex bg-white rounded-xl p-4 relative shadow-sm hover:shadow-md transition-all duration-300">
+        <div className="member-card group flex bg-white rounded-xl p-4 relative shadow-sm hover:shadow-md transition-all duration-300">
             {/* Avatar */}
             <img src={user.avatar_url} className="w-20 h-20 rounded-full" />
 
