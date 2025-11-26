@@ -247,11 +247,14 @@ export default async function TeamPage() {
     if(closeBtn) {
       e.preventDefault();
       e.stopPropagation();
-      var popup = closeBtn.closest && closeBtn.closest('.profile-popup');
-      if(popup) {
-        popup.style.pointerEvents = 'none';
-        popup.style.visibility = 'hidden';
-        popup.style.opacity = '0';
+      var card = closeBtn.closest && closeBtn.closest('.member-card');
+      if(card) {
+        var popup = card.querySelector && card.querySelector('.profile-popup');
+        if(popup) {
+          popup.style.pointerEvents = 'none';
+          popup.style.visibility = 'hidden';
+          popup.style.opacity = '0';
+        }
       }
       return;
     }
