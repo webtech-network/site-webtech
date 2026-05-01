@@ -76,9 +76,6 @@ const partners = [
 export default function JourneyPage() {
   return (
     <>
-      {/*Banner Jornada Levty*/}
-      <Banner />
-
       <section className="container mb-10">
         <SectionTitle>Sobre o WebTech Journey</SectionTitle>
         <SectionDescription>
