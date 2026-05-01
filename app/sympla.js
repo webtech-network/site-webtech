@@ -3,13 +3,15 @@ export default async function getAllEvents() {
         headers: {
             s_token: process.env.SYMPLA_API_KEY,
         },
-        cache: 'no-store',
+        next: {
+            revalidate: 60,
+        },
     });
 
     const data = await response.json();
 
-   const publicEvents = data.data.filter(event => event.private_event === 0);
-    
+    const publicEvents = data.data ? data.data.filter(event => !event.private_event) : [];
+
     return {
         ...data,
         data: publicEvents

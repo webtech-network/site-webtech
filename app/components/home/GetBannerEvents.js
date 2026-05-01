@@ -12,7 +12,7 @@ export async function fetchEvents() {
             } else {
                   throw new Error('Falha ao obter os dados dos eventos.');
             }
-      } catch (error) {
-            throw new Error('Falha ao obter os dados dos eventos.');
+      } catch (e) {
+            throw new Error('Falha ao obter os dados dos eventos.' + e.message);
       }
 }

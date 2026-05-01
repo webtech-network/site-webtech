@@ -9,7 +9,10 @@ import TeamNavigation from "../components/common/TeamNavigation";
 
 export const revalidate = 60;
 
-const { GITHUB_ORG_NAME, GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG, GITHUB_CERT_PREFIX, GITHUB_CERT_MEMBERS_1, GITHUB_CERT_MEMBERS_2, GITHUB_CERT_MEMBERS_3 } = process.env;
+const { GITHUB_ORG_NAME, GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG, GITHUB_CERT_PREFIX } = process.env;
+const GITHUB_CERT_MEMBERS_1 = process.env.GITHUB_CERT_MEMBERS_1 || 'CERT-WT-MEMBER-1';
+const GITHUB_CERT_MEMBERS_2 = process.env.GITHUB_CERT_MEMBERS_2 || 'CERT-WT-MEMBER-2';
+const GITHUB_CERT_MEMBERS_3 = process.env.GITHUB_CERT_MEMBERS_3 || 'CERT-WT-MEMBER-3';
 const getUserName = (user) => user.name ? user.name.split(' ').slice(0, 2).join(' ') : user.login;
 const getUserBlogUrl = (user) => {
     if (user.blog.startsWith('http://') || user.blog.startsWith('https://')) {
@@ -65,7 +68,7 @@ function NavigationButtons({ activeFilter, totalCount, membersCount, mentorsCoun
 }
 
 export default async function TeamPage() {
-    const teamSlugs = [GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG, GITHUB_CERT_MEMBERS_1, GITHUB_CERT_MEMBERS_2, GITHUB_CERT_MEMBERS_3];
+    const teamSlugs = [GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG, GITHUB_CERT_MEMBERS_1, GITHUB_CERT_MEMBERS_2, GITHUB_CERT_MEMBERS_3].filter(Boolean);
 
     const users = {
         all: [],
@@ -88,15 +91,15 @@ export default async function TeamPage() {
     // check certification level of the user
     const isUserCertified = (user) => {
         // Check level 3 first
-        if (users[process.env.GITHUB_CERT_MEMBERS_3]?.find(u => u.id === user.id)) {
+        if (users[GITHUB_CERT_MEMBERS_3]?.find(u => u.id === user.id)) {
             return 3;
         }
         // Check level 2
-        if (users[process.env.GITHUB_CERT_MEMBERS_2]?.find(u => u.id === user.id)) {
+        if (users[GITHUB_CERT_MEMBERS_2]?.find(u => u.id === user.id)) {
             return 2;
         }
         // Check level 1
-        if (users[process.env.GITHUB_CERT_MEMBERS_1]?.find(u => u.id === user.id)) {
+        if (users[GITHUB_CERT_MEMBERS_1]?.find(u => u.id === user.id)) {
             return 1;
         }
         return 0;
