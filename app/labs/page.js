@@ -6,7 +6,7 @@ import Github from "../github.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faCode } from '@fortawesome/free-solid-svg-icons';
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export default async function LabsPage() {
 
