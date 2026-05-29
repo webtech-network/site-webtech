@@ -11,16 +11,10 @@ export const revalidate = 60;
 
 const meetupSponsors = [
     {
-        "titulo": "Empresa Patrocinadora 1",
-        "imagem": "/home/partners/netproject.png", // Imagem de placeholder
-        "descricao": "Descrição da empresa patrocinadora específica do WebTech Meetup."
-    },
-    {
-        "titulo": "Empresa Patrocinadora 2",
-        "imagem": "/home/partners/levty.png", // Imagem de placeholder
-        "descricao": "Descrição da empresa patrocinadora específica do WebTech Meetup."
+        "titulo": "Hotmart",
+        "imagem": "/home/partners/hotmart.png", 
+        "descricao": "A Hotmart é uma empresa global de tecnologia focada na Creator Economy, com o propósito de empoderar criadores de conteúdo a viverem de suas paixões através de produtos digitais."
     }
-    // Adicione os patrocinadores específicos aqui
 ];
 
 export const metadata = {
@@ -41,26 +35,28 @@ export default async function MeetupPage() {
                 <section className="mb-10">
                     <MeetupExplanation />
                 </section>
+            </main>
 
-                <section className="mb-10">
-                    <MeetupCTA />
-                </section>
+            <section className="bg-primary pt-10 pb-16">
+                <div className="container mx-auto px-4 lg:px-8 text-center text-secondary-dark">
+                    <SectionTitle className="text-center">Patrocinador Oficial</SectionTitle>
+                    <div className="mt-10 flex justify-center">
+                        <PartnersSection partners={meetupSponsors} />
+                    </div>
+                </div>
+            </section>
 
+            <main className="container mx-auto px-4 lg:px-8 mt-16">
                 {pastEvents && pastEvents.length > 0 && (
                     <section className="mb-16">
                         <MeetupEventsSection events={pastEvents} />
                     </section>
                 )}
-            </main>
 
-            <section className="bg-primary pt-10 pb-16">
-                <div className="container mx-auto px-4 lg:px-8">
-                    <SectionTitle>Patrocinadores</SectionTitle>
-                    <div className="mt-6">
-                        <PartnersSection partners={meetupSponsors} />
-                    </div>
-                </div>
-            </section>
+                <section className="mb-10">
+                    <MeetupCTA />
+                </section>
+            </main>
         </div>
     );
 }
