@@ -16,9 +16,11 @@ export default function MeetupExplanation() {
                     </p>
                 </div>
             </div>
-            <div className="flex-1 w-full">
-                <div className="rounded-2xl overflow-hidden shadow-2xl hover:scale-[1.02] transition-transform duration-300">
-                    <img src="/meetup/foto2.jpeg" alt="WebTech Meetup Networking" className="object-cover w-full h-full max-h-[450px]" />
+            <div className="flex-1 w-full flex flex-col gap-4">
+                <img src="/meetup/foto1.jpeg" alt="WebTech Meetup 1" className="object-cover w-full h-48 md:h-64 rounded-2xl shadow-xl hover:scale-[1.02] transition-transform duration-300" />
+                <div className="grid grid-cols-2 gap-4">
+                    <img src="/meetup/foto2.jpeg" alt="WebTech Meetup 2" className="object-cover w-full h-32 md:h-48 rounded-2xl shadow-xl hover:scale-[1.02] transition-transform duration-300" />
+                    <img src="/meetup/foto3.jpeg" alt="WebTech Meetup 3" className="object-cover w-full h-32 md:h-48 rounded-2xl shadow-xl hover:scale-[1.02] transition-transform duration-300" />
                 </div>
             </div>
         </div>
