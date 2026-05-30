@@ -49,7 +49,7 @@ export default function MeetupPlanning() {
                                 ></div>
                                 {/* Dot */}
                                 <div className="w-full flex items-center justify-center relative z-10">
-                                    <div className={`w-5 h-5 rounded-full border-4 border-[#141414] shadow-sm transition-colors ${item.active ? 'bg-primary group-hover:scale-125' : 'bg-gray-500'}`}></div>
+                                    <div className={`w-5 h-5 rounded-full shadow-sm transition-colors ${item.active ? 'bg-primary border-4 border-[#141414] group-hover:scale-125' : 'bg-[#141414] border-2 border-gray-500'}`}></div>
                                 </div>
                             </div>
 
