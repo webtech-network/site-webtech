@@ -1,33 +1,46 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import Image from "next/image";
+import Link from "next/link";
 
 export default function DaysRedirection() {
     return (
-        <section className="relative bg-[#111] py-28 text-white w-full border-y border-[#333] overflow-hidden">
-            {/* Efeitos de fundo sutis */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-primary/5 blur-[120px] pointer-events-none"></div>
-
-            <div className="container mx-auto px-4 lg:px-8 relative z-10">
-                <div className="flex flex-col items-center justify-center text-center gap-8 max-w-4xl mx-auto">
+        <section className="bg-white pt-20 pb-24 px-6">
+            <div className="max-w-7xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    {/* Text */}
                     <div>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-wider mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-400 to-amber-300 drop-shadow-sm">
-                            Acesse o site do WebTech Days
+                        <h2 className="text-3xl md:text-4xl font-bold text-secondary-dark mb-6">
+                            O que é o <span className="text-primary">WebTech Days?</span>
                         </h2>
-                        <p className="text-xl lg:text-2xl font-medium text-gray-300">
-                            Acompanhe a programação completa em nosso site.
+                        <p className="text-gray-600 text-base leading-relaxed">
+                            O WebTech Days é um evento que oferece palestras, oficinas
+                            práticas e sessões de mentoria com a participação de empresas,
+                            especialistas e comunidade acadêmica.
                         </p>
+                        <p className="text-gray-600 text-base leading-relaxed mt-4">
+                            Em sua terceira edição, o evento foca em tecnologias e soluções
+                            de Inteligência Artificial.
+                        </p>
+                        <div className="mt-8">
+                            <Link
+                                href="https://days.apps.webtech.network"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center rounded-full bg-[#FFB800] px-6 py-3 text-sm font-bold text-[#070A08] shadow-[0_12px_28px_rgba(255,184,0,0.22)] transition-all hover:bg-[#FFD45A] hover:shadow-[0_16px_34px_rgba(255,184,0,0.3)]"
+                            >
+                                Saiba mais sobre o WebTech Days
+                            </Link>
+                        </div>
                     </div>
-                    <div className="mt-4">
-                        <a
-                            href="https://days.apps.webtech.network"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group flex items-center gap-4 px-12 py-5 bg-primary hover:bg-primary-light text-secondary-dark font-extrabold text-xl rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(251,191,36,0.2)] hover:shadow-[0_0_40px_rgba(251,191,36,0.4)] hover:-translate-y-1"
-                        >
-                            ACESSAR
-                            <FontAwesomeIcon icon={faArrowRight} className="text-2xl group-hover:translate-x-2 transition-transform duration-300" />
-                        </a>
+
+                    {/* Mission image */}
+                    <div className="rounded-2xl overflow-hidden bg-gray-100 h-80 md:h-96 relative border border-gray-200 shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+                        <Image
+                            src="/days/banner.jpeg"
+                            alt="WebTech Days"
+                            fill
+                            className="object-cover"
+                        />
                     </div>
                 </div>
             </div>

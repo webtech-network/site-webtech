@@ -23,16 +23,18 @@ export default async function DaysPage() {
 
             <DaysRedirection />
 
-            <main className="container mx-auto px-4 lg:px-8 mt-16">
-                {pastEvents && pastEvents.length > 0 && (
-                    <section className="mb-16">
-                        <MeetupEventsSection events={pastEvents} />
-                    </section>
-                )}
+            <main className="w-full px-6 mt-16">
+                <div className="max-w-7xl mx-auto">
+                    {pastEvents && pastEvents.length > 0 && (
+                        <section className="mb-16">
+                            <MeetupEventsSection events={pastEvents} />
+                        </section>
+                    )}
 
-                <section className="mb-10">
-                    <DaysCTA />
-                </section>
+                    <section className="mb-10">
+                        <DaysCTA />
+                    </section>
+                </div>
             </main>
         </div>
     );
