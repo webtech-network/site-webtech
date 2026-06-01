@@ -11,7 +11,7 @@ export default function DaysCTA() {
                 <p className="text-gray-300 mb-8 text-sm lg:text-base">
                     Apoie a comunidade de tecnologia e coloque sua marca em evidência no nosso maior evento do ano. Junte-se a nós para transformar a carreira de milhares de estudantes e profissionais.
                 </p>
-                <a href="mailto:contato@webtech.com.br?subject=Quero ser Patrocinador do WebTech Days" className="px-8 py-3 bg-primary hover:bg-primary-light text-secondary-dark font-bold rounded-xl transition-all hover:scale-105">
+                <a href="https://wa.me/553188930508?text=Ol%C3%A1%21%20Desejo%20ser%20patrocinador%20do%20WebTech%20Days." target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-primary hover:bg-primary-light text-secondary-dark font-bold rounded-xl transition-all hover:scale-105">
                     Quero Patrocinar
                 </a>
             </div>
