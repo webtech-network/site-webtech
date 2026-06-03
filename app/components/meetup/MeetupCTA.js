@@ -12,7 +12,7 @@ export default function MeetupCTA() {
                     <p className="text-gray-300 mb-8 text-sm lg:text-base">
                         Quer compartilhar seu conhecimento e experiência com a nossa comunidade? Venha palestrar no próximo meetup!
                     </p>
-                    <a href="mailto:contato@webtech.com.br?subject=Quero ser Palestrante no Meetup" className="px-8 py-3 bg-primary hover:bg-primary-light text-secondary-dark font-bold rounded-xl transition-all hover:scale-105">
+                    <a href="https://wa.me/553188930508?text=Ol%C3%A1%21%20Desejo%20ser%20palestrante%20do%20WebTech%20Meetup." target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-primary hover:bg-primary-light text-secondary-dark font-bold rounded-xl transition-all hover:scale-105">
                         Quero Palestrar
                     </a>
                 </div>
@@ -22,7 +22,7 @@ export default function MeetupCTA() {
                     <p className="text-gray-300 mb-8 text-sm lg:text-base">
                         Apoie a comunidade de tecnologia e coloque sua marca em evidência nos nossos eventos e canais de comunicação.
                     </p>
-                    <a href="mailto:contato@webtech.com.br?subject=Quero ser Patrocinador do Meetup" className="px-8 py-3 bg-primary hover:bg-primary-light text-secondary-dark font-bold rounded-xl transition-all hover:scale-105">
+                    <a href="https://wa.me/553188930508?text=Ol%C3%A1%21%20Desejo%20ser%20patrocinador%20do%20WebTech%20Meetup." target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-primary hover:bg-primary-light text-secondary-dark font-bold rounded-xl transition-all hover:scale-105">
                         Quero Patrocinar
                     </a>
                 </div>
