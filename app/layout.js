@@ -15,6 +15,7 @@ export default function RootLayout({ children }) {
             <head>
                 <title>WebTech Network</title>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></link>
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
             </head>
             <body className="">
                 <Header></Header>
