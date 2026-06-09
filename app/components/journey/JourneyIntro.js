@@ -11,10 +11,10 @@ export default function JourneyIntro() {
                 </h2>
                 <div className="mt-6">
                     <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        O WebTech Journey é um programa que tem como objetivo promover inclusão digital e oportunidades de trabalho para o público geral por meio de uma jornada de aprendizado com uma metodologia própria.
                     </p>
                     <p className="text-lg text-gray-700 leading-relaxed">
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Através da extensão na universidade, o projeto capta alunos e professores que fornecem conteúdo e apoio técnico, promovendo uma série de eventos de engajamento e multiplicação do conhecimento, mostrando todas estas ações em canais de redes sociais (Linkedin, Youtube, Instagram e GitHub).
                     </p>
                 </div>
             </div>

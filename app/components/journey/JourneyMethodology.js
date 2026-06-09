@@ -64,7 +64,7 @@ export default function JourneyMethodology() {
                     Metodologia e <span className="text-primary">Pilares</span>
                 </h2>
                 <p className="text-lg text-gray-600">
-                    O Journey foi concebido com pilares que norteiam todo o processo de capacitação.
+                    O Journey foi concebido com alguns pilares que norteiam todo o processo para capacitação dos participantes, garantindo que eles adquiram habilidades técnicas e comportamentais essenciais para o sucesso no mercado de trabalho.
                 </p>
             </div>
             
