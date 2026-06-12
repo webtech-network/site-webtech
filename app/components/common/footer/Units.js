@@ -13,7 +13,7 @@ export default function Units() {
             <p className="opacity-50">Prédio 34 - HackerSpace</p>
             <br />
             <p className="font-bold">Lourdes</p>
-            <p className="opacity-50">PUC Minas</p>
+            <p className="opacity-50">PUC Minas - Lourdes</p>
             <p className="opacity-50">R. Cláudio Manoel, 1162 - Savassi</p>
             <p className="opacity-50">Prédio 4 - Sala 1106</p>
         </>
