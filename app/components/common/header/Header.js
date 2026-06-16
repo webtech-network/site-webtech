@@ -27,7 +27,7 @@ export default function Header() {
                             <Link
                                 href="/labs"
                                 className="font-bold text-neutral-100 hover:text-neutral-100-light text-lg transition-all">
-                                Labs
+                                Conteúdos
                             </Link>
                         </li>
                         <li className="nav-item">
@@ -88,7 +88,7 @@ export default function Header() {
                             <Link
                                 href="/labs"
                                 className="font-bold text-neutral-100 text-xl transition-all">
-                                Labs
+                                Conteúdos
                             </Link>
                         </li>
                         <li className="py-2">

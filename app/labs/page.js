@@ -1,10 +1,12 @@
 import ButtonLink from '../components/common/ButtonLink';
 import SectionDescription from '../components/common/SectionDescription';
 import SectionTitle from '../components/common/SectionTitle';
+import WorkshopCard from '../components/contents/WorkshopCard';
+import WorkshopsCta from '../components/contents/WorkshopsCta';
 import Github from "../github.js";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faCode } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faCode, faBookOpen, faUsers, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
 
 export const dynamic = 'force-dynamic';
 
@@ -29,9 +31,65 @@ export default async function LabsPage() {
 
     return (
         <div className="container mx-auto my-10">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-14">
+                <div>
+                    <h1 className="text-4xl md:text-5xl font-black text-secondary mb-5">Workshops & Labs</h1>
+                    <p className="text-xl">
+                        Acesse workshops introdutórios e projetos desenvolvidos pela comunidade da Web Tech Network para
+                        aprender tecnologia de forma prática e colaborativa.
+                    </p>
+                </div>
+                <div className="flex justify-center md:justify-end">
+                    <img
+                        src="/meetup/foto1.jpeg"
+                        alt="Workshop da Web Tech"
+                        className="w-full max-w-md rounded-3xl shadow-lg object-cover"
+                    />
+                </div>
+            </section>
+
+            <section className="mb-14">
+                <SectionTitle className="mt-0">O que são os Workshops?</SectionTitle>
+                <SectionDescription>
+                    Os workshops da Web Tech Network são encontros introdutórios voltados para aprendizado prático em
+                    diferentes áreas da tecnologia. Durante os encontros, os participantes têm contato com conceitos
+                    fundamentais, demonstrações práticas e atividades guiadas para desenvolver conhecimentos técnicos de
+                    forma acessível.
+                </SectionDescription>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <WorkshopCard
+                        icon={faBookOpen}
+                        title="Aprendizado introdutório"
+                        description="Conteúdo acessível para iniciantes."
+                    />
+                    <WorkshopCard
+                        icon={faUsers}
+                        title="Prática guiada"
+                        description="Exercícios e aplicações durante o workshop."
+                    />
+                    <WorkshopCard
+                        icon={faScrewdriverWrench}
+                        title="Tecnologias atuais"
+                        description="Temas relacionados ao mercado e tendências da área tech."
+                    />
+                </div>
+            </section>
+
+            <section className="mb-14">
+                <WorkshopsCta
+                    title="Acompanhe os próximos Workshops!"
+                    description="Quer expandir seu conhecimento na área de desenvolvimento de software? Acompanhe nossos próximos workshops!"
+                    buttonText="Visualizar Workshops"
+                    buttonLink="/events"
+                />
+            </section>
+
             <section>
-                <SectionTitle>Labs</SectionTitle>
-                <SectionDescription>Todo projeto desenvolvido pelos membros da WebTech gera um ou mais labs, que são repositórios no GitHub que contam com todo o detalhamento técnico das tecnologias utilizadas e dos conhecimentos desenvolvidos.</SectionDescription>
+                <SectionTitle className="mt-0">O que são os Labs?</SectionTitle>
+                <SectionDescription>
+                    Os labs são repositórios no GitHub gerados a partir dos projetos desenvolvidos pelos membros da WebTech. 
+                    Eles reúnem o detalhamento técnico das tecnologias utilizadas e os conhecimentos adquiridos ao longo do desenvolvimento.
+                </SectionDescription>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {data.map((repo) => <LabCard className="card" key={repo.id} repo={repo} />)}
                 </div>
@@ -78,3 +136,4 @@ function LabLabel({ children }) {
         <div className="bg-secondary-dark text-white text-sm py-1 px-3 rounded-xl">{children}</div>
     );
 }
+
