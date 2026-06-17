@@ -4,22 +4,22 @@ import React from 'react';
 
 const editions = [
     {
-        year: "YYYY",
-        title: "Edição YYYY.X",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim.",
-        students: "+XX participantes",
+        year: "2026/01",
+        title: "Journey Letramento em IA",
+        description: "Parceria entre a WebTech e as empresas Vivver e Crescer Sistemas, com foco na capacitação presencial de profissionais em fundamentos de Inteligência Artificial. A jornada teve duração de 12 horas e abordou ferramentas básicas de IA, conceitos essenciais e terminologias utilizadas no mercado.",
+        students: "26 participantes",
     },
     {
-        year: "YYYY",
-        title: "Edição YYYY.X",
-        description: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-        students: "+XX participantes",
+        year: "2025/02",
+        title: "Journey Backend LEVTY",
+        description: "Parceria entre a empresa de tecnologia LEVTY e a WebTech, voltada à capacitação de alunos em tecnologias backend. A jornada combinou aulas gravadas, atividades hands-on e entregas quinzenais, permitindo que os participantes evoluíssem em ferramentas e conceitos como APIs, Node.js, Prisma e Banco de Dados.",
+        students: "150 participantes",
     },
     {
-        year: "YYYY",
-        title: "Edição YYYY.X",
-        description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        students: "+XX participantes",
+        year: "2025/01",
+        title: "Journey ASSPROM",
+        description: "Parceria entre o projeto de extensão WebTech e a entidade ASSPROM, com o objetivo de capacitar jovens em tecnologias de desenvolvimento web. Ao longo de 10 encontros, os participantes tiveram contato com fundamentos da web como HTML, CSS.",
+        students: "20 participantes",
     }
 ];
 
