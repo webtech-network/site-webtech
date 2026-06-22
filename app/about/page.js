@@ -22,10 +22,10 @@ export default function AboutPage() {
                     <div>
                         <SectionTitle>Sobre</SectionTitle>
                         <SectionDescription>
-                            A WebTech é um projeto de extensão da PUC Minas que tem como objetivo
-                            gerar espaço de trabalho para que alunos e professores criem juntos
-                            aplicações, ferramentas e conteúdo para interessados em criar soluções
-                            e produtos digitais.
+                            A WebTech é um projeto de extensão da PUC Minas vinculado ao curso de Engenharia de Software.
+                            Tem como objetivo gerar um espaço de trabalho para que alunos e professores criem juntos
+                            aplicações, ferramentas e conteúdo digital. O projeto conta com a participação de alunos
+                            das unidades Lourdes, Coração Eucarístico e São Gabriel.
                         </SectionDescription>
                     </div>
                     <div>
