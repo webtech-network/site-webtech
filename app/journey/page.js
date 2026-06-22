@@ -34,7 +34,7 @@ export default function JourneyPage() {
 
                 <JourneyEditions />
 
-                <JourneyTestimonials />
+                {/* <JourneyTestimonials /> */}
             </main>
 
         </div>

@@ -18,14 +18,6 @@ export default function JourneyIntro() {
                     </p>
                 </div>
             </div>
-            <div className="flex-1 w-full flex flex-col gap-4">
-                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl hover:scale-[1.02] transition-transform duration-300">
-                    {/* Placeholder para uma imagem, podemos trocar depois */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
-                        <span className="text-white font-bold text-2xl">WebTech Journey</span>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 }
