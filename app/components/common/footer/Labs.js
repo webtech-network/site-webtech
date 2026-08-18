@@ -4,13 +4,18 @@ import { faFlask } from "@fortawesome/free-solid-svg-icons";
 
 export default async function Labs() {
 
-    let { data } = await Github.rest.repos.listForOrg({
-        org: process.env.GITHUB_ORG_NAME,
-    });
-
-    data = data
-        .filter(repo => repo.name.startsWith('lab-'))
-        .sort((a, b) => b.updated_at > a.updated_at ? 1 : -1);
+    let data = [];
+    try {
+        const response = await Github.rest.repos.listForOrg({
+            org: process.env.GITHUB_ORG_NAME || 'webtech-network', // fallback or undefined
+        });
+        
+        data = response.data
+            .filter(repo => repo.name.startsWith('lab-'))
+            .sort((a, b) => b.updated_at > a.updated_at ? 1 : -1);
+    } catch (error) {
+        console.error("Failed to fetch Github repos for Labs:", error.message);
+    }
 
     return (
         <div>

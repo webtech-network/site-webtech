@@ -21,15 +21,14 @@ const InfoPopup = ({ children, title, description, onClose }) => (
   </div>
 );
 
-// Componente para cada Card
 const InfoCard = ({ icon, title, shortDescription, fullDescription, onClick }) => (
   <div
     onClick={onClick}
-    className="p-6 bg-amber-400 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 ease-in-out  delay-150  cursor-pointer flex flex-col items-center text-center transform hover:scale-105"
+    className="p-4 bg-amber-400 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out cursor-pointer flex flex-col items-center text-center transform hover:scale-105"
   >
-    <FontAwesomeIcon icon={icon} className="text-white text-6xl m-6" />
-    <h3 className="text-xl font-semibold mb-2">{title}</h3>
-    <p className="text-gray-600">{shortDescription}</p>
+    <FontAwesomeIcon icon={icon} className="text-white text-4xl mb-3" />
+    <h3 className="text-base font-bold mb-1">{title}</h3>
+    <p className="text-sm text-gray-800 leading-tight">{shortDescription}</p>
   </div>
 );
 
@@ -38,10 +37,10 @@ export default function InfoSection ({ title, cards }) {
   const [selectedCard, setSelectedCard] = useState(null);
 
   return (
-    <div className="py-12 bg-gray-100">
+    <div className="w-full">
       
         {/* Grid de Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 gap-4 w-full">
             {cards.map((card, index) => (
             <InfoCard
                 key={index}

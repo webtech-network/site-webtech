@@ -7,7 +7,7 @@ import { faGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faGlobe, faUser, faMedal, faClock } from "@fortawesome/free-solid-svg-icons";
 import TeamNavigation from "../components/common/TeamNavigation";
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 const { GITHUB_ORG_NAME, GITHUB_MENTORS_TEAM_SLUG, GITHUB_ALUMNI_TEAM_SLUG, GITHUB_CERT_PREFIX } = process.env;
 const GITHUB_CERT_MEMBERS_1 = process.env.GITHUB_CERT_MEMBERS_1 || 'CERT-WT-MEMBER-1';
@@ -133,7 +133,7 @@ export default async function TeamPage() {
     
 
     // set certified level attribute for alumni users
-    users[GITHUB_ALUMNI_TEAM_SLUG] = users[GITHUB_ALUMNI_TEAM_SLUG].map(user => ({
+    users[GITHUB_ALUMNI_TEAM_SLUG] = (users[GITHUB_ALUMNI_TEAM_SLUG] || []).map(user => ({
         ...user,
         certified: isUserCertified(user)
     }));
@@ -150,10 +150,10 @@ export default async function TeamPage() {
             <TeamNavigation />
             <NavigationButtons 
                 activeFilter="all"
-                totalCount={users.current.length + users[GITHUB_MENTORS_TEAM_SLUG].length + users[GITHUB_ALUMNI_TEAM_SLUG].length}
+                totalCount={users.current.length + (users[GITHUB_MENTORS_TEAM_SLUG] || []).length + (users[GITHUB_ALUMNI_TEAM_SLUG] || []).length}
                 membersCount={users.current.length}
-                mentorsCount={users[GITHUB_MENTORS_TEAM_SLUG].length}
-                alumniCount={users[GITHUB_ALUMNI_TEAM_SLUG].length}
+                mentorsCount={(users[GITHUB_MENTORS_TEAM_SLUG] || []).length}
+                alumniCount={(users[GITHUB_ALUMNI_TEAM_SLUG] || []).length}
                 partnersCount={0} // Adicionar quando implementar parceiros
             />
 
@@ -171,11 +171,11 @@ export default async function TeamPage() {
                 )}
 
                 {/* Seção de Mentores */}
-                {users[GITHUB_MENTORS_TEAM_SLUG].length > 0 && (
+                {(users[GITHUB_MENTORS_TEAM_SLUG] || []).length > 0 && (
                     <div className="mb-12">
                         <SectionTitle>Mentores</SectionTitle>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                            {users[GITHUB_MENTORS_TEAM_SLUG].map(user => (
+                            {(users[GITHUB_MENTORS_TEAM_SLUG] || []).map(user => (
                                 <MemberCard key={user.id} user={user} />
                             ))}
                         </div>
@@ -183,11 +183,11 @@ export default async function TeamPage() {
                 )}
 
                 {/* Seção de Membros Antigos */}
-                {users[GITHUB_ALUMNI_TEAM_SLUG].length > 0 && (
+                {(users[GITHUB_ALUMNI_TEAM_SLUG] || []).length > 0 && (
                     <div className="mb-12">
                         <SectionTitle>Membros Antigos</SectionTitle>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                            {users[GITHUB_ALUMNI_TEAM_SLUG].map(user => (
+                            {(users[GITHUB_ALUMNI_TEAM_SLUG] || []).map(user => (
                                 <MemberCard key={user.id} user={user} />
                             ))}
                         </div>
@@ -207,7 +207,7 @@ export default async function TeamPage() {
             {/* Seção de Mentores */}
             <div id="mentors" className="hidden">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {users[GITHUB_MENTORS_TEAM_SLUG].map(user => (
+                    {(users[GITHUB_MENTORS_TEAM_SLUG] || []).map(user => (
                         <MemberCard key={user.id} user={user} />
                     ))}
                 </div>
@@ -216,7 +216,7 @@ export default async function TeamPage() {
             {/* Seção de Alumni */}
             <div id="alumni" className="hidden">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {users[GITHUB_ALUMNI_TEAM_SLUG].map(user => (
+                    {(users[GITHUB_ALUMNI_TEAM_SLUG] || []).map(user => (
                         <MemberCard key={user.id} user={user} />
                     ))}
                 </div>
